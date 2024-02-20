@@ -1,0 +1,20 @@
+[
+    {
+	"teamname":"Team1",
+	"assignedmanager":"KARTHIK",
+	"assignedemployee":"ARAVIND | LOGAN | AKILA | YASWANTH",
+	"noofassignedemployee": "4"
+	},
+	 {
+	"teamname":"Team2",
+	"assignedmanager":"RAMA",
+	"assignedemployee":"KATHIKA | SHERIF | ABDHUL",
+	"noofassignedemployee": "3"
+	},
+	 {
+    "teamname":"Team3",
+	"assignedmanager":"ASHOK",
+	"assignedemployee":"SRIRAM | RAFFIK | MOHAMMED | ARON | JALAL",
+	"noofassignedemployee": "5"
+	}
+]

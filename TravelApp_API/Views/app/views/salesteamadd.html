@@ -1,0 +1,48 @@
+    <h3 style="color:#000000;"> Add Sales Team</h3>
+    <div ng-controller="SalesteamCtrladd as salesteamadd">
+      <div class="panel panel-default">        
+        <div class="panel-body">
+        <form role="form" name="SalesteamaddForm" novalidate="" class="form-validate ">
+         <div class="row">
+           <div class="col-sm-12">
+            <div class="form-group">
+            
+             <div class="mda-form-group float-label">
+                <input ng-model="sales_code" name="salescode" tabindex="0" required="" class="mda-form-control" />
+               <label>Sales Team Code</label>
+               <span ng-show="SalesteamaddForm.salescode.$dirty &amp;&amp; SalesteamaddForm.salescode.$error.required" class="text-danger">Please Enter Sales Team Code</span>
+             </div> 
+           </div>
+         </div>
+       </div>
+       <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <div class="mda-form-group float-label">
+             <input ng-model="sales_team" name="salesteam" tabindex="1" required="" class="mda-form-control" />
+             <label>Sales Team Name</label>
+              <span ng-show="SalesteamaddForm.salesteam.$dirty &amp;&amp; SalesteamaddForm.salesteam.$error.required" class="text-danger">Please Enter Sales Team Name</span>
+           </div> 
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-sm-4">
+       </div>
+       <div class="col-sm-4">
+        <div class="col-sm-4">
+        </div>
+        <div  class="form-group" class="pull-right">
+          <button type="button" ng-click="add_salesteam()" ng-disabled="SalesteamaddForm.$invalid" class="pull-left btn btn-green">
+            Submit
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+    </form>
+  </div>
+  </div>
+  </div>
+

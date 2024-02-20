@@ -1,0 +1,53 @@
+    <h3 style="color:#000000;"> Add Operation Team</h3>
+     <div ng-controller="addoperationteamcontroller as addoperation">
+    <div class="panel panel-default">
+      
+        <div class="panel-body">
+        <form role="form" name="operationForm" novalidate="" class="form-validate ">
+        <div class="row">
+            <div class="col-sm-12">
+            <div class="form-group">
+              <div class="mda-form-group float-label">
+               <input name="optcode" tabindex="0" required="" class="mda-form-control" name="optncode" ng-model="operation_code" required="" />
+                <label>Operation Code</label>
+                <span ng-show="operationForm.optncode.$dirty &amp;&amp; operationForm.optncode.$error.required" class="text-danger">Please Enter Operation Code</span>
+              </div> 
+            </div>
+       </div>
+       </div>
+        <div class="row">
+            <div class="col-sm-12">
+            <div class="form-group">
+              <div class="mda-form-group float-label">
+               <input name="ntitle" tabindex="0" required="" class="mda-form-control" name="operation_team" ng-model="optteamname" required="" />
+                <label>Operation Team</label>
+                <span ng-show="operationForm.operation_team.$dirty &amp;&amp; operationForm.operation_team.$error.required" class="text-danger">Please Enter Operation Team</span>
+              </div> 
+            </div>
+       </div>
+       </div>
+       <div class="row">
+       <div class="col-sm-4">
+       </div>
+       
+            <div class="col-sm-4">
+            <div class="col-sm-4">
+              
+            </div>
+                <div  class="form-group" class="pull-right">
+                    <button type="button" class="pull-left btn btn-green" ng-disabled="operationForm.$invalid" ng-click="addoperationteam()" >
+                        Submit
+                    </button>
+
+                                
+                </div>
+            </div>
+            <div class="col-sm-4">
+            </div>
+       </div>
+       </form>
+       </div>
+       </div>
+</div>
+
+       

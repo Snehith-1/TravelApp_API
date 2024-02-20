@@ -1,0 +1,33 @@
+[
+    {
+	"servicetype":"Visa",
+	"reference":"Mahi/ps001",
+	"activitylog":"Waiting For Application Approval",
+	"status":"Active",
+	"amount":"30,000"
+	
+	
+	},
+	 {
+	"servicetype":"Passport",
+	"reference":"Mahi/10.05.1994",
+	"activitylog":"Interview Process",
+	"status":"Active",
+	"amount":"35,000"
+	},
+	{
+	"servicetype":"Car",
+	"reference":"Toyata Innova/04",
+	"activitylog":"Booked",
+	"status":"Active",
+	"amount":"40,000"
+	},
+	{
+	"servicetype":"Hotel",
+	"reference":"Taj Hotel/Udaipur",
+	"activitylog":"Waiting For Manager Approval",
+	"status":"Active",
+	"amount":"30,000"
+	
+	}
+]

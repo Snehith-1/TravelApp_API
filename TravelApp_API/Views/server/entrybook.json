@@ -1,0 +1,9 @@
+[
+    {
+	"accountgroup": "Bank Accounts",
+	"accountname": "Accounting Charges",
+	"transactiontype":"Deposit",
+	"transactionamount":"0.00",
+	"remarks":"Transaction"
+	}
+]

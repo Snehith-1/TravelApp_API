@@ -1,0 +1,32 @@
+<div class="block-center mt-xl wd-xl">
+   <!-- START panel-->
+   <div ng-controller="LoginFormController" class="panel panel-flat">
+      <div class="panel-heading text-center">
+         <a href="#">
+            <img src="app/img/front_logo.png" width="100%" alt="Image" class="img-rounded" />
+         </a>
+      </div>
+      <div class="panel-body">
+         <p class="text-center pv">PASSWORD RESET</p>
+         <form role="form" name="recoverForm" novalidate="" class="form-validate">
+            <p class="text-center">Fill with your User Code to receive instructions on how to reset your password.</p>
+            <div class="form-group has-feedback">
+               <label class="text-muted">User Code</label>
+               <input type="email" name="email" placeholder="Enter User Code" autocomplete="off" ng-model="usercode" required="" class="form-control" />
+               <span class="fa fa-envelope form-control-feedback text-muted"></span>
+               <span ng-show="recoverForm.usercode.$invalid && submitted" class="text-danger">Please enter User Code</span>              
+            </div>
+            <button type="submit" ng-disabled="recoverForm.$invalid || loadingreset" ng-click="resetpwd();" class="btn btn-danger btn-block">Reset<i ng-show="loadingreset" class="fa fa-spinner fa-spin"></i></button>
+         </form>
+      </div>
+   </div>
+   <!-- END panel-->
+   <div class="p-lg text-center">
+      <span>&copy;</span>
+      <span ng-bind="app.year"></span>
+      <span>-</span>
+      <span ng-bind="app.name"></span>
+      <br/>
+      <span ng-bind="app.description"></span>
+   </div>
+</div>

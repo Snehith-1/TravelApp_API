@@ -1,0 +1,67 @@
+[
+    {
+	"transactiondate":"26-05-2017",
+	"refno":"BB001",
+	"bank":"Bank of Baroda",
+	"accountnumber": "67890543219",
+	"accountname":"BOB",
+	"remarks":"May 2017 salary advance",
+	"creditamount":"0.00",
+	"debitamount":"2,000.00",
+	"closingamount":"67,630.23"
+	},
+
+
+	  {
+	"transactiondate":"11-05-2017",
+	"refno":"BB002",
+	"bank":"Banque Banorabe",
+	"accountnumber": "67890543219",
+	"accountname":"BB",
+	"remarks":"Extra resource cost",
+	"creditamount":"0.00",
+	"debitamount":"11.75",
+	"closingamount":"69,630.23"
+	},
+
+
+	 {
+	"transactiondate":"11-05-2017",
+	"refno":"BB003",
+	"bank":"Barclays Bank",
+	"accountnumber": "67890543219",
+	"accountname":"BB",
+	"remarks":"NEFT charges",
+	"creditamount":"0.00",
+	"debitamount":"18,000.00",
+	"closingamount":"627.43"
+	},
+
+
+
+	 {
+	"transactiondate":"10-05-2017",
+	"refno":"C001",
+	"bank":"Citibank",
+	"accountnumber": "67890543219",
+	"accountname":"CB",
+	"remarks":"NEFT charges",
+	"creditamount":"0.00",
+	"debitamount":"18,000.00",
+	"closingamount":"627.43"
+	},
+
+
+	 {
+	"transactiondate":"10-05-2017",
+	"refno":"NBAD001",
+	"bank":"National Bank of Abu Dhabi",
+	"accountnumber": "67890543219",
+	"accountname":"NBAD",
+	"remarks":"NEFT charges",
+	"creditamount":"0.00",
+	"debitamount":"18,000.00",
+	"closingamount":"1,574.90"
+	}
+
+]

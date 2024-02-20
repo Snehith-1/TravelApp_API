@@ -1,0 +1,58 @@
+[
+    {
+    
+
+    "sno":"1",
+    "enquiryno":"AQB001",
+	"customername":"Bala",
+	"contactpersonname":"A.M.Ismail",	
+	"contactdetails":"Chennai",
+	"leadnotes":"",
+	"assignedmember":"Admin"
+	},
+
+    {
+     
+    "sno":"2",
+    "enquiryno":"AQB001",
+	"customername":"Dilip", 
+	"contactpersonname":"J.Jalal",	
+	"contactdetails":"Muscat",
+	"leadnotes":"",
+	"assignedmember":"Admin"
+	},
+
+	{
+     
+    "sno":"3",
+    "enquiryno":"AQB001",
+	"customername":"Ram",
+	"contactpersonname":"A.M.Ismail", 	
+	"contactdetails":"Muscat",
+	"leadnotes":"",
+	"assignedmember":"Admin"
+	},
+
+	{
+     
+     "sno":"4",
+    "enquiryno":"AQB001",
+	"customername":"Vishnu", 
+	"contactpersonname":"J.Jalal",	
+	"contactdetails":"Muscat",
+	"leadnotes":"",
+	"assignedmember":"Admin"
+	},
+
+	{
+     
+    "sno":"5",
+    "enquiryno":"AQB001",
+	"customername":"Jalal", 
+	"contactpersonname":"A.M.Ismail",	
+	"contactdetails":"Oman",
+	"leadnotes":"",
+	"assignedmember":"Admin"
+	}
+
+]

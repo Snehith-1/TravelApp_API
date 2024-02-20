@@ -1,0 +1,45 @@
+[
+    {
+     "branchcode":"AQB001",
+	"branchname":"AI Qurum Branch", 	
+	"glcode":"MCCB",
+	"openingbalance":"1.00",
+	"closingamount":"0.00"
+	},
+
+
+
+	{
+	"branchcode":"AQB001",
+	"branchname":"AI Qurum Branch",
+	"glcode":"AQB",
+	"openingbalance":"1.00",
+	"closingamount":"0.00"
+	},
+
+	{
+	"branchcode":"AB001",
+	"branchname":"AI Seeb branch",
+	"glcode":"ASB",
+	"openingbalance":"1.00",
+	"closingamount":"0.00"
+	},
+
+
+	{
+	"branchcode":"FB001",
+	"branchname":"Falaj Branch",
+	"glcode":"FB",
+	"openingbalance":"1.00",
+	"closingamount":"0.00"
+	},
+
+
+	{
+	"branchcode":"MB001",
+	"branchname":"Muscat Branch",
+	"glcode":"MB",
+	"openingbalance":"1.00",
+	"closingamount":"0.00"
+	}
+]

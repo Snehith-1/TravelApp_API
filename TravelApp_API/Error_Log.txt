@@ -1,0 +1,560 @@
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:37:37
+Error Message: Procedure or function '`sp_login`' cannot be found in database '`travelapp`'.
+Stack Trace:    at MySql.Data.MySqlClient.ProcedureCache.GetProcData(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.AddNew(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.GetProcedure(MySqlConnection conn, String spName, String cacheKey)
+   at MySql.Data.MySqlClient.StoredProcedure.GetParameters(String procName)
+   at MySql.Data.MySqlClient.StoredProcedure.CheckParameters(String spName)
+   at MySql.Data.MySqlClient.StoredProcedure.Resolve(Boolean preparing)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:37:37
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:38:22
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 31
+===========End============= 22/06/2017 12:38:22
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:38:43
+Error Message: Procedure or function '`sp_login`' cannot be found in database '`travelapp`'.
+Stack Trace:    at MySql.Data.MySqlClient.ProcedureCache.GetProcData(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.AddNew(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.GetProcedure(MySqlConnection conn, String spName, String cacheKey)
+   at MySql.Data.MySqlClient.StoredProcedure.GetParameters(String procName)
+   at MySql.Data.MySqlClient.StoredProcedure.CheckParameters(String spName)
+   at MySql.Data.MySqlClient.StoredProcedure.Resolve(Boolean preparing)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:38:43
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:40:39
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 31
+===========End============= 22/06/2017 12:40:39
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:43:35
+Error Message: Procedure or function '`sp_login`' cannot be found in database '`travelapp`'.
+Stack Trace:    at MySql.Data.MySqlClient.ProcedureCache.GetProcData(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.AddNew(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.GetProcedure(MySqlConnection conn, String spName, String cacheKey)
+   at MySql.Data.MySqlClient.StoredProcedure.GetParameters(String procName)
+   at MySql.Data.MySqlClient.StoredProcedure.CheckParameters(String spName)
+   at MySql.Data.MySqlClient.StoredProcedure.Resolve(Boolean preparing)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:43:35
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:46:22
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 12:46:22
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:47:00
+Error Message: Procedure or function '`sp_login`' cannot be found in database '`travelapp`'.
+Stack Trace:    at MySql.Data.MySqlClient.ProcedureCache.GetProcData(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.AddNew(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.GetProcedure(MySqlConnection conn, String spName, String cacheKey)
+   at MySql.Data.MySqlClient.StoredProcedure.GetParameters(String procName)
+   at MySql.Data.MySqlClient.StoredProcedure.CheckParameters(String spName)
+   at MySql.Data.MySqlClient.StoredProcedure.Resolve(Boolean preparing)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:47:00
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:47:01
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 12:47:01
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:50:03
+Error Message: Procedure or function '`sp_login`' cannot be found in database '`travelapp`'.
+Stack Trace:    at MySql.Data.MySqlClient.ProcedureCache.GetProcData(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.AddNew(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.GetProcedure(MySqlConnection conn, String spName, String cacheKey)
+   at MySql.Data.MySqlClient.StoredProcedure.GetParameters(String procName)
+   at MySql.Data.MySqlClient.StoredProcedure.CheckParameters(String spName)
+   at MySql.Data.MySqlClient.StoredProcedure.Resolve(Boolean preparing)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:50:03
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:51:38
+Error Message: Procedure or function '`sp_login`' cannot be found in database '`travelapp`'.
+Stack Trace:    at MySql.Data.MySqlClient.ProcedureCache.GetProcData(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.AddNew(MySqlConnection connection, String spName)
+   at MySql.Data.MySqlClient.ProcedureCache.GetProcedure(MySqlConnection conn, String spName, String cacheKey)
+   at MySql.Data.MySqlClient.StoredProcedure.GetParameters(String procName)
+   at MySql.Data.MySqlClient.StoredProcedure.CheckParameters(String spName)
+   at MySql.Data.MySqlClient.StoredProcedure.Resolve(Boolean preparing)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:51:38
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:51:38
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 12:51:38
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:54:02
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:54:02
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:54:45
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 12:54:45
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:56:11
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:56:12
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:57:11
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 12:57:11
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:58:13
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 12:58:13
+=============Error Logging ===========
+===========Start============= 22/06/2017 12:58:16
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 12:58:16
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:00:33
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 13:00:33
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:00:40
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 13:00:41
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:01:39
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 13:01:40
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:01:43
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 13:01:43
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:04:17
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 13:04:25
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:05:29
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 13:05:29
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:13:15
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 13:13:15
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:13:15
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 13:13:15
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:22:34
+Error Message: There is no 'travelapp'@'%' registered
+Stack Trace:    at MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   at MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   at MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   at MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 13:22:34
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:22:34
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 13:22:34
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:24:37
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 13:24:37
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:26:48
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 13:26:48
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:25:17
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 14:25:17
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:34:27
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 14:34:27
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:36:48
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 14:36:48
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:43:51
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 14:43:51
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:48:49
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 14:48:49
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:50:37
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 14:50:37
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:50:43
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 14:50:43
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:01:04
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:01:04
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:06:10
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:06:10
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:14:25
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:14:25
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:20:39
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:20:39
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:30:06
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:30:06
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:35:37
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 15:35:37
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:40:06
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:40:06
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:44:26
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 15:44:26
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:51:25
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 15:51:25
+=============Error Logging ===========
+===========Start============= 22/06/2017 16:35:54
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 16:35:54
+=============Error Logging ===========
+===========Start============= 22/06/2017 16:44:57
+Error Message: Cannot perform runtime binding on a null reference
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 36
+===========End============= 22/06/2017 16:44:57
+=============Error Logging ===========
+===========Start============= 22/06/2017 16:50:18
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.ReadInternal()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.ReadForType(JsonReader reader, JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 16:50:18
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:03:12
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:03:12
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:19:57
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:19:57
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:23:24
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:23:24
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:23:47
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:23:47
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:39:28
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:39:28
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:44:00
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:44:00
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:45:58
+Error Message: There is already an open DataReader associated with this Connection which must be closed first.
+Stack Trace:    at MySql.Data.MySqlClient.ExceptionInterceptor.Throw(Exception exception)
+   at MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   at MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   at MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   at DataAccess.DBAccess.ExecuteReader(MySqlCommand cmd) in D:\web\TravelApp_API\DataAccess\DBAccess.cs:line 40
+===========End============= 22/06/2017 20:45:59
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:46:25
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 32
+===========End============= 22/06/2017 20:46:25
+=============Error Logging ===========
+===========Start============= 22/06/2017 20:49:07
+Error Message: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+Stack Trace:    at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonTextReader.Read()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value)
+   at DataAccess.LoginDBAccess.Add(Login login) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 35
+===========End============= 22/06/2017 20:49:07

@@ -1,0 +1,357 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+
+namespace BusinessEntities
+{
+    public class SalesOrderFormModel
+    {
+        public bool status { get; set; }
+        public string message { get; set; }
+        public int salesorder_gid { get; set; } 
+        public int service_gid { get; set; }
+    }
+    public class SalesOrderForm : SalesOrderFormModel
+    {
+        public List<SalesOrderFormList> SalesOrderList { get; set; }
+        public List<SOPassangerList> SOPassangerList { get; set; }
+        public List<SOVisaList> SOVisaList { get; set; }
+        public List<SOPassportList> SOPassportList { get; set; }
+        public List<SOFlightList> SOFlightList { get; set; }
+        public List<SOHotelList> SOHotelList { get; set; }
+        public List<SOCarList> SOCarList { get; set; }
+        public List<SOForexList> SOForexList { get; set; }
+        public List<SOPackageDetailList> SOPackageDetailList { get; set; }
+        public List<SOInsurenceList> SOInsurenceList { get; set; }
+        public List<Customerlist> customerList { get; set; }
+        public List<ActivityList> ActivityList { get; set; }
+        public List<Currencylist> Currencylist { get; set; }
+        public List<SOActivityList> SOActivityList { get; set; }        
+        public string customergid { get; set; }
+    }
+    public class SalesOrderFormList
+    {
+        public double total { get; set; }
+        public double invoice_amount { get; set; }
+        public string currency_gid { get; set; }
+        public string net_amount{ get; set; }
+        public string discount { get; set; }
+        public string advace_paid { get; set; }
+        public string customer_gid { get; set; }
+        public string customer_name { get; set; }
+        public string contact_number { get; set; }
+        public string email_address { get; set; }
+        public string national_id { get; set; }
+        public string billing_address { get; set; }
+        public int salesorder_gid { get; set; }
+        public string passport_no { get; set; }
+        public string salesorder_refnumber { get; set; }
+        public string created_by { get; set; }
+        public string created_date { get; set; }
+        public int salesteam_gid { get; set; }
+        public int salesteamemployee_gid { get; set; }
+        public string contact_details { get; set; }
+        public string service_type { get; set; }
+        public string billing_companyname { get; set; }
+        public string branch_name { get; set; }
+        public string customer_type { get; set; }
+        public List<ActivityList> ActivityList { get; set; }
+        public string status { get; set; }
+        public double receipt_amount { get; set; }
+        public double outstanding_amount { get; set; }
+        public double refund_amount { get; set; }
+        public double advance_amount { get; set; }
+     
+
+    }
+    public class SalesOrderFormDetail : SalesOrderFormModel
+    {        
+        public string customer_name { get; set; }
+        public string customer_gid { get; set; }
+        public string contact_number { get; set; }
+        public int total { get; set; }
+    }
+    public class SOPassengerDetail : SalesOrderFormModel
+    {
+        public string passengerservice_gid { get; set; }
+        public string passanger_firstname { get; set; }       
+        public string passanger_lastname { get; set; }
+        public string gender { get; set; }
+        public string dob { get; set; }
+        public string passport_number { get; set; }
+        public string passport_expirydate { get; set; }
+        public string passport_issueddate { get; set; }
+        public int salesactivity_gid { get; set; }
+        public string tmppassengerservice_gid { get; set; }
+    }
+    public class SOPassangerList : SalesOrderFormModel
+    {
+        public string passengerservice_gid { get; set; }
+        public string passenger_name { get; set; }   
+        public string passanger_firstname { get; set; }
+        public string passanger_lastname { get; set; }
+        public string gender { get; set; }
+        public string dob { get; set; }
+        public string passport_number { get; set; }
+        public string passport_expirydate { get; set; }
+        public string passport_issueddate { get; set; }
+        public string tmppassengerservice_gid { get; set; }
+        public string name { get; set; }
+    }
+
+    public class SOActivityList
+    {
+        public string salesactivity_gid { get; set; }
+        public string salesorder_gid { get; set; }
+        public string service_type { get; set; }
+        public string reference { get; set; }
+        public string remarks { get; set; }
+        public string Status { get; set; }
+        public string Amount { get; set; }
+    }
+    public class SOPassportDetail : SalesOrderFormModel
+    {
+        public string tmppassengerservice_gid { get; set; }
+        public string passengerservice_gid { get; set; }
+        public string passportservice_gid { get; set; }
+        public string passenger_name { get; set; }        
+        public string id_proof { get; set; }
+        public string additional_proof { get; set; }
+        public string anygovt_document { get; set; }
+        public string upload_document { get; set; }
+        public int photo{ get; set; }
+        public int amount { get; set; }
+    }
+    public class SOPassportList : SalesOrderFormModel
+    {
+        public string passportservice_gid { get; set; }
+        public string upload_document { get; set; }
+        public string passenger_name { get; set; }        
+        public string id_proof { get; set; }
+        public string additional_proof { get; set; }
+        public string anygovt_document { get; set; }
+        public int photo { get; set; }
+        public double amount { get; set; }
+    }
+    public class SOVisaDetail : SalesOrderFormModel
+    {
+        public string visaservice_gid { get; set; }
+        public string passenger_name { get; set; }
+        public string passengerservice_gid { get; set; }
+       // public string visapassportno { get; set; }       
+        public string country { get; set; }
+        public string application_date { get; set; }
+        public string expiry_date { get; set; }
+        public int visa_period { get; set; }
+        public string currency { get; set; }
+        public int amount { get; set; }
+    }
+    public class SOVisaList : SalesOrderFormModel
+    {
+        public string visaservice_gid { get; set; }       
+        public string visapassportno { get; set; }
+        public string passenger_name { get; set; }
+        public string passengerservice_gid { get; set; }
+        public string country { get; set; }
+        public string application_date { get; set; }
+        public string expiry_date { get; set; }
+        public string visa_period { get; set; }
+        public int currency { get; set; }
+        public double amount { get; set; }
+    }
+    public class SOFlightDetail : SalesOrderFormModel
+    {
+        public List<SOPassangerList> SOPassangerList { get; set; }
+        public string flightservice_gid { get; set; }        
+        public string flight_name { get; set; }
+        public string flight_from { get; set; }
+        public string flight_to { get; set; }
+        public string flight_departuredate { get; set; }
+        public string flight_time { get; set; }
+        public string flight_number { get; set; }
+        public string currency { get; set; }
+        public int amount { get; set; }
+        public string remarks { get; set; }
+        public string pnr_number { get; set; }
+        public string ticket_number { get; set; }
+        public string sector_number { get; set; }
+        public string flight_class { get; set; }
+        public string segment { get; set; }
+        public string flight_routing { get; set; }
+        public string flight_airline { get; set; }
+
+    }
+    public class SOFlightList : SalesOrderFormModel
+    {
+        public string flightservice_gid { get; set; }        
+        public string passenger_details { get; set; }
+        public string flight_name { get; set; }
+        public string flight_from { get; set; }
+        public string flight_to { get; set; }
+        public string flight_departuredate { get; set; }
+        public string flight_time { get; set; }
+        public string flight_number { get; set; }
+        public string flight_currency { get; set; }
+        public double amount { get; set; }
+        
+            public string pnr_number { get; set; }
+        public string flight_remarks { get; set; }
+        
+        public string ticket_number { get; set; }
+        public string sector_number { get; set; }
+        public string flight_class { get; set; }
+        public string segment { get; set; }
+        public string flight_routing { get; set; }
+        public string flightairline { get; set; }
+    }
+    public class SOHotelDetail : SalesOrderFormModel
+    {
+        public string hotelgid { get; set; }        
+        public string hotelname { get; set; }
+        public string hotelcategory { get; set; }
+        public string hotelcity { get; set; }
+        public string destination { get; set; }
+        public string checkin { get; set; }
+        public string checkout { get; set; }
+        public int hotelnodays { get; set; }
+        public int hotelnopassangers { get; set; }
+        public int hotelamount { get; set; }
+        public string hotelcurrency { get; set; }
+    }
+    public class SOHotelList : SalesOrderFormModel
+    {
+        public string hotelservice_gid { get; set; }        
+        public string hotel_name { get; set; }
+        public string category { get; set; }
+        public string hotelcategory { get; set; }
+        public string city { get; set; }
+        public string check_in { get; set; }
+        public string check_out { get; set; }
+        public int total_numberofdays { get; set; }
+        public int total_numberofpassengers { get; set; }
+        public double amount { get; set; }
+        public string hotelcurrency { get; set; }
+    }
+    public class SOCarDetail : SalesOrderFormModel
+    {
+        public string carservice_gid { get; set; }        
+        public string car_type { get; set; }
+        public string category { get; set; }
+        public string city { get; set; }
+        public string pickup_city { get; set; }
+        public string drop_city { get; set; }
+        public string from_date { get; set; }
+        public string to_date { get; set; }
+        public string remarks { get; set; }
+        public int numberof_persons { get; set; }
+        public string currency { get; set; }
+        public float amount { get; set; }
+    }
+    public class SOCarList
+    {
+        public string carservice_gid { get; set; }
+        public string car_type { get; set; }
+        public string category { get; set; }
+        public string city { get; set; }
+        public string pickup_city { get; set; }
+        public string drop_city { get; set; }
+        public string from_date { get; set; }
+        public string to_date { get; set; }
+        public string remarks { get; set; }
+        public int numberof_persons { get; set; }
+        public string currency { get; set; }
+        public float amount { get; set; }
+    }
+    public class SOForexDetail : SalesOrderFormModel
+    {
+        public string forexgid { get; set; }        
+        public int paidamount { get; set; }
+        public string paidcurrency { get; set; }
+        public string paidexchangerate { get; set; }
+        public int totpaidamount { get; set; }
+        public int receiveamount { get; set; }
+        public string receiveexchangerate { get; set; }
+        public int totreceiveamount { get; set; }
+        public string currency { get; set; }
+        public string remarks { get; set; }
+    }
+    public class SOForexList : SalesOrderFormModel
+    {
+        public string forexgid { get; set; }        
+        public string paidcurrency { get; set; }
+        public double customerpaidamount { get; set; }
+        public double customerpaidexchangerate { get; set; }
+        public double customerpaidtotalamount { get; set; }
+        public string receivedcurrency { get; set; }
+        public double customerreceivedamount { get; set; }
+        public double customerreceivedexchangerate { get; set; }
+        public double customerreceivedtotalamount { get; set; }
+        public string forexremarks { get; set; }
+
+    }
+    public class SOPackageDetail : SalesOrderFormModel
+    {
+        public string packageservice_gid { get; set; }        
+        public int amount { get; set; }
+        public string remarks { get; set; }
+        public string package_uploaddocs { get; set; }
+    }
+    public class SOPackageDetailList : SalesOrderFormModel
+    {
+        public string packageservice_gid { get; set; }        
+        public double amount { get; set; }
+        public string remarks { get; set; }
+        public string package_uploaddocs { get; set; }
+    }
+    public class SOInsurenceDetail : SalesOrderFormModel
+    {
+        public string insuranceservice_gid { get; set; }        
+        public string name { get; set; }
+        public string dob { get; set; }
+        public string arrival_port { get; set; }
+        public string start_date { get; set; }
+        public string end_date { get; set; }
+        public string currency { get; set; }
+        public int amount { get; set; }
+        public string remarks { get; set; }
+        public string passengerservice_gid { get; set; }
+    }
+    public class SOInsurenceList : SalesOrderFormModel
+    {
+        public string insuranceservice_gid { get; set; }        
+        public string name { get; set; }
+        public string dob { get; set; }
+        public string arrival_port { get; set; }
+        public string start_date { get; set; }
+        public string end_date { get; set; }
+        public string currency { get; set; }
+        public double amount { get; set; }
+        public string remarks { get; set; }
+    }
+
+    public class soservicedelete : SalesOrderFormModel
+    {
+        public string passengerservice_gid { get; set; }
+        public string passport_gid { get; set; }
+        public string visa_gid { get; set; }
+        public string flightgid { get; set; }
+        public string hotelgid { get; set; }
+        public string cargid { get; set; }
+        public string forexgid { get; set; }
+        public string package_gid { get; set; }
+        public string insurance_gid { get; set; }
+
+    } 
+    public class customer
+    {
+        public string customer_name { get; set; }
+    }
+    public class sotempactivity:SalesOrderFormModel
+    {
+        public string created_by { get; set; }
+        public string activity_source { get; set; }
+
+    }
+}

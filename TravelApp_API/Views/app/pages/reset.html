@@ -1,0 +1,37 @@
+﻿<div class="block-center mt-xl wd-xl">
+    <!-- START panel-->
+    <div ng-controller="LoginFormController" class="panel panel-flat">
+        <div class="panel-heading text-center">
+            <a href="#">
+                <img src="app/img/front_logo.png" width="100%" alt="Image" class="img-rounded" />
+            </a>
+        </div>
+        <div class="panel-body">
+            <p class="text-center pv">PASSWORD RESET</p>
+            <form role="form" name="recoverForm" novalidate="" class="form-validate">
+                <div class="form-group has-feedback">
+                    <label class="text-muted">New Password</label>
+                    <input type="password" ng-model="newpassword" name="newpassword" ng-pattern="/(?=.*[^a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/"
+                           ng-minlength="8" tabindex="0" required="" class="mda-form-control" />
+                </div>
+                <div class="form-group has-feedback">
+                    <label class="text-muted">Confirm Password</label>
+                    <input type="password" ng-model="confirmpassword" onCopy="return false" onPaste="return false"
+                           name="confirmpassword" tabindex="0" required="" class="mda-form-control" />                   
+                </div>
+                <span ng-show="recoverForm.newpassword!=recoverForm.confirmpassword && submitted" class="text-danger">New Password and Confirm Password does not match!</span>
+                <span ng-show="recoverForm.newpassword.$error.pattern||recoverForm.newpassword.$error.minlength" class="text-danger">Password should contain minimum 8 character including minimum one special character and one capital letter in it.!!</span>
+                <button type="submit" ng-disabled="recoverForm.$invalid || loadingpwd" ng-click="changepwd();" class="btn btn-danger btn-block">Submit<i ng-show="loadingpwd" class="fa fa-spinner fa-spin"></i></button>
+            </form>
+        </div>
+    </div>
+    <!-- END panel-->
+    <div class="p-lg text-center">
+        <span>&copy;</span>
+        <span ng-bind="app.year"></span>
+        <span>-</span>
+        <span ng-bind="app.name"></span>
+        <br />
+        <span ng-bind="app.description"></span>
+    </div>
+</div>

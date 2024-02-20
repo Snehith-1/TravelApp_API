@@ -1,0 +1,10 @@
+﻿{
+  "objectname": [
+    {
+      "id": "trends_demo",
+      "value": "server=localhost;user=root;database=trends_demo;port=3306;password=vision18"
+
+    }
+
+  ]
+}

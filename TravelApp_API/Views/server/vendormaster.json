@@ -1,0 +1,23 @@
+[
+    {
+	"sno":"1",
+	"vendorcode":"VNR1",
+	"vendorcompany":"Indiamart InterMESH Ltd",
+	"contactperson":"Mr.Indiamart",
+	"vendoraddress": "Bangalore560001"
+	},
+	 {
+	"sno":"2",
+	"vendorcode":"VNR2",
+	"vendorcompany":"BLS INTERNATIONAL SERVICES LIMITED",
+	"contactperson":"Ms.Chithira",
+	"vendoraddress": "Uttarakhand"
+	},
+	 {
+	"sno":"3",
+	"vendorcode":"VNR3",
+	"vendorcompany":"FORMULATED POLYMERS LIMITED",
+	"contactperson":"Mr.Arun",
+	"vendoraddress": "CHENNAI600124"
+	}
+]

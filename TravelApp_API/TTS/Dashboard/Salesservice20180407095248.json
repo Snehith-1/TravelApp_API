@@ -1,0 +1,20 @@
+[
+  {
+    "value": 222.0,
+    "color": "#F39C12",
+    "label": "Insurance",
+    "highlight": "#F39C12"
+  },
+  {
+    "value": 834.0,
+    "color": "#73761c",
+    "label": "Ticket",
+    "highlight": "#73761c"
+  },
+  {
+    "value": 200.0,
+    "color": "#2b6bb4",
+    "label": "Visa",
+    "highlight": "#2b6bb4"
+  }
+]

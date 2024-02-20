@@ -1,0 +1,90 @@
+<h3>Service To Invoice</h3>
+
+<div ng-controller="invoicetoraisecontroller as invoiceraise" class="container-fluid">
+  <div class="row">
+    
+
+</div>
+<div class="row">
+   &nbsp;&nbsp;
+</div>
+ <div class="row">
+ <div class="panel panel-default">
+             
+             
+  <div class="panel-heading">
+  <div class="row">
+				<div class="col-sm-4">
+					<div style="font-size: 18px;" class="form-group">
+						
+						<label>Service</label>
+						
+					</div>
+				</div>
+			</div>
+      <div class="table-responsive">
+ <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th check-all="check-all">
+                  <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+               </th>
+          <th>Service Type</th>
+                <th>Reference</th>
+                <th>Activity Log</th>
+                <th>Status</th>
+                
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in invoiceraise.toes">
+         <td width="5%">
+                  <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+               </td>
+          <td width="15%">{{ toe.servicetype }}</td>
+                <td width="15%">{{ toe.reference }}</td>
+                <td width="30%">
+                    <textarea class="form-control">
+                        {{ toe.activitylog }}
+                    </textarea>                            
+                </td>
+                <td width="15%">{{ toe.status }}</td>    
+          
+        </tr>
+      </tbody>
+    </table>
+    </div>
+     <div  class="row" >
+    <div class="panel-heading">
+      <div class="col-sm-6">
+ <div align="right" class="form-group">
+        <button type="button" ng-click="raiseinvoice()" class="btn btn-green">
+        Raise Invoice
+    </button>
+    </div>
+</div>
+      <div  class="col-sm-6">
+       <div class="form-group">
+
+        <button type="button" ng-click="invoicetoraiseback()" class="btn btn-danger"">
+       Back
+    </button>
+    </div>
+</div>
+</div>
+  
+    </div>
+    </div>
+    </div>
+ </div>

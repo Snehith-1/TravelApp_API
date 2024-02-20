@@ -1,0 +1,18 @@
+[{
+   "passengername":"Aravind",
+   "gender":"Male",
+   "dataofbirth":"19-12-1990",
+   "passportno":"123456789",
+   "passportexpirydate":"3-08-2018"
+
+},
+{
+   "passengername":"Bala",
+   "gender":"Male",
+   "dataofbirth":"19-12-1992",
+   "passportno":"123456789",
+   "passportexpirydate":"3-08-2019"
+
+}
+
+]

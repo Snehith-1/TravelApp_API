@@ -1,0 +1,201 @@
+<h3>Enquiry Log</h3>
+<div ng-controller="enquirycontroller as enquirylog" class="container-fluid">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+		 <form name="enquirylogform" novalidate="" class="form-validate">
+			<div class="panel-heading">
+				<h3 class="panel-title">Enquiry Details</h3>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-1"></div>
+					<div class="col-md-4">
+						<label >Customer Type</label>
+						 <select name="customer_name" ng-model="customername"  class="mda-form-control"  >
+                          <option value="">--select-</option>
+                          <option value="{{list.customerid}}" ng-repeat="list in customlist ">{{list.customername}}</option>
+                          </select>
+
+					</div>
+					<div class="col-md-1"></div>
+					<div class="col-md-4">
+						<label >Enquiry Source</label> 
+						<select name="customer_name" ng-model="customername"  class="mda-form-control"  >
+                          <option value="">--select-</option>
+                          <option value="{{list.customerid}}" ng-repeat="list in customlist ">{{list.customername}}</option>
+                          </select>
+					</div>
+				</div>
+			</br>
+			<div class="row">
+				<div class="col-md-1"></div>
+				<div class="col-md-4">
+					<label >Customer Name</label>
+					<input type="firstname" placeholder="Enter Customer Name" name="customer_name" ng-model="customername" class="form-control" required=""/>
+					<span ng-show="enquirylogform.customer_name.$dirty &amp;&amp; enquirylogform.customer_name.$error.required" class="text-danger">Please Enter the First Name
+                </span>
+				</div>
+				<div class="col-md-1"></div>
+				<div class="col-md-4">
+					<label >Contact No.</label>
+					<input type="lastname" placeholder="Enter Contact Name" name="contact_no" ng-model="contactno" class="form-control" required="" />
+					<span ng-show="enquirylogform.contact_no.$dirty &amp;&amp; enquirylogform.contact_no.$error.required" class="text-danger">Please Enter the First Name
+                    </span>
+				</div>
+			</div>
+		</br>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<label >Travel From</label>
+				<input type="name" placeholder="Enter Travel From" class="form-control" name="travel_from"  ng-model="travelfrom" required="" />
+				<span ng-show="enquirylogform.travel_from.$dirty &amp;&amp; enquirylogform.travel_from.$error.required" class="text-danger">Please Enter the First Name
+                </span>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<label >Travel To</label>
+				<input type="name" placeholder="Enter Travel to" name="travel_to" ng-model="travelto" class="form-control" required="" />
+				<span ng-show="enquirylogform.travel_to.$dirty &amp;&amp; enquirylogform.travel_to.$error.required" class="text-danger">Please Enter the First Name
+                </span>
+			</div>
+		</div>
+	</br>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-4">
+			<label >Email Address</label>
+			<input type="email" placeholder="Enter Email Address" class="form-control" name="email_address" ng-model="emailaddress" required="" />
+			<span ng-show="enquirylogform.email_address.$dirty &amp;&amp; enquirylogform.email_address.$error.required" class="text-danger">Please Enter the First Name
+            </span>
+		</div>
+		<div class="col-md-1"></div>
+		<div class="col-md-6">
+			<label >Remarks</label>
+			<textarea rows="4" class="form-control" name="rmarks" ng-model="remarks"></textarea>
+		</div>	
+	</div>
+</br>			
+</div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-sm-4">
+				<div style="font-size: 18px;"  class="form-group">
+					<label>Activity Log</label>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<label >Status</label>
+				<select name="customer_name" ng-model="logstatus"  class="mda-form-control"  >
+                          <option value="">--select-</option>
+                          <option value="{{list.customerid}}" ng-repeat="list in customlist ">{{list.customername}}</option>
+                          </select>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-4">
+				<label >Enquiry</label> 
+				<select name="customer_name" ng-model="customername"  class="mda-form-control"  >
+                          <option value="">--select-</option>
+                          <option value="{{list.customerid}}" ng-repeat="list in customlist ">{{list.customername}}</option>
+                          </select>
+			</div>
+		</div>
+	</br>
+	<div class="row">
+		<div class="col-md-1"></div>
+		<div class="col-md-4" >
+			<div>
+				<label>Next Reminder Date</label>
+			</div>
+			<div >
+				<div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+					<p class="input-group">
+						<input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.remainderdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions"
+						close-text="Close" class="form-control" />
+						<span class="input-group-btn">
+							<button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+								<em class="fa fa-calendar"></em>
+							</button>
+						</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<label >Remarks</label>
+				<textarea rows="4" class="form-control" name="activity_remarks" ng-model="activityremarks"></textarea>
+			</div>	
+		</div> 
+	</br>
+	<div  class="row">
+<div class="col-md-6">
+</div>
+<div class="panel-footer text-center">
+                
+                <button type="cancel" class="btn btn-green" ng-click="subemployee()">submit</button>
+            </div> 
+
+
+</div>
+	
+</br>
+</div>  
+</div>  
+<div class="row">
+	<div   class="table-responsive">
+		<table datatable="ng"  class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Enquiry</th>
+					<th>Net Reminder Date</th>
+					<th>Remarks</th>
+					<th colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="toe in enquirylog.toes">
+					<td>{{toe.status}}</td>
+					<td>{{toe.enquiry}}</td>
+					<td>{{toe.netreminder}}</td>
+					<td>{{toe.remarks}}</td>
+					<td class="text-center">
+						<button type="button" class="btn btn-sm btn-warning" title="Edit">
+							<em class="fa fa-edit"></em>
+						</button>
+						</td>
+						<td class="text-center">
+						<button type="button" class="btn btn-sm btn-danger" title="Delete">
+							<em class="fa fa-trash-o"></em>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div  class="row">
+<div class="col-md-6">
+</div>
+<div class="panel-footer text-center">
+                
+                <button type="cancel" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+            </div> 
+
+
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+[{
+    "id": "001",
+    "name": "Aravind",
+    "contact": "9894522080",
+    "email": "aravind@vcidex.net",
+    "nationalid": "IND897778",
+    "billingaddress": "#9,Mahadevan Street,West Mambalam,Chennai-33"
+},
+{
+    "id": "002",
+    "name": "Bala",
+    "contact": "9876543210",
+    "email": "bala@vcidex.net",
+    "nationalid": "IND985888",
+    "billingaddress": "Tidel park,6 thfloor,thiruvanmiyur,Chennai"
+},
+{
+    "id": "003",
+    "name": "Usan Bolt",
+    "contact": "79897578892",
+    "email": "usan@bolt.com",
+    "nationalid": "JAM6507777",
+    "billingaddress": "new born street,xavior trunk road,jamaica"
+},
+{
+    "id": "004",
+    "name": "Sachin Tendulkar",
+    "contact": "(022) 264575",
+    "email": "sachin_record@gmail.com",
+    "nationalid": "IND010666",
+    "billingaddress": "19-A, Perry Cross Road, Bandra (West), Mumbai – 400050, Maharashtra"
+}
+]

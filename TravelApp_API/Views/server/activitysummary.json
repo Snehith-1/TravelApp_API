@@ -1,0 +1,28 @@
+[{
+    "process": "Hotel",
+    "activity": "Booking hotel",
+    "defaultdisplay": "No",
+    "billable": "Yes",
+    "amount": "1500"
+},
+{
+    "process": "Passport",
+    "activity": "Filling application",
+    "defaultdisplay": "Yes",
+    "billable": "No",
+    "amount": "2450"
+},
+{
+    "process": "Passport",
+    "activity": "Submiting documents",
+    "defaultdisplay": "No",
+    "billable": "No",
+    "amount": "4500"
+},
+{
+    "process": "Visa",
+    "activity": "Provide Passport",
+    "defaultdisplay": "Yes",
+    "billable": "No",
+    "amount": "780"
+}]

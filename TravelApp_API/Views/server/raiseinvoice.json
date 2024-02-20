@@ -1,0 +1,34 @@
+[
+    {
+	
+	"soref_no":"TASO001",
+	"service_type":"Visa",
+	"activity":"Send Application For Approval",
+	"amount":"200.00"
+	
+	},
+	 {
+	
+	"soref_no":"TASO002",
+	"service_type":"Passport",
+	"activity":"Attend Interview Process",
+	"amount":"100.00"
+	
+	},
+	{
+	
+	"soref_no":"TASO003",
+	"service_type":"Car",
+	"activity":"Book Car For Customer",
+	"amount":"150.00"
+	
+	},
+	{
+	
+	"soref_no":"TASO004",
+	"service_type":"Hotel",
+	"activity":"Send For Manager Approval",
+	"amount":"100.00"
+	
+	}
+]

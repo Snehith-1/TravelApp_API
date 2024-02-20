@@ -1,0 +1,8 @@
+{
+  "objectname": [
+    {
+      "id": "TTC",
+      "value": "server=vcidex-vm017856.cloudapp.net;user=travelapp;database=travelapp;port=3306;password=vision18"
+    }
+  ]
+}

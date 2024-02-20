@@ -1,0 +1,1560 @@
+<h3>Sales Order Form</h3>
+    <div ng-controller="salesorderformcontroller as salesorderform" class="container-fluid">  
+    <div class="col-md-3">   
+        <div class="row">
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Customer Details</h3>
+              </div>
+              <div class="panel-body">
+                <div class="row">s
+                  <div class="col-md-4">
+                   <button type="button" class="pull-left btn btn-info btn-cons" ng-click="newcustomer()" >
+                    <em class="fa fa-add">New Customer</em>
+                  </button>
+                </div>                
+              </div>
+              <div class="row">
+               <div class="col-md-4">
+                <div class="mda-form-group float-label">
+                 <label>Name</label>
+               </div>
+             </div>
+
+
+             <div class="col-md-8">
+              <div class="mda-form-group float-label" ng-init="name='Ramachandran'" >
+               <select name="category" ng-model="name"  class="mda-form-control"  >
+              <option value="">--select-</option>
+              <option value="{{list.customerid}}" ng-repeat="list in custom ">{{list.customername}}</option>
+
+              
+            </select>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+           <div class="col-md-4">
+            <div class="mda-form-group float-label">
+              <label>Mobile No.</label>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="mda-form-group float-label"  ng-init="mobile='9042085030'">
+             <input class="form-control" type="activity" ng-model="mobile"  />
+           </div>
+         </div>
+       </div>
+       <div class="row">
+         <div class="col-md-4">
+          <div class="mda-form-group float-label">
+            <label>Email Id</label>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="mda-form-group float-label"  ng-init="email='ram18@vcidex.com'">
+           <input class="form-control" type="activity" ng-model="email" />
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-md-4">
+        <div class="mda-form-group float-label" >
+          <label>National ID</label>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="mda-form-group float-label" ng-init="nationalid='IND92057'">
+         <input class="form-control" type="activity" ng-model="nationalid" />
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-9">
+  <div class="panel panel-default">
+   <div class="panel-body">
+     <form form-wizard="" steps="9" role="form" novalidate="" name="salesorderForm" class="from-validate" ng-submit="alertSubmit()">
+        <div class="form-wizard wizard-horizontal">
+        <ol class="row">
+          <li ng-class="{'active':wizard.active(1)}" ng-click="wizard.go(1)" class="col-md-2">
+            <h4>Passenger</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(2)}" ng-click="wizard.go(2)" class="col-md-2">
+            <h4>Passport</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(3)}" ng-click="wizard.go(3)" class="col-md-2">
+            <h4>Visa</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(4)}" ng-click="wizard.go(4)" class="col-md-2">
+            <h4>Flight</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(5)}" ng-click="wizard.go(5)" class="col-md-2">
+            <h4>Hotel</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(6)}" ng-click="wizard.go(6)" class="col-md-2">
+            <h4>Car</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(7)}" ng-click="wizard.go(7)" class="col-md-2">
+            <h4>Forex</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(8)}" ng-click="wizard.go(8)" class="col-md-2">
+            <h4>Package</h4>
+          </li>
+          <li ng-class="{'active':wizard.active(9)}" ng-click="wizard.go(9)" class="col-md-2">
+            <h4>Insurance</h4>
+          </li>
+        </ol>
+        </div>
+
+
+   <div ng-controller="addpassengerCtrl">
+        <div ng-show="wizard.active(1)">
+          <div class="panel panel-default">
+           <div class="panel-heading">
+            <div class="row">
+              <div class="col-sm-2">
+                <div  class="form-group">
+                  <label >First Name</label>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                 <input class="form-control" type="activity" ng-model="firstname" ng-pattern="/^[a-zA-Z]+$/" name="first_name" required="" placeholder="First Name" />
+                 <span ng-show="salesorderForm.first_name.$dirty &amp;&amp; salesorderForm.first_name.$error.required" class="text-danger">Please Enter the First Name
+                </span>
+
+                </div>
+             </div>
+             <div class="col-sm-2">
+              <div  class="form-group">
+                <label >Last Name</label>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+               <input class="form-control" type="activity" placeholder="Last Name" name="last_name" ng-model="lastname" required="" />
+               <span ng-show="salesorderForm.last_name.$dirty &amp;&amp; salesorderForm.last_name.$error.required" class="text-danger">Please Enter the Last Name
+                </span>
+             </div>
+           </div>
+         </div>
+         <div class="row">
+          <div class="col-sm-2">
+            <div  class="form-group">
+              <label >Gender</label>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+             <div class="radio-list">
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="gender"
+                                       name="rdogender" ng-value="'male'"> Male
+                            </label>
+                            <label>  <input type="radio" ng-model="gender" name="rdogender" ng-value="'female'" checked=""> Female </label>
+                        </div>
+           </div>
+         </div>
+         <div class="col-sm-2">
+          <div  class="form-group">
+            <label >Date of Birth</label>
+          </div>
+        </div>
+         <div class="col-sm-4">
+        <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+        <p class="input-group">
+         <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.dobdate" is-open="dpick.opened"  datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+        
+
+        </div>
+        </div>
+     </div>
+     <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+          <label >Passport No.</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+         <input class="form-control" ng-model="passport" name="pass_port" required="" type="activity" placeholder="Passport NO" required="" />
+
+        <span ng-show="salesorderForm.pass_port.$dirty &amp;&amp; salesorderForm.pass_port.$error.required" class="text-danger">Please Enter the Passport Number
+          </span>
+       </div>
+     </div>
+     <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Passsport Issued Date</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+        <p class="input-group">
+         <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.issueddate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+        
+
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Passport Expiry  Date</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+        <p class="input-group">
+          <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.expdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+          close-text="Close" class="form-control" />
+          <span class="input-group-btn">
+            <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+              <em class="fa fa-calendar"></em>
+            </button>
+          </span></p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+        </div>
+      </div>
+      <div align="center" class="col-sm-4">
+        <div class="form-group">
+          <button type="submit"  class="btn btn-green"  ng-click="addpassenger()" >
+            <em class="fa fa-add">Add Passenger Details</em>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+  <div class="table-responsive">
+    <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Passenger Name</th>
+          <th>Gender</th>
+          <th>Date of Birth</th>          
+          <th>Passport No</th>
+          <th>Passport Expiry Date</th> 
+          <th>passangergid</th>         
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in salespassenger">
+          <td>{{toe.passangerfirstname}}</td>
+          <td>{{toe.gender}}</td>
+          <td>{{toe.dob}}</td>
+          <td>{{toe.passportno}}</td>
+          <td>{{toe.passportexpirydate}}</td>
+          <td ng-model="passengergid">{{toe.passangergid}}</td>
+          <td class="text-center">
+
+            <button type="button" class="btn btn-sm btn-warning" title="Edit">
+              <em class="fa fa-edit"></em>
+            </button>
+            </td>
+            <td class="text-center">
+            <button type="button" class="btn btn-sm btn-danger" title="Delete">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<div ng-controller="addpassportCtrl">
+<div ng-show="wizard.active(2)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-3">
+        <div  class="form-group">
+          <label >Passenger Name</label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <select class="form-control" name="passenger_name"  ng-pattern="/^[a-zA-Z]+$/" ng-pattern="/^[a-zA-Z\s]*$/" ng-model="passpassengername" data-placeholder="choose a Catogory" required="" tabindex="1">
+            <option value="">--Select--</option>
+            <option value="{{list.passangergid}}" ng-repeat="list in passengerbind">{{list.passangerfirstname}}</option>
+            
+          </select>               
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3" align="left">
+        <div  class="form-group" align="left">
+          <label >ID Proof</label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+         <input class="form-control" type="activity" ng-model="passidproof" name="passid_proof" required="" placeholder="ID Proof" />
+          <span ng-show="salesorderForm.passid_proof.$dirty &amp;&amp; salesorderForm.passid_proof.$error.required" class="text-danger">ID Proof is required
+         </span>
+            
+       </div>
+     </div>
+     <div class="col-sm-3">
+      <div  class="form-group">
+        <label >Additional Proof</label>
+      </div>
+    </div>
+    <div class="col-sm-3">
+     <div  class="form-group">
+       <input class="form-control" ng-model="passadditionalproof" name="additional_proof" required="" type="activity" placeholder="Additional Proof" />
+        <span ng-show="salesorderForm.additional_proof.$dirty &amp;&amp; salesorderForm.additional_proof.$error.required" class="text-danger">Additional Proof is required
+         </span>
+
+     </div>
+   </div>
+ </div>
+ <div class="row">
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Photo</label>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <input class="form-control" ng-model="passphoto" name="photo" required="" type="activity" placeholder="Photo" />
+
+       <span ng-show="salesorderForm.photo.$dirty &amp;&amp; salesorderForm.photo.$error.required" class="text-danger">Passenger Photo is required
+         </span>
+
+
+
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Any Government Document</label>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+      <input class="form-control" ng-model="passanygovt" name="any_Govt" required="" type="activity" placeholder="Any Government Document" />
+      <span ng-show="salesorderForm.any_Govt.$dirty &amp;&amp; salesorderForm.any_Govt.$error.required" class="text-danger">Govt Document required
+     </span>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Amount</label>
+    </div>
+  </div>
+  <div class="col-sm-3">
+    <div class="form-group">
+     <input class="form-control"  ng-model="passamnt" name="amount" required="" type="activity" placeholder="Amount" />
+     <span ng-show="salesorderForm.amount.$dirty &amp;&amp; salesorderForm.amount.$error.required" class="text-danger">Please the enter amount
+     </span>
+
+   </div>
+ </div>
+</div>
+
+
+ <div class="row">
+      <div class="col-sm-6">
+        <div class="row">
+        <div class="col-sm-6">
+        
+         <label>Upload Document</label>
+      
+       </div>
+       <div class="col-sm-6">
+        <div class="form-group">
+        <input type="file" id="File1" name="upload" ng-model="uploadlogo" onchange="angular.element(this).scope().add(this.files)" accept=".csv" class="form-control" />
+          <!-- <div align="center"> -->
+          <br>
+          <!-- <button type="button" class="btn btn-info" ng-disabled="uploadfile" ng-click="upload()"><i class="fa fa-upload"></i>&nbsp;&nbsp;&nbsp;Upload</button>&nbsp;&nbsp;&nbsp;   -->
+        <!--    </div>    -->
+            </div>
+       </div>
+     </div>
+
+     </div>
+     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green"  ng-click="addpassport()">
+        <em class="fa fa-add">Add Passport Details</em>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row"> 
+  </div>
+</div>
+</div>
+</div>
+
+
+<div ng-controller="addvisaCtrl">
+<div  ng-show="wizard.active(3)">
+  <div class="panel-heading">
+  </div>
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+          <label >Passenger Name</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <select class="form-control" name="passenger_name" ng-model="visapasspassengername" data-placeholder="choos a Catogory" required="" tabindex="1">
+            <option value="">--Select--</option>
+            <option value="{{list.salesorderid}}" ng-repeat="list in passengerbind">{{list.passangerfirstname}}</option>
+           </select> 
+                         
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+          <label >Country</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+         <input class="form-control" type="activity" placeholder="Country" ng-model="country" name="country" />
+       </div>
+     </div>
+     <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Application Date</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div ng-controller="DatepickerDemoCtrl as dpick"  class="form-group">
+        <p class="input-group">
+         <input type="text" name="date" required="" width="10px" datepicker-popup="{{dpick.format}}" ng-model="$parent.appdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Expiry Date</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+        <p class="input-group">
+          <input type="text" name="date" required="" width="10px" datepicker-popup="{{dpick.format}}" ng-model="$parent.expdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+          close-text="Close" class="form-control" />
+          <span class="input-group-btn">
+            <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+              <em class="fa fa-calendar"></em>
+            </button>
+          </span></p>
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div  class="form-group">
+          <label >Visa Period</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <input class="form-control" ng-model="visaperiod" name="visa_period" required="" type="activity" placeholder="Visa Period" />
+
+           <span ng-show="salesorderForm.visa.$dirty &amp;&amp; salesorderForm.visa.$error.required" class="text-danger">Visa period is required
+          </span>    
+        </div>
+      </div>
+    </div>
+    <div class="row">
+     <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Currency</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+     <select name="category" ng-model="base_currency"  class="mda-form-control">
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Amount</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+      <input width="100%" class="form-control"  ng-model="visaamnt" name="visa_amnt" required="" type="activity" placeholder="Amount" />
+          <span ng-show="salesorderForm.visa_amnt.$dirty &amp;&amp; salesorderForm.visa_amnt.$error.required" class="text-danger">Please Enter the Amount
+          </span>
+
+    </div>
+  </div> 
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green" ng-click="addvisa()">
+        <em class="fa fa-add">Add Visa Details</em>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+  </div>
+</div>
+</div>
+</div>
+
+<div ng-controller="addflightCtrl">
+<div  ng-show="wizard.active(4)">
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      <div class="row">
+        <div class="col-sm-2">
+          <div  class="form-group">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div  class="form-group">
+            <label >Flight No</label>
+            <input class="form-control" ng-model="flightno" name="flight_no" required="" type="activity" placeholder="Flight No" />
+             <span ng-show="salesorderForm.flight_no.$dirty &amp;&amp; salesorderForm.flight_no.$error.required" class="text-danger">Please Enter the Flight Number
+          </span>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div  class="form-group">
+            <label >Flight Name</label>
+            <input class="form-control" ng-model="flightname"  name="flight_name" required="" type="activity" placeholder="Flight Name" />
+            <span ng-show="salesorderForm.flight_name.$dirty &amp;&amp; salesorderForm.flight_name.$error.required" class="text-danger">Flight Name is Required
+          </span>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div  class="form-group">
+            <label >Departure Date</label>
+            <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+              <p class="input-group">
+                <input type="text" name="date" width="10px" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.depdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+                close-text="Close" class="form-control" />
+                <span class="input-group-btn">
+                  <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                    <em class="fa fa-calendar"></em>
+                  </button>
+                </span></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div  class="form-group">
+              <label >Time</label>
+              <input class="form-control" ng-model="flighttime" name="flight_time" required="" type="activity" placeholder="Time" />
+               <span ng-show="salesorderForm.flight_time.$dirty &amp;&amp; salesorderForm.flight_time.$error.required" class="text-danger">Time field is required
+            </span>
+
+            </div>
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-sm-6">
+          <div  class="form-group">
+            <label >From</label>
+            <input class="form-control" ng-model="from" name="from" required="" type="activity" placeholder="From" />
+
+            <span ng-show="salesorderForm.from.$dirty &amp;&amp; salesorderForm.from.$error.required" class="text-danger">This field is required
+           </span>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div  class="form-group">
+            <label >To</label>
+            <input class="form-control" ng-model="to" name="to" required="" type="activity" placeholder="To" />
+             <span ng-show="salesorderForm.to.$dirty &amp;&amp; salesorderForm.to.$error.required" class="text-danger">This field is required
+           </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+       <div class="col-sm-6">
+        <div  class="form-group">
+          <label >Currency</label>
+          <select name="category" ng-model="base_currency"  class="mda-form-control">
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div  class="form-group">
+          <label >Amount</label>
+          <input  class="form-control" ng-model="flightamount" name="flight_amount" required="" type="activity" placeholder="Amount" />
+           <span ng-show="salesorderForm.amount.$dirty &amp;&amp; salesorderForm.amount.$error.required" class="text-danger">Please enter the amount
+           </span>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div  class="form-group">
+          <label >Remarks</label>
+          <textarea rows="4" class="form-control" name="remarks" ng-model="flight_remarks"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="form-group">
+        </div>
+      </div>
+      <div align="center" class="col-sm-4">
+        <div class="form-group">
+          <button type="button"   class="btn btn-green" ng-click="addflightdetails()">
+            <em class="fa fa-add">Add Flight Details</em>
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+     <fieldset>
+     <div class="table-responsive">
+       <table datatable="ng" class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th check-all="check-all">
+              <div class="checkbox c-checkbox">
+               <label>
+                <input type="checkbox" />
+                <span class="fa fa-check"></span>
+              </label>
+            </div>
+          </th>
+          <th>Passenger Name</th>
+          <th>Passoport Number</th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="passenger in salesorderform">
+          <td>
+            <div class="checkbox c-checkbox">
+             <label>
+              <input type="checkbox" />
+              <span class="fa fa-check"></span>
+            </label>
+          </div>
+        </td>
+        <td>{{passenger.passangerfirstname}}</td>
+        <td>{{passenger.passportno}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</fieldset>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">   
+  </div>
+</div>
+</div>
+</div>
+
+<div ng-controller="addhotelCtrl">
+<div ng-show="wizard.active(5)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+          <label >Hotel Name</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+         <input class="form-control" ng-model="hotelname" name="hotel_name" required="" type="activity" placeholder="Hotel Name" />
+          <span ng-show="salesorderForm.hotel_name.$dirty &amp;&amp; salesorderForm.hotel_name.$error.required" class="text-danger">Please enter the hotel name
+           </span>
+
+       </div>
+     </div>
+     <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Catogory</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+       <input class="form-control" type="activity" placeholder="Catogory" name="cate_gory" ng-model="category" />
+       <span ng-show="salesorderForm.cate_gory.$dirty &amp;&amp; salesorderForm.cate_gory.$error.required" class="text-danger">Please enter the Category
+       </span>
+     </div>
+   </div>
+ </div>
+ <div class="row">
+  <div class="col-sm-2">
+    <div  class="form-group">
+     <label >City</label>
+   </div>
+ </div>
+ <div class="col-sm-4">
+  <div class="form-group">
+   <input class="form-control" type="activity" placeholder="City" name="city_hotel" ng-model="city" />
+   <span ng-show="salesorderForm.city_hotel.$dirty &amp;&amp; salesorderForm.city_hotel.$error.required" class="text-danger">Please enter the City
+       </span>
+ </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Destination</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+   <input class="form-control" type="activity" placeholder="Destination"  name="desti_nation" ng-model="destination"/>
+    <span ng-show="salesorderForm.desti_nation.$dirty &amp;&amp; salesorderForm.desti_nation.$error.required" class="text-danger">Please enter the Destination
+       </span>
+ </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Check In</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+     <p class="input-group">
+       <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.chckindate" is-open="dpick.opened"  datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+       close-text="Close" class="form-control" />
+       <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Check Out</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+       <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.checkoutdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+       close-text="Close" class="form-control" />
+       <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Total No of Days</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <input class="form-control" ng-model="totalnodays" name="total" required="" type="activity" placeholder="Total No of Days" />
+       <span ng-show="salesorderForm.total.$dirty &amp;&amp; salesorderForm.total.$error.required" class="text-danger">This Field is Required
+      </span>
+
+   </div>
+ </div>
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >Total No of Passengers</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+   <input class="form-control" ng-model="totalnoPassenger" name="Passenger" required="" type="activity" placeholder="Total No of Passengers" />
+   <span ng-show="salesorderForm.Passenger.$dirty &amp;&amp; salesorderForm.Passenger.$error.required" class="text-danger">This Field is Required
+      </span>
+
+ </div>
+</div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >Currency</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <select name="category" ng-model="base_currency"  class="mda-form-control"  >
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>
+</div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Amount</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <input width="100%" class="form-control" ng-model="amount" name="amount" required="" type="activity" placeholder="Amount" />
+    <span ng-show="salesorderForm.amount.$dirty &amp;&amp; salesorderForm.amount.$error.required" class="text-danger">Please Enter the amount</span>
+  
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green" ng-click="addhoteldetails()">
+        <em class="fa fa-add">Add Hotel Details</em>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+  </div>
+</div>
+</div>
+</div>
+
+
+<div ng-controller="addcarCtrl">
+<div ng-show="wizard.active(6)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+          <label >Car Type</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+       <select name="category" ng-model="base_currency"  class="mda-form-control"  >
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div  class="form-group">
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div  class="form-group">
+        <label >From Date</label>
+      </div>
+    </div>
+    <div ng-controller="DatepickerDemoCtrl as dpick"  class="col-sm-4">
+      <div class="form-group">
+        <p class="input-group">
+         <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.fromdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+    <div class="col-sm-2">
+      <div  class="form-group">
+        <label >To Date</label>
+      </div>
+    </div>
+    <div ng-controller="DatepickerDemoCtrl as dpick"  class="col-sm-4">
+      <div class="form-group">
+       <p class="input-group">
+         <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.todate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div  class="form-group">
+        <label >Pick-Up City</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div  class="form-group">
+       <input class="form-control" ng-model="Pickupcity" name="Pickupcity" required="" type="activity" placeholder="Pick-Up City" />
+      <span ng-show="salesorderForm.Pickupcity.$dirty &amp;&amp; salesorderForm.Pickupcity.$error.required" class="text-danger">Please enter the pick-up city 
+      </span>
+
+     </div>
+   </div>
+   <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Drop City</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <input class="form-control" ng-model="dropcity" name="dropcity" required="" type="activity" placeholder="Drop City" />
+    <span ng-show="salesorderForm.dropcity.$dirty &amp;&amp; salesorderForm.dropcity.$error.required" class="text-danger">Please enter the drop city 
+      </span>
+
+   </div>
+ </div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >No of Persons</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <input class="form-control" ng-model="noofperson" name="noofperson" required="" type="activity" placeholder="No of Persons" />
+
+     <span ng-show="salesorderForm.noofperson.$dirty &amp;&amp; salesorderForm.noofperson.$error.required" class="text-danger">Please Enter the no.of days 
+      </span>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Remarks</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+    <textarea rows="4" class="form-control" name="remark" ng-model="remarks"></textarea>
+  </div>
+</div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >Currency</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+   <select name="category" ng-model="base_currency"  class="mda-form-control"  >
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Amount</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <input width="100%" class="form-control" ng-model="caramount" name="amount" required="" type="activity" placeholder="" />
+
+    <span ng-show="salesorderForm.amount.$dirty &amp;&amp; salesorderForm.amount.$error.required" class="text-danger">Please Enter the amount 
+      </span>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green" ng-click="addcardetails()">
+        <em class="fa fa-add">Add Car Details</em>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+  </div>
+</div>
+</div>
+</div>
+
+<div ng-controller="addforexCtrl">
+<div ng-show="wizard.active(7)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    
+  <div class="row">
+    <div class="col-sm-3">
+      <div  class="form-group">
+        <label >Customer Paid Amount</label>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="form-group">
+       <select name="category" ng-model="customerpaid_currency"  class="mda-form-control"  >
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <input class="form-control" type="activity" placeholder="Amount" name="amnt" ng-model="paidamount" />
+      <span ng-show="salesorderForm.amnt.$dirty &amp;&amp; salesorderForm.amnt.$error.required" class="text-danger">Please Enter the amount 
+      </span>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <input class="form-control" type="activity" placeholder="Exchange Rate" name="exchange_rate" ng-model="exchangerate" />
+      <span ng-show="salesorderForm.exchange_rate.$dirty &amp;&amp; salesorderForm.exchange_rate.$error.required" class="text-danger">Please Enter the Exchange Rate 
+      </span>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <input class="form-control" type="activity" placeholder="Total Amount" name="total_amount" ng-model="paidtotalamount" />
+       <span ng-show="salesorderForm.total_amount.$dirty &amp;&amp; salesorderForm.total_amount.$error.required" class="text-danger">Please Enter the Total Amount 
+      </span>
+    </div>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Customer Received Amount</label>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+     <select name="category" ng-model="customreceived_currency"  class="mda-form-control"  >
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind">{{list.currencyname}}</option>
+      </select>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <input class="form-control" type="activity" placeholder="Amount" name="amnt" ng-model="receieveamount" />
+     <span ng-show="salesorderForm.amnt.$dirty &amp;&amp; salesorderForm.amnt.$error.required" class="text-danger">Please Enter the amount 
+      </span>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div class="form-group">
+   <input class="form-control" type="activity" placeholder="Exchange Rate" name="exchange_rate" ng-model="receiveexchangerate" />
+   <span ng-show="salesorderForm.exchange_rate.$dirty &amp;&amp; salesorderForm.exchange_rate.$error.required" class="text-danger">Please Enter the Exchange Rate 
+      </span>
+ </div>
+</div>
+<div class="col-sm-2">
+  <div class="form-group">
+    <input class="form-control" type="activity" placeholder="Total Amount" name="total_amount" ng-model="totalrecieveamount" />
+    <span ng-show="salesorderForm.total_amount.$dirty &amp;&amp; salesorderForm.total_amount.$error.required" class="text-danger">Please Enter the Total Amount 
+    </span>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Remarks</label>
+    </div>
+  </div>
+  <div class="col-sm-7">
+    <div class="form-group">
+      <textarea rows="4" class="form-control" name="remark" ng-model="remarks"></textarea>
+    </div>
+  </div>
+</div>
+<div class="row">  
+  <div align="center" class="col-sm-12">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green" ng-click="addforexdetails()">
+        <em class="fa fa-add">Add Forex Details</em>
+      </button>
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+  </div>
+</div>
+</div>
+</div>
+
+
+<div ng-controller="addpackageCtrl">
+<div ng-show="wizard.active(8)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-3">
+        <div  class="form-group">
+          <label ></label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+                        
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-10" align="left">
+        <div  class="form-group" align="left">
+          <label >Remarks</label>
+           <textarea rows="4" class="form-control" name="remarks" ng-model="rmarks"
+            ></textarea>
+        </div>
+      </div>
+      
+     <div class="col-sm-3">
+      <div  class="form-group">
+        
+      </div>
+    </div>
+    <div class="col-sm-3">
+     <div  class="form-group">
+      
+     </div>
+   </div>
+ </div>
+    <div class="col-sm-6">
+       <div  class="form-group">
+         <label >Amount</label>
+         <input  class="form-control" ng-model="amount" name="amount" required="" type="activity" placeholder="Amount" />
+          <span ng-show="salesorderForm.amount.$dirty &amp;&amp; salesorderForm.amount.$error.required" class="text-danger">Please enter the amount
+          </span>
+
+       </div>
+     </div>
+      <!-- <div class="row"> -->
+      <div class="col-sm-6">
+        <!-- <div class="row"> -->
+       
+        <div  class="form-group">
+         <label>Upload Document</label>
+      
+       
+       <!-- <div class="col-sm-6">
+        <div class="form-group"> -->
+        <input type="file" id="File1" name="upload" ng-model="upload" onchange="angular.element(this).scope().add(this.files)" accept=".csv" class="form-control" />
+          <!-- <div align="center"> -->
+          <br>
+          <!-- <button type="button" class="btn btn-info" ng-disabled="uploadfile" ng-click="upload()"><i class="fa fa-upload"></i>&nbsp;&nbsp;&nbsp;Upload</button>&nbsp;&nbsp;&nbsp;   -->
+        <!--    </div>    -->
+            <!-- </div> -->
+      <!--  </div> -->
+    <!--  </div> -->
+
+     </div>
+     </div>
+   <!--   </div> -->
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green" ng-click="addsubmit()">
+        <em class="fa fa-add">Submit</em>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row"> 
+  </div>
+</div>
+</div>
+</div>
+
+<div ng-controller="addinsuranceCtrl">
+<div ng-show="wizard.active(9)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-2">
+       <div  class="form-group">
+        <label >Name</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+       <select class="form-control" name="passenger_name" ng-model="visapasspassengername" data-placeholder="choos a Catogory" required="" tabindex="1">
+            <option value="">--Select--</option>
+            <option value="{{list.salesorderid}}" ng-repeat="list in passengerbind">{{list.passangerfirstname}}</option>
+           </select>    
+    </div>
+  </div>
+  <div class="col-sm-2">
+   <div  class="form-group">
+    <label >Date Of Birth</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+   <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+    <p class="input-group">
+      <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.dobdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+      close-text="Close" class="form-control" />
+      <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Arrival port</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+      <input class="form-control" ng-model="arrivalport" name="arrival_port" required="" type="activity" placeholder="Enter Arrival port" />
+       <span ng-show="salesorderForm.arrival_port.$dirty &amp;&amp; salesorderForm.arrival_port.$error.required" class="text-danger">Arrival port is required 
+      </span>
+
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Start Date</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+        <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.startdate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+        close-text="Close" class="form-control" />
+        <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >End Date</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+   <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+    <p class="input-group">
+      <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.enddate" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+      close-text="Close" class="form-control" />
+      <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Currency</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+   <select name="category" ng-model="base_currency"  class="mda-form-control"  >
+         <option value="">--select-</option>
+          <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+      </select>     
+</div>
+</div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >Amount</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+    <input class="form-control" ng-model="amount" name="amount" required="" type="activity" placeholder="Amount" />
+     <span ng-show="salesorderForm.amount.$dirty &amp;&amp; salesorderForm.amount.$error.required" class="text-danger">Please enter the amount 
+      </span>
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Remarks</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <textarea rows="4" class="form-control" name="rmarks" ng-model="remarks"></textarea>
+  </div>
+</div>
+</div>
+<div class="row">  
+  <div align="center" class="col-sm-12">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green" ng-click="addpackage()">
+        <em class="fa fa-add">Add Package</em>
+      </button>
+    </div>
+  </div> 
+</div>
+
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row"> 
+  </div>
+</div>
+</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+  
+<div class="row">
+<div class="panel-heading"></div>
+<div class="col-sm-12">
+  <div  ng-include="'app/views/orderactivitysales.html'" >
+  </div>
+</div>
+</div>
+
+<div class="row">
+  <div align="center"  class="col-md-12">
+   <div  class="panel-heading">
+    <button type="Submit" class="btn btn-green" ng-click="cansaleorder()">Submit</button>
+    <button type="cancel" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

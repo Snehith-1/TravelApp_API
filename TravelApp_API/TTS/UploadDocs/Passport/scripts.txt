@@ -1,0 +1,602 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_sopassenger` $$
+CREATE  PROCEDURE `sp_ins_sopassenger`(
+
+
+IN `P_firstname` varchar(64),
+IN `P_last_name` varchar(64),
+IN `p_gender` varchar(64),
+IN `p_dateof_birth` varchar(64),
+IN `p_passport_no` varchar(64),
+IN `p_passportissued_date` varchar(64),
+IN `p_passportexpiry_date` varchar(64),
+IN `p_created_by` varchar(64),
+IN `p_salesorder_gid` int(11)
+
+
+)
+BEGIN
+insert into sal_trn_tpassengerservice
+(first_name, last_name, gender, dateof_birth, passport_no, passportissued_date,
+passportexpiry_date, created_date, created_by, salesorder_gid)values
+(P_firstname,P_last_name,p_gender,p_dateof_birth,p_passport_no,p_passportissued_date,p_passportexpiry_date,now(),
+p_created_by,p_salesorder_gid);
+
+END $$
+
+DELIMITER ;
+
+ALTER TABLE `travelapp`.`sal_trn_tpassengerservice` MODIFY COLUMN `passengerservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT,
+ ADD INDEX Index_1(`passengerservice_gid`);
+
+ALTER TABLE `travelapp`.`sal_trn_tflightservice` MODIFY COLUMN `flightservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_soflight` $$
+CREATE  PROCEDURE `sp_ins_soflight`(
+
+IN `p_salesorder_gid` int(11),
+IN `p_flight_no` varchar(64),
+IN `p_flight_name` varchar(64),
+IN `p_departure_date` varchar(64),
+IN `p_flight_time` time,
+IN `p_flight_from` varchar(128),
+IN `p_flight_to` varchar(128),
+IN `p_currency` varchar(64),
+IN `p_amount` float,
+IN `p_remarks` longtext,
+IN `p_created_by` varchar(64),
+IN `p_reference_gid` int(11)
+)
+BEGIN
+
+insert into sal_trn_tflightservice
+( salesorder_gid, flight_no, flight_name, departure_date, flight_time, flight_from, flight_to,
+currency, amount, remarks, created_date, created_by) values
+(p_salesorder_gid,p_flight_no,p_flight_name,p_departure_date,p_flight_time,p_flight_from,p_flight_to,
+p_currency,p_amount,p_remarks,now(),p_created_by);
+
+set p_reference_gid = (select flightservice_gid from sal_trn_tflightservice
+
+order by flightservice_gid desc limit 1);
+
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,p_salesorder_gid,'flight',concat(p_flight_no,'/',p_flight_from,'/',p_flight_to),
+p_remarks,p_amount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+ALTER TABLE `travelapp`.`sal_trn_tsalestoactivity` MODIFY COLUMN `salesactivity_gid` INTEGER NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_soflightpassengerdtl` $$
+CREATE  PROCEDURE `sp_ins_soflightpassengerdtl`(
+
+
+IN `p_salesorder_gid` int(11),
+IN `p_flightservice_gid` varchar(64),
+IN `p_passport_no` varchar(128),
+IN `p_passengerfirst_name` varchar(128),
+IN `p_created_by` varchar(64),
+IN `p_passenger_gid` varchar(45)
+
+)
+BEGIN
+
+set p_flightservice_gid=(select flightservice_gid from sal_trn_tflightservice
+where created_by=p_created_by order by flightservice_gid desc limit 1);
+
+insert into sal_trn_tflightpassengerservicedtl
+( salesorder_gid, flightservice_gid, passport_no, passenger_name, created_date, created_by, passenger_gid)values
+(
+p_salesorder_gid,
+p_flightservice_gid,
+p_passport_no,
+p_passengerfirst_name,
+now(),
+p_created_by,
+p_passenger_gid
+);
+
+
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_sohotel` $$
+CREATE  PROCEDURE `sp_ins_sohotel`(
+
+IN `p_salesorder_gid` int(11),
+IN `p_hotel_name` varchar(128),
+IN `p_category` varchar(128),
+IN `p_city` varchar(64),
+IN `p_destination` varchar(64),
+IN `p_check_in` varchar(64),
+IN `p_check_out` varchar(64),
+IN `p_total_noofdays` int(11),
+IN `p_total_noofpassengers` int(11),
+IN `p_currency` varchar(64),
+IN `p_amount` float,
+IN `p_created_by` varchar(64),
+IN `p_reference_gid` int(11)
+)
+BEGIN
+
+insert into sal_trn_thotelservice
+(salesorder_gid, hotel_name, category, city, destination,
+ check_in, check_out, total_noofdays, total_noofpassengers, currency, amount, created_date, created_by)values
+(p_salesorder_gid,p_hotel_name,p_category,p_city,p_destination,p_check_in,p_check_out,p_total_noofdays,p_total_noofpassengers,
+p_currency,p_amount,now(),p_created_by);
+
+set p_reference_gid = (select hotelservice_gid from sal_trn_thotelservice
+order by hotelservice_gid desc limit 1);
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,p_salesorder_gid,'hotel',concat(p_hotel_name,'/',p_city,'/',p_total_noofpassengers),
+concat(p_category,'/',p_destination,'/',p_check_in,'/',p_check_out,'/',p_total_noofdays,'/',p_currency),p_amount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_socar` $$
+CREATE  PROCEDURE `sp_ins_socar`(
+
+IN `P_salesorder_gid` int(11),
+IN `p_car_type` varchar(64),
+IN `p_from_date` varchar(64),
+IN `p_to_date` varchar(64),
+IN `p_pickup_city` varchar(64),
+IN `p_drop_city` varchar(64),
+IN `p_noof_persons` int(11),
+IN `p_remarks` longtext,
+IN `p_currency` varchar(64),
+IN `p_amount` float,
+IN `p_created_by` varchar(64),
+IN `p_reference_gid` int(11)
+)
+BEGIN
+
+insert into sal_trn_tcarservice
+(salesorder_gid, car_type, from_date, to_date, pickup_city, drop_city,
+noof_persons, remarks, currency, amount, created_date, created_by)values
+(P_salesorder_gid,p_car_type,p_from_date,p_to_date,p_pickup_city,p_drop_city,
+p_noof_persons,p_remarks,p_currency,p_amount,now(),p_created_by);
+
+set p_reference_gid = (select carservice_gid from sal_trn_tcarservice
+order by carservice_gid desc limit 1);
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,P_salesorder_gid,'car',concat(p_car_type,'/',p_pickup_city,'/',p_drop_city,'/',p_noof_persons),
+p_remarks,p_amount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_soforex` $$
+CREATE  PROCEDURE `sp_ins_soforex`(
+
+IN `P_salesorder_gid` int(11),
+IN `p_customerpaid_amount` float,
+IN `p_customerreceived_amount` float,
+IN `p_remarks` longtext,
+IN `p_created_by` varchar(64),
+IN `p_total_paidamount` float,
+IN `p_total_receivedamount` float,
+IN `p_paidamount_exchangerate` float,
+IN `p_receivedamount_exchangerate` float,
+IN `p_paidamount_currency` varchar(45),
+IN `p_receivedamount_currency` varchar(45),
+IN `p_reference_gid` int(11)
+
+)
+BEGIN
+
+set p_paidamount_currency = (select currency_name from sys_mst_tcurrency where currency_gid=p_paidamount_currency);
+
+set p_receivedamount_currency = (select currency_name from sys_mst_tcurrency where currency_gid=p_receivedamount_currency);
+
+insert into sal_trn_tforexservice
+(salesorder_gid, customerpaid_amount, customerreceived_amount, remarks, created_date, created_by,total_paidamount,
+ total_receivedamount, paidamount_exchangerate,
+ receivedamount_exchangerate, paidamount_currency, receivedamount_currency)values
+(P_salesorder_gid,p_customerpaid_amount,p_customerreceived_amount,p_remarks,now(),p_created_by,p_total_paidamount,p_total_receivedamount,
+p_paidamount_exchangerate,p_receivedamount_exchangerate,p_paidamount_currency,p_receivedamount_currency);
+
+
+set p_reference_gid = (select forexservice_gid from sal_trn_tforexservice
+order by forexservice_gid desc limit 1);
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,P_salesorder_gid,'forex',
+concat(p_customerpaid_amount,'/',p_paidamount_currency,'/',p_customerreceived_amount,'/',p_receivedamount_currency),
+p_remarks,p_total_paidamount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+ALTER TABLE `travelapp`.`sal_trn_tforexservice` MODIFY COLUMN `forexservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_soinsurance` $$
+CREATE  PROCEDURE `sp_ins_soinsurance`(
+
+IN `p_salesorder_gid` int(11),
+IN `p_name` varchar(64),
+IN `p_dateof_birth` varchar(64),
+IN `p_arrival_port` varchar(64),
+IN `p_start_date` varchar(64),
+IN `p_end_date` varchar(64),
+IN `p_currency` varchar(64),
+IN `p_amount` float,
+IN `p_remarks` longtext,
+IN `p_created_by` varchar(64),
+IN `p_reference_gid` int(11),
+IN `p_passenger_name` varchar(45)
+
+)
+BEGIN
+
+set p_passenger_name=(select concat(first_name,' ',last_name)as passenger_name from sal_trn_tpassengerservice
+where passengerservice_gid=p_name);
+
+insert into sal_trn_tinsuranceservice
+(salesorder_gid, name, dateof_birth, arrival_port, start_date,
+end_date, currency, amount, remarks, created_date, created_by)values
+(p_salesorder_gid,p_passenger_name,p_dateof_birth,p_arrival_port,p_start_date,
+p_end_date,p_currency,p_amount,p_remarks,now(),p_created_by);
+
+set p_reference_gid = (select insuranceservice_gid from sal_trn_tinsuranceservice
+order by insuranceservice_gid desc limit 1);
+
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,P_salesorder_gid,'insurance',concat(p_name,'/',p_arrival_port,'/',p_start_date,'/',p_end_date),
+p_remarks,p_amount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_salesorderformtoactivitysummary` $$
+CREATE PROCEDURE `sp_sel_salesorderformtoactivitysummary`(
+IN `p_salesorder_gid` int(11)
+)
+BEGIN
+select
+salesactivity_gid,
+salesorder_gid,
+service_type,
+reference,
+remarks,
+amount,status  from sal_trn_tsalestoactivity where salesorder_gid=p_salesorder_gid order by salesactivity_gid desc ;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_sopassenger` $$
+CREATE PROCEDURE `sp_sel_sopassenger`(
+IN `P_salesorder_gid` varchar(64)
+)
+BEGIN
+select concat(first_name,' ',last_name) as passenger_name,passengerservice_gid,
+gender, dateof_birth, passport_no,salesorder_gid,passportissued_date,
+passportexpiry_date from sal_trn_tpassengerservice where salesorder_gid=P_salesorder_gid;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_sopassport` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_sopassport`(
+
+IN `p_salesorder_gid` int(11),
+IN `p_passenger_name` varchar(64),
+IN `p_id_proof` varchar(64),
+IN `p_additional_proof` varchar(64),
+IN `p_photo` varchar(64),
+IN `p_anygovt_document` varchar(256),
+IN `p_amount` double,
+IN `p_upload_documents` varchar(256),
+IN `p_created_by` varchar(64),
+IN `p_reference_gid` int(11),
+IN `p_tmppassengerservice_gid` varchar(64)
+
+)
+BEGIN
+
+set p_passenger_name=(select concat(first_name,' ',last_name)as passenger_name from sal_trn_tpassengerservice
+where passengerservice_gid=p_tmppassengerservice_gid);
+
+
+insert into sal_trn_tpassportservice
+(salesorder_gid, passenger_name, id_proof, additional_proof,
+ photo, anygovt_document, amount, upload_documents, created_date, created_by)values
+(p_salesorder_gid,p_passenger_name,p_id_proof,p_additional_proof,p_photo,p_anygovt_document,p_amount,
+p_upload_documents,now(),p_created_by);
+
+
+set p_reference_gid = (select passportservice_gid from sal_trn_tpassportservice
+order by passportservice_gid desc limit 1);
+
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,p_salesorder_gid,'passport',concat(p_passenger_name,'/',p_id_proof),
+concat(p_additional_proof,'/',p_anygovt_document),p_amount,now(),p_created_by);
+
+
+END $$
+
+DELIMITER ;
+
+ALTER TABLE `travelapp`.`sal_trn_tpassportservice` MODIFY COLUMN `passportservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT,
+ MODIFY COLUMN `id_proof` VARCHAR(64) CHARACTER SET utf8 COLLATE utf8_general_ci,
+ ADD INDEX Index_1(`passportservice_gid`);
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_sovisa` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_sovisa`(
+
+IN `p_salesorder_gid` int(11),
+IN `p_passenger_name` varchar(64),
+IN `p_country` varchar(64),
+IN `p_application_date` varchar(64),
+IN `p_visa_period` varchar(50),
+IN `p_expiry_date` varchar(50),
+IN `p_currency` varchar(64),
+IN `p_amount` double(13,2),
+IN `p_created_by` varchar(64),
+IN `p_passenger_gid` int(11),
+IN `p_reference_gid` int(11),
+IN `p_passport_no` VARCHAR(64)
+
+)
+BEGIN
+
+
+set p_passenger_name = (select concat(first_name,'',last_name) as name from sal_trn_tpassengerservice where passengerservice_gid=p_passenger_gid);
+
+set p_passport_no = (select passport_no from sal_trn_tpassengerservice where passengerservice_gid=p_passenger_gid);
+
+set p_country = (select country_name from sys_mst_tcurrency where country_code=p_country);
+
+insert into sal_trn_tvisaservice
+(salesorder_gid, passenger_name, country, application_date,
+visa_period, expiry_date, currency, amount, created_date, created_by,passenger_gid) values
+(p_salesorder_gid,p_passenger_name,p_country,p_application_date,p_visa_period,p_expiry_date,p_currency,p_amount,
+now(),p_created_by,p_passenger_gid);
+
+set p_reference_gid = (select visaservice_gid from sal_trn_tvisaservice
+order by visaservice_gid desc limit 1);
+
+set p_passport_no= (select passport_no from sal_trn_tpassengerservice where passengerservice_gid=p_passenger_gid);
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type, reference,remarks, amount, created_date, created_by)
+values(p_reference_gid,p_salesorder_gid,'visa',concat(p_passenger_name,'/',p_passport_no,'/',p_visa_period),
+concat(p_country,'/',p_currency),p_amount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+
+ALTER TABLE `travelapp`.`sal_trn_tvisaservice` MODIFY COLUMN `visaservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_soflightpassengerdtl` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_soflightpassengerdtl`(
+
+
+IN `p_salesorder_gid` int(11),
+IN `p_flightservice_gid` varchar(64),
+IN `p_passenger_gid` varchar(64),
+IN `p_passport_no` varchar(128),
+IN `p_passengerfirst_name` varchar(128),
+IN `p_passengerlast_name` varchar(128),
+IN `p_created_by` varchar(64)
+
+)
+BEGIN
+
+set p_flightservice_gid=(select flightservice_gid from sal_trn_tflightservice
+where created_by=p_created_by order by flightservice_gid desc limit 1);
+
+insert into sal_trn_tflightpassengerservicedtl
+( salesorder_gid, flightservice_gid, passport_no, passenger_name, created_date, created_by, passenger_gid)values
+(
+p_salesorder_gid,
+p_flightservice_gid,
+p_passport_no,
+p_passengerfirst_name,
+now(),
+p_created_by,
+p_passenger_gid
+);
+
+
+
+END $$
+
+DELIMITER ;
+
+
+ALTER TABLE `travelapp`.`sal_trn_tflightpassengerservicedtl` CHANGE COLUMN `tmpflightservice_gid` `flightservice_gid` INTEGER DEFAULT NULL;
+
+ALTER TABLE `travelapp`.`sal_trn_thotelservice` MODIFY COLUMN `hotelservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+ALTER TABLE `travelapp`.`sal_trn_tcarservice` MODIFY COLUMN `carservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_sopackage` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_sopackage`(
+
+IN `P_salesorder_gid` int(11),
+IN `p_remarks` longtext,
+IN `p_upload_documents` varchar(256),
+IN `p_created_by` varchar(64),
+IN `p_amount` float,
+IN `p_reference_gid` int(11)
+
+)
+BEGIN
+
+
+insert into sal_trn_tpackageservice
+(salesorder_gid, remarks, upload_documents, created_date, created_by,amount) values
+(P_salesorder_gid,p_remarks,p_upload_documents,now(),p_created_by,p_amount);
+
+set p_reference_gid = (select packageservice_gid from sal_trn_tpackageservice
+order by packageservice_gid desc limit 1);
+
+insert into sal_trn_tsalestoactivity
+(reference_gid, salesorder_gid, service_type,
+remarks, amount, created_date, created_by)values
+(p_reference_gid,P_salesorder_gid,'package',p_remarks,p_amount,now(),p_created_by);
+
+END $$
+
+DELIMITER ;
+
+ALTER TABLE `travelapp`.`sal_trn_tpackageservice` MODIFY COLUMN `packageservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+ALTER TABLE `travelapp`.`sal_trn_tinsuranceservice` MODIFY COLUMN `insuranceservice_gid` INTEGER UNSIGNED NOT NULL DEFAULT NULL AUTO_INCREMENT;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_sopassport` $$
+CREATE PROCEDURE `sp_sel_sopassport`(
+IN `p_salesorder_gid` varchar(45)
+)
+BEGIN
+
+SELECT * FROM sal_trn_tpassportservice where salesorder_gid=p_salesorder_gid ;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_sovisa` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_sovisa`(
+
+IN `P_salesorder_gid` varchar(45)
+)
+BEGIN
+
+SELECT * FROM sal_trn_tvisaservice  where salesorder_gid=P_salesorder_gid;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_soflight` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_soflight`(
+
+
+IN `P_salesorder_gid` varchar(45)
+)
+BEGIN
+SELECT a.flight_no, a.flight_name,a.departure_date, a.flight_time,
+a.flight_from,a.flight_to,amount,group_concat('''',b.passenger_name,'''') as passenger_name FROM sal_trn_tflightservice a
+inner join sal_trn_tflightpassengerservicedtl b on b.flightservice_gid=a.flightservice_gid
+group by a.flightservice_gid;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_sohotel` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_sohotel`(
+
+IN `P_salesorder_gid` varchar(45))
+BEGIN
+SELECT * FROM sal_trn_thotelservice where salesorder_gid=P_salesorder_gid;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_soforex` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_soforex`(
+IN `P_salesorder_gid` varchar(45)
+)
+BEGIN
+SELECT * FROM sal_trn_tforexservice where salesorder_gid=P_salesorder_gid;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_sopackage` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_sopackage`(
+
+IN `P_salesorder_gid` varchar(45)
+)
+BEGIN
+SELECT * FROM sal_trn_tpackageservice where salesorder_gid=P_salesorder_gid;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_soinsurance` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_soinsurance`(
+IN `P_salesorder_gid` varchar(45)
+)
+BEGIN
+SELECT * FROM sal_trn_tinsuranceservice where salesorder_gid=P_salesorder_gid;
+END $$
+
+DELIMITER ;

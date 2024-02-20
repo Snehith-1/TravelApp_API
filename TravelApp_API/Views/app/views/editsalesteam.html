@@ -1,0 +1,47 @@
+    <h3 style="color:#000000;"> Edit Sales Team</h3>
+    <div ng-controller="EditSalesteamController as editsalesteam">
+      <div class="panel panel-default">        
+        <div class="panel-body">
+         <div class="row">
+           <div class="col-sm-12">
+            <div class="form-group">
+             <div class="mda-form-group float-label">
+               <input ng-model="ntitle" name="ntitle" tabindex="0" required="" class="mda-form-control" />
+               <label>Sales Team Code</label>
+             </div> 
+           </div>
+         </div>
+       </div>
+       <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <div class="mda-form-group float-label">
+             <input ng-model="ntitlesales" name="ntitlesales" tabindex="1" required="" class="mda-form-control" />
+             <label>Sales Team Name</label>
+           </div> 
+         </div>
+       </div>
+     </div>
+     <div class="row">
+       <div class="col-sm-2">
+       </div>
+       <div class="col-sm-4">
+       
+        <div  class="form-group" class="pull-right">
+          <button type="button" ng-click="update()" class="pull-left btn btn-green">
+           Update
+          </button>
+        </div>
+      </div>
+      <div class="col-sm-4">
+         <button type="button" ng-click="back()" class="pull-left mb-sm btn btn-primary">
+          Back
+          </button>
+      </div>
+
+       <div class="col-sm-2">
+        </div>
+
+    </div>
+  </div>
+

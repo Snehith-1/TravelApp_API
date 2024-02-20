@@ -1,0 +1,49 @@
+<h3 style="color:#000000;">Bank Book</h3>
+ <div ng-controller="BankbookController as bankbook">
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+       Bank Book
+    </div>
+    <div class="table-responsive">
+       
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                       
+                        <th>Bank Code</th>
+                        <th>Bank Name</th>
+                        <th>Branch Name</th>
+                        <th>Account No</th>
+                        <th>IFSC Code</th>
+                        <th>NEFT Code</th>
+                        <th>SWIFT Code</th>
+                        <th>Opening Balance</th>
+                        <th>Closing Balance</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in bankbook.toes">
+                       
+                        <td>{{toe.bankcode}}</td>
+                        <td>{{toe.bankname}}</td>
+                        <td>{{toe.branchname}}</td>
+                        <td>{{toe.accountno}}</td>
+                        <td>{{toe.ifsccode}}</td>
+                        <td>{{toe.neftcode}}</td>
+                        <td>{{toe.swiftcode}}</td>
+                        <td>{{toe.openingbalance}}</td>
+                        <td>{{toe.closingbalance}}</td>
+                       <td class="text-center">
+                            <div ng-click="select()">
+                                <a href="">Select</a>
+                            </div>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+     
+    </div>
+</div>
+</div>

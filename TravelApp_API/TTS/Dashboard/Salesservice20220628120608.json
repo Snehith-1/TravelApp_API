@@ -1,0 +1,14 @@
+[
+  {
+    "value": 99.0,
+    "color": "#26C6DA  ",
+    "label": "Car",
+    "highlight": "#26C6DA  "
+  },
+  {
+    "value": 0.0,
+    "color": "#03A9F4  ",
+    "label": "Hotel",
+    "highlight": "#03A9F4  "
+  }
+]

@@ -1,0 +1,21 @@
+[{
+    "invoice_date": "09-06-2017",
+    "invoice_no": "INV001",
+    "customer_name": "VCIDEX Solutions PVT LTD",
+    "contact_details": "Kishore/8769543678",
+ "process": "Visa",
+    "created_by": "Aravind",
+    "created_date": "09-06-2017",
+    "invoice_amount": "200.00"
+},
+{
+   "invoice_date": "10-06-2017",
+    "invoice_no": "INV002",
+    "customer_name": "Aravind",
+    "contact_details": "Aravind/9806754322",
+ "process": "Passport",
+    "created_by": "Mythili",
+    "created_date": "10-06-2017",
+    "invoice_amount": "200.00"
+}
+]

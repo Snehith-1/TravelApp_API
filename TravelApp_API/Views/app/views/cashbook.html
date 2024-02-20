@@ -1,0 +1,44 @@
+<h3 style="color:#000000;">Cash Book</h3>
+ <div ng-controller="cashbookcontrolleradd as cashbook">
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+       Cash Book
+    </div>
+   <div class="table-responsive">
+       
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                       
+                        <th >Branch Code</th>
+                        <th >Branch Name</th>
+                        <th >GL Code</th>
+                        <th >Opening Balance</th>
+                        <th >Closing Amount</th>
+                        <th >Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in cashbook.toes">
+                       
+                        <td>{{toe.branchcode}}</td>
+                        <td>{{toe.branchname}}</td>
+                        <td>{{toe.glcode}}</td>
+                        <td>{{toe.openingbalance}}</td>
+                        <td>{{toe.closingamount}}</td>
+                       <td>
+                            <div ng-click="select()">
+                                <a href="">Select</a>
+                            </div>
+                            <div ng-click="edit()">
+                                <a href="">Edit</a>
+                            </div>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+     
+    </div>
+</div>
+</div>

@@ -1,0 +1,42 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `safarsol`.`sp_ins_enquiry` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_enquiry`(
+  IN `p_enquiry_refnumber` varchar(64),
+  IN `p_customer_type` varchar(45),
+  IN `p_enquiry_source` varchar(45),
+  IN `p_company_name` varchar(120),
+  IN `p_contact_number` varchar(45),
+  IN `p_travel_from` varchar(45),
+  IN `p_travel_to` varchar(45),
+  IN `p_email_address` varchar(45),
+  IN `p_remarks` text,
+  IN `p_travel_remarks` text(45),
+  IN `p_numberof_peopletravel` int,
+  IN `p_adult` int,
+  IN `p_children` int,
+  IN `p_infant` int,
+  IN `p_enquiry_status` varchar(64),
+  IN `p_enquiry_date` varchar(45),
+  IN `p_created_by` varchar(64),
+  IN `p_customer_name` varchar(64),
+  IN `p_branch_gid` varchar(64),
+  IN `p_branch_name` varchar(64),
+  In `p_customer_gid`varchar(64)
+  )
+BEGIN
+  set p_branch_gid=(select branch_gid from sys_mst_tuser order by branch_gid desc limit 1);
+  set p_branch_name=(select branch_name from sys_mst_tbranch where branch_gid=p_branch_gid);
+
+  insert into sal_trn_tenquiry (enquiry_refnumber, customer_type, enquiry_source, contact_number, travel_from, travel_to, email_address,
+   remarks, travel_remarks, numberof_peopletravel, adult, children, infant, enquiry_status, enquiry_date,company_name,customer_name,
+    created_date, created_by,branch_gid,branch_name,customer_gid)
+  values
+  (p_enquiry_refnumber,p_customer_type,p_enquiry_source,p_contact_number,p_travel_from,p_travel_to,p_email_address,p_remarks,
+  p_travel_remarks,p_numberof_peopletravel,p_adult,p_children,p_infant,p_enquiry_status,p_enquiry_date,p_company_name,p_customer_name,
+  now(),p_created_by,p_branch_gid,p_branch_name,p_customer_gid);
+
+
+  END $$
+
+DELIMITER ;

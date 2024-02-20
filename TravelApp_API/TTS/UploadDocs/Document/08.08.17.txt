@@ -1,0 +1,93 @@
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_upt_document` $$
+CREATE PROCEDURE `sp_upt_document`(
+IN `p_document_name` text,
+IN `p_document_type` varchar(64),
+IN `p_next_renewaldate` varchar(64),
+IN `p_reminder_date` varchar(64),
+IN `p_upload_documents` text,
+IN `p_uploaded_by` varchar(64),
+IN `p_document_gid` int(12)
+)
+BEGIN
+
+if (p_upload_documents='') then
+set p_upload_documents = (select upload_documents from sys_trn_tdocument where document_gid=p_document_gid);
+end if;
+
+update sys_trn_tdocument set document_name=p_document_name,
+document_type=p_document_type,
+next_renewaldate=p_next_renewaldate,
+reminder_date=p_reminder_date,
+upload_documents=p_upload_documents,
+uploaded_date=now(),
+uploaded_by=p_uploaded_by where document_gid=p_document_gid;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_serviceactivity` $$
+CREATE PROCEDURE `travelapp`.`sp_sel_serviceactivity` (
+IN `p_servicename` varchar(65)
+)
+BEGIN
+
+select a.activity_name,a.activity_gid from sys_mst_tactivitysummary a
+left join sys_mst_tservice b on b.service_gid=a.service_gid
+where b.service_name=p_servicename;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_salesorderformtoactivitysummary` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_salesorderformtoactivitysummary`(
+IN `p_salesorder_gid` int(11)
+)
+BEGIN
+select
+tmpsalesactivity_gid,
+reference_gid,
+salesorder_gid,
+service_type,
+reference,
+remarks,
+amount  from sal_tmp_tsalestoactivity where salesorder_gid=p_salesorder_gid;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_ins_orderprocessingformtemptomaildtl` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_orderprocessingformtemptomaildtl`(
+
+IN `P_salesorder_gid` varchar(64),
+IN `P_tempsalesactivitygid` int(11),
+IN `p_orderprocessing_gid` int(11),
+IN `p_service_type` varchar(64),
+IN `p_reference` varchar(64),
+IN `p_status` varchar(64),
+IN `p_amount` double
+
+)
+BEGIN
+
+set p_orderprocessing_gid=(select orderprocessingform_gid from opt_trn_toprocessing
+where salesorder_gid=P_salesorder_gid order by orderprocessingform_gid desc limit 1);
+
+insert into opt_trn_toprocessingdtl
+(orderprocessing_gid, service_gid,amount,status, reference)values
+(p_orderprocessing_gid,P_tempsalesactivitygid,p_amount,p_status,p_reference);
+
+END $$
+
+DELIMITER ;

@@ -1,0 +1,20 @@
+[
+    {
+	"teamname":"Team1",
+	"assignedmanager":"A.Jalal",
+	"assignedemployee":"B.Sriram",
+	"noofassignedemployee": "1"
+	},
+	 {
+	"teamname":"Team2",
+	"assignedmanager":"K.Karthik",
+	"assignedemployee":"J.Jaya",
+	"noofassignedemployee": "11"
+	},
+	 {
+	"teamname":"Team3",
+	"assignedmanager":"M.Mahi",
+	"assignedemployee":"M.Mathi",
+	"noofassignedemployee": "27"
+	}
+]

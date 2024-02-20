@@ -1,0 +1,67 @@
+<h3 style="color:#000000;">Operation Team</h3>
+ <div ng-controller="OperationteamController as operationteam">
+ <div class="row">
+    <div class="col-sm-4">
+             <button type="button"  class="pull-left btn btn-info btn-cons" ng-click="add()">
+                Add Operationteam
+            </button>
+    </div>
+                                
+</div>
+ <div class="row">
+ &nbsp;&nbsp;
+ </div>
+<div class="panel panel-default">
+
+   <!--  <div class="panel-heading">
+       Operation Team Summary
+    </div> -->
+    <div class="table-responsive">
+       
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                       
+                        <th>Team Name</th>
+                        <th>Assigned Manager</th>
+                        <th>Assigned Employee</th>
+                        <th>No of Assigned Employee</th>
+                        <th class="text-center" colspan="4">Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in toes">
+                       
+                        <td>{{ toe.operationteamname }}</td>
+                        <td>{{ toe.optteammanagername }}</td>
+                        <td>{{ toe.optteamemployeename }}</td>
+                        <td>{{ toe.optnoofemployee }}</td>
+                        <td class="text-center">  
+                            <button type="button" class="btn btn-sm btn-warning" title="Edit">
+                               <em class="fa fa-edit"></em>
+                            </button>
+                            </td>
+                            <td class="text-center"> 
+
+                            <button type="button" class="btn btn-sm btn-green" ng-click="assignmanager()" title="Assign Manager">
+                               <em class="fa fa-user"></em>
+                            </button>
+                            </td>
+                            <td class="text-center"> 
+                            <button type="button" class="btn btn-sm btn-primary" ng-click="assignemployee()" title="Assign Employee"> 
+                               <em class="fa fa-user"></em>
+                            </button>
+                            </td>
+                            <td class="text-center"> 
+                            <button type="button" class="btn btn-sm btn-danger" title="Delete" ng-click="optteamdelete(toe.operationteamgid)">
+                               <em class="fa fa-trash"></em>
+                            </button>
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+     
+    </div>
+</div>
+</div>

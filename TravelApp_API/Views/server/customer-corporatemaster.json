@@ -1,0 +1,27 @@
+[{
+    "company_id": "001",
+    "company_name": "Vcidex Solutions Pvt Ltd",
+    "address": "#9,Mahadevan Street,West Mambalam,Chennai-33",
+    "country": "India",
+    "contact_name": "Ramachandran",
+    "designation": "CEO",
+    "phoneno": "9042085030"
+},
+{
+    "company_id": "002",
+    "company_name": "Myecdocs",
+    "address": "Tidel park,6 thfloor,thiruvanmiyur,Chennai.",
+    "country": "India",
+    "contact_name": "Karthikeyan",
+    "designation": "CTO",
+    "phoneno": "7887567543"
+},
+{
+    "company_id": "003",
+    "company_name": "Zoho Technologies",
+    "address": "ECR,Mahabalipuram Main road,chennai",
+    "country": "India",
+    "contact_name": "Karthikeyan",
+    "designation": "CTO",
+    "phoneno": "7887567543"
+}]

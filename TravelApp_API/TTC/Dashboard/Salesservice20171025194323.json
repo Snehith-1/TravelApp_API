@@ -1,0 +1,50 @@
+[
+  {
+    "value": 10012.0,
+    "color": "",
+    "label": "car",
+    "highlight": ""
+  },
+  {
+    "value": 57567.0,
+    "color": "",
+    "label": "flight",
+    "highlight": ""
+  },
+  {
+    "value": 500037.0,
+    "color": "",
+    "label": "forex",
+    "highlight": ""
+  },
+  {
+    "value": 55012.0,
+    "color": "",
+    "label": "hotel",
+    "highlight": ""
+  },
+  {
+    "value": 7312.0,
+    "color": "",
+    "label": "insurance",
+    "highlight": ""
+  },
+  {
+    "value": 60012.0,
+    "color": "",
+    "label": "package",
+    "highlight": ""
+  },
+  {
+    "value": 35434.0,
+    "color": "",
+    "label": "passport",
+    "highlight": ""
+  },
+  {
+    "value": 28896.0,
+    "color": "",
+    "label": "visa",
+    "highlight": ""
+  }
+]

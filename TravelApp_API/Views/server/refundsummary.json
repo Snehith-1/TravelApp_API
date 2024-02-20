@@ -1,0 +1,50 @@
+[
+{
+    "ref_no": "REF004",
+    "ref_date": "18-12-2016",
+    "soref_no": "SO9891",
+    "customer_name": "Jamal Akbar",
+    "contact_no": "8984560987",
+    "national_id": "OMR1735",
+    "ref_type": "Partial",
+    "order_amount": "12500",
+    "received_amount": "9000",
+    "refund_amount": "3860"    
+},
+{
+    "ref_no": "REF003",
+    "ref_date": "11-01-2017",
+    "soref_no": "SO8791",
+    "customer_name": "Mohammed Azar",
+    "contact_no": "8987870987",
+    "national_id": "OMR1895",
+    "ref_type": "Partial",
+    "order_amount": "6700",
+    "received_amount": "4500",
+    "refund_amount": "1800"  
+},
+{
+    "ref_no": "REF002",
+    "ref_date": "24-05-2017",
+    "soref_no": "SO8378",
+    "customer_name": "Suresh Patel",
+    "contact_no": "7836209679",
+    "national_id": "OMR0967",
+    "ref_type": "No Refund",
+    "order_amount": "28000",
+    "received_amount": "15000",
+    "refund_amount": "0"   
+},
+{
+    "ref_no": "REF001",
+    "ref_date": "10-06-2017",
+    "soref_no": "SO7794",
+    "customer_name": "Aron Madav",
+    "contact_no": "6456783456",
+    "national_id": "OMR1745",
+    "ref_type": "Partial",
+    "order_amount": "17400",
+    "received_amount": "17400",
+    "refund_amount": "12000"    
+}
+]

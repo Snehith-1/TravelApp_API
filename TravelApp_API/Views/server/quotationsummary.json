@@ -1,0 +1,32 @@
+[
+    {
+    "quotation_date":"09-06-2017",
+    "quotation_ref":"QU001",
+    "enquiry_no":"Direct",
+    "customer":"Kiruthika",
+    "quotation_type":"Sales",
+    "created_by":"Aravind",
+    "quotation_amount":"10000.00",
+    "status": "Approved"
+    },
+    {
+     "quotation_date":"10-06-2017",
+    "quotation_ref":"QU002",
+    "enquiry_no":"ENQ001",
+    "customer":"Kiruthika",
+     "quotation_type":"Both",
+    "created_by":"Mythili",
+    "quotation_amount":"15000.00",
+    "status": "Pending"
+    },
+    {
+     "quotation_date":"10-06-2017",
+    "quotation_ref":"QU003",
+    "enquiry_no":"ENQ002",
+    "customer":"Kiruthika",
+     "quotation_type":"Sales",
+    "created_by":"Aravind",
+    "quotation_amount":"10000.00",
+    "status": "Pending"
+    }
+]

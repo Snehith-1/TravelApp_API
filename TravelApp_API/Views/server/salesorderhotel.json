@@ -1,0 +1,13 @@
+[{
+    "hotel_name": "Taj",
+    "category": "Deluxe A/C",
+    "no_days": "3",
+    "no_person": "2"
+},
+{
+    "hotel_name": "Hilton",
+    "category": "Deluxe non A/C",
+    "no_days": "2",
+    "no_person": "2"
+}
+]

@@ -1,0 +1,173 @@
+		<h3 style="color:#000000;">Add Customer</h3>
+		<!-- <small><h4><label> Customer Details</label></h4></small> -->
+	    <div ng-controller="addcustomerCtrl as Customeradd" class="container-fluid">	
+			<div class="row">
+	          <div class="col-md-12">
+			    <div class="panel panel-default">
+					<div class="panel-heading">
+					 <h3 class="panel-title">Customer Details</h3>
+					 </div>
+					  <div class="panel-body">
+					 <form role="form" name="CustomeraddForm" novalidate="" class="form-validate ">
+						<div class="row">
+							<div class="col-md-6">
+								<label>First Name</label>
+								<input class="form-control" type="text" ng-model="first_name" name="first_name" required="" placeholder="Enter First Name" data-ng-change="textOnly()"/>
+	                             <span ng-show="CustomeraddForm.first_name.$dirty &amp;&amp; CustomeraddForm.first_name.$error.required" class="text-danger">Please Enter The First Name
+	                             </span>
+							</div>
+								<div class="col-md-6">
+								<label>Last Name</label>
+								<input class="form-control" type="text" ng-model="last_name" placeholder="Enter Last Name" data-ng-change="textOnly()" />
+							    </div>
+						</div>
+					</br>
+			<div class="row">
+				<div class="col-md-6">
+					<label>Email address</label>
+					<!-- <input class="form-control" type="email" validate-email name='email' id='email' ng-model="email_address" placeholder="Enter email" /> -->
+					<input class="form-control" type="phone" ng-model="email_address" name="email_id"  ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" placeholder="Enter Email Address" class="form-control" required="" />
+									<span ng-show="CustomeraddForm.email_id.$dirty &amp;&amp; CustomeraddForm.email_id.$error.required" class="text-danger">Email ID is required</span>
+	                                <span ng-show="CustomeraddForm.email_id.$dirty &amp;&amp; CustomeraddForm.email_id.$error.pattern" class="text-danger">Please Enter valid Email ID</span>
+				</div>
+					<div class="col-md-6">
+						<label>Contact No.</label>
+	                     <div class="form-group">
+				             
+	                         
+	                          <input class="form-control" placeholder="Enter Contact No." type="text" ng-model="contact_no" name="phone"  ng-pattern="/^\d+$/" maxlength="10" required="" />
+							  <span ng-show="CustomeraddForm.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>
+	                          <span ng-show="CustomeraddForm.phone.$dirty &amp;&amp; CustomeraddForm.phone.$error.required" class="text-danger">Enter Contact No.
+						 </span>	
+	                    </div> 
+					</div>
+			</div>
+						</br>
+							<div class="row">
+							<div class="col-md-6">
+										<label>National ID</label>
+										<input class="form-control" type="text" ng-model="nationalid" placeholder="Enter National ID" />
+										</div>
+										<div class="col-md-6">
+											<label>Customer Type</label>										
+											<select class="form-control" ng-model="customer_type" name="customer_type">
+											  <option value="">--select--</option>
+												<option>Individual</option>
+												<option>Corporate</option>										
+											</select>
+										</div>	
+									</div>
+								</br>
+	                              
+								</div>	
+								</div>	
+						<div class="row">					
+							
+	<div class="col-md-12">
+	   	<div class="panel panel-default">
+	        <div class="panel-heading">
+
+	            <h3 class="panel-title">Billing Address</h3>
+	                </div>
+								
+								<div class="panel-body">
+								<form role="form" name="CustomerForm" novalidate="" class="form-validate ">
+									<div class="col-sm-6">
+										<label>Company Name</label>
+										<input class="form-control" type="text" placeholder="Enter Company Name" ng-model="company_name" name="company_name" required="" data-ng-change="textOnly()" />
+										<span ng-show="CustomerForm.company_name.$dirty &amp;&amp; CustomerForm.company_name.$error.required" class="text-danger"> Enter Company Name
+	                                     </span>
+									</div>
+									<div class="col-sm-6">
+										<label>Address</label>
+										<textarea ng-model="billingaddress" name="billingaddress"  class="form-control" type="text" 
+										placeholder="Enter Address"></textarea>
+									</div>	
+									</br>							
+									<div class="col-sm-6">
+										<label>Country</label>
+										<select name="category" ng-model="billingcountry"  class="mda-form-control"  >
+	                <option value="">--select--</option>
+	                <option value="{{list.countrycode}}" ng-repeat="list in currencybind  ">{{list.countryname}}</option>
+
+	                
+	              </select>													
+									</div>
+									</br>
+									<div class="col-sm-6">
+										<label>Credit Limit</label>
+										
+				<input class="form-control" placeholder="Enter Credit Limit" type="text" ng-model="credit" name="phone"  ng-pattern="/^\d+$/" maxlength="" required="" />
+							  
+	             <span ng-show="CustomerForm.phone.$dirty &amp;&amp; CustomerForm.phone.$error.required" class="text-danger"> Enter Credit Limit
+	                </span>
+	                     <span ng-show="CustomerForm.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>
+
+									</div>
+									<div class="col-sm-6">
+										<label>Remarks</label>
+										<textarea ng-model="billingRemarks" name="Remarks"  class="form-control" type="Remarks" 
+										placeholder="Enter Remarks"></textarea>
+									</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					
+	<div class="row">
+		<div class="col-md-12">
+	   	    <div class="panel panel-default">
+	            <div class="panel-heading">
+	            <h3 class="panel-title">Mailing Address</h3>
+	            </div>
+								
+					<div class="panel-body">
+					<form role="form" name="mailingaddressForm" novalidate="" class="form-validate " >
+						<div class="col-sm-6">
+								<label>Company Name</label>
+								<input class="form-control" type="text" ng-model="mailingcompany_name" name=" mailingcompany_name"  required="" placeholder="Enter Company Name" data-ng-change="textOnly()" />
+
+	                            <span ng-show="mailingaddressForm.mailingcompany_name.$dirty &amp;&amp; mailingaddressForm.mailingcompany_name.$error.required" class="text-danger"> Enter Company Name
+
+						</div>
+							<div class="col-sm-6">
+								<label>Address</label>
+								<textarea ng-model="mailingaddress" name="address"  class="form-control" type="name" 
+										placeholder="Enter Address"></textarea>
+							</div>
+
+								<div class="col-sm-6">
+										<label>Country</label>
+										 <select name="category" ng-model="mailcountry"  class="mda-form-control"  >
+	                <option value="">--select--</option>
+	                <option value="{{list.countrycode}}" ng-repeat="list in currencybind  ">{{list.countryname}}</option>
+
+	                
+	              </select>							
+									</div>
+									<div class="col-sm-6">
+										<label>Remarks</label>
+										<textarea ng-model="Remarks" name="mailRemarks"  class="form-control" type="name" 
+										placeholder="Enter Remarks"></textarea>
+									</div>
+									</form>
+								</div>
+						
+						</div>
+					</div>
+				</div>
+				<div class="panel-footer text-center">
+	                <button type="submit" class="btn btn-green" ng-disabled="mailingaddressForm.$invalid"" ng-click="add_customer()">Submit</button> &nbsp;
+	                <button type="cancel" class="btn btn-danger" ng-click="back_customer()">Back</button>
+	            </div>  			
+			</div>
+
+			</div>
+
+			</div>
+
+	</div>
+	</form>
+	</div>
+	</div>
+	</div>

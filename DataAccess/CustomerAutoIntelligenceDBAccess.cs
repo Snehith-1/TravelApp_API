@@ -1,0 +1,259 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using BusinessEntities;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+
+namespace DataAccess
+{
+    public class CustomerAutoIntelligenceDBAccess
+    {
+
+        
+        MySqlCommand cmd = null;
+        MySqlDataReader rd;
+        string error;
+
+        public CustomerAutoIntelligence customerautointelligencesummary(CustomerAutoIntelligenceDetails val)
+        {
+            CustomerAutoIntelligence cusintgnce = new CustomerAutoIntelligence();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_intelligencelist");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_prefixtext", val.prefixtext);
+                cmd.Parameters.AddWithValue("p_customer_type", val.customer_type);
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<CustomerAutoIntelligenceList>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new CustomerAutoIntelligenceList
+                        {
+                            customer_name = rd["customer_name"].ToString(),
+                            customer_gid = rd["customer_gid"].ToString(),
+                           
+                        });
+                    }
+                    cusintgnce.CustomerAutoIntelligenceList = summary;
+                    cusintgnce.status = true;
+
+
+                }
+                else
+                {
+                    cusintgnce.status = false;
+                    cusintgnce.message = "No Records Fund";
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                //objcmnfunction.Auditlog("Country", "Failure", e.ToString(), "Student", objcon);
+                //objsubdocument_intelligencelist.status = false;
+                //objcmnfunction.Getresponse("ERR_0001", ref msg, ref type, objcon);
+                cusintgnce.status = false;
+                cusintgnce.message = "Error Occured While Show the Record";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return cusintgnce;
+        }
+
+
+
+        public CustomerAutoIntelligence paxautointelligencesummary(CustomerAutoIntelligenceDetails val)
+        {
+            CustomerAutoIntelligence cusintgnce = new CustomerAutoIntelligence();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_airintelligencelist");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_prefixtext", val.prefixtext);
+         
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<CustomerAutoIntelligenceList>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new CustomerAutoIntelligenceList
+                        {
+                            epax_name = rd["epax_name"].ToString(),
+                            air_gid = rd["air_gid"].ToString(),
+
+                        });
+                    }
+                    cusintgnce.CustomerAutoIntelligenceList = summary;
+                    cusintgnce.status = true;
+
+
+                }
+                else
+                {
+                    cusintgnce.status = false;
+                    cusintgnce.message = "No Records Fund";
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                //objcmnfunction.Auditlog("Country", "Failure", e.ToString(), "Student", objcon);
+                //objsubdocument_intelligencelist.status = false;
+                //objcmnfunction.Getresponse("ERR_0001", ref msg, ref type, objcon);
+                cusintgnce.status = false;
+                cusintgnce.message = "Error Occured While Show the Record";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return cusintgnce;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        public journalaccountAutoIntelligence journalaccountlist(journalaccountlistdetails val)
+        {
+            journalaccountAutoIntelligence account = new journalaccountAutoIntelligence();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_accountintelligence");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_prefixtext", val.prefixtext);
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<journalaccountlist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new journalaccountlist
+                        {
+                            account_name = rd["account_name"].ToString(),
+                            account_gid = rd["account_gid"].ToString()
+                        });
+                    }
+                    account.journalaccountAutoIntelligencelist = summary;
+                    account.status = true;
+
+
+                }
+                else
+                {
+                    account.status = false;
+                    account.message = "No Records Fund";
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                //objcmnfunction.Auditlog("Country", "Failure", e.ToString(), "Student", objcon);
+                //objsubdocument_intelligencelist.status = false;
+                //objcmnfunction.Getresponse("ERR_0001", ref msg, ref type, objcon);
+                account.status = false;
+                account.message = "Error Occured While Show the Record";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return account;
+        }
+
+        public journalaccountgrouplistAutoIntelligence journalaccountgrouplist(journalaccountgrouplistdetails val)
+        {
+            journalaccountgrouplistAutoIntelligence account = new journalaccountgrouplistAutoIntelligence();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_accountintelligence");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_prefixtext", val.prefixtext);
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<journalaccountgrouplist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new journalaccountgrouplist
+                        {
+                            account_name = rd["customer_name"].ToString(),
+                            account_gid = rd["customer_gid"].ToString()
+                        });
+                    }
+                    account.journalaccountgroupAutoIntelligencelist = summary;
+                    account.status = true;
+
+
+                }
+                else
+                {
+                    account.status = false;
+                    account.message = "No Records Fund";
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                //objcmnfunction.Auditlog("Country", "Failure", e.ToString(), "Student", objcon);
+                //objsubdocument_intelligencelist.status = false;
+                //objcmnfunction.Getresponse("ERR_0001", ref msg, ref type, objcon);
+                account.status = false;
+                account.message = "Error Occured While Show the Record";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return account;
+        }
+    }
+}

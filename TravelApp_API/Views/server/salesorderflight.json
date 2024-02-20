@@ -1,0 +1,33 @@
+[{
+    "passenger_name": "Mahi",
+    "flight_no": "SP001",
+    "flight_name": "Spice Jet",
+    "from": "India",
+    "to": "Omen",
+    "amount": "12000"
+},
+{
+    "passenger_name": "Mythili",
+    "flight_no": "SP002",
+    "flight_name": "Spice Jet",
+    "from": "India",
+    "to": "Omen",
+    "amount": "12000"
+},
+{
+    "passenger_name": "Aravind",
+    "flight_no": "IN003",
+    "flight_name": "Indigo",
+    "from": "India",
+    "to": "Omen",
+    "amount": "12000"
+},
+{
+    "passenger_name": "Yesvanth",
+    "flight_no": "IN004",
+    "flight_name": "Indigo",
+    "from": "India",
+    "to": "Omen",
+    "amount": "12000"
+}
+]

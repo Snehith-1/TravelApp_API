@@ -1,0 +1,69 @@
+ <h3 style="color:#000000;">Invoice Summary</h3>
+<div ng-controller="invoicesummarycontroller as invoice" class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+
+        <button type="button" ng-click="invoiceadd()" class="pull-left btn btn-info btn-cons">
+        Create Invoice
+    </button>
+</div>
+
+</div>
+<div class="row">
+   &nbsp;&nbsp;
+</div>
+ <div class="row">
+ <div class="panel panel-default">
+             
+             
+  <div class="panel-heading">
+  <div class="row">
+				<div class="col-sm-4">
+					<!-- <div style="font-size: 18px;" class="form-group">
+						
+						<label>Invoice Summary</label>
+						
+					</div> -->
+				</div>
+			</div>
+        <div class="table-responsive">
+ <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Invoice Date</th>
+          <th>Invoice Ref No</th>
+          <th>Customer Name</th>
+          <th>Contact Details</th>
+          <th>Created By</th>
+          <th>Created Date</th>
+          <th>Invoice Amount</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in invoicesum">
+          <td>{{toe.invoicedate}}</td>
+          <td>{{toe.invoicereferenceno}}</td>
+          <td>{{toe.customer}}</td>
+          <td>{{toe.contactdetils}}</td>
+          <td>{{toe.createdby}}</td>
+          <td>{{toe.createddate}}</td>
+           <td align="right">{{toe.invoiceamountwithtax}}</td>
+          <td class="text-center">
+
+            <button type="button" title="Edit" class="btn btn-sm btn-warning">
+              <em class="fa fa-edit"></em>
+            </button>
+            </td>
+            <td class="text-center">
+            <button type="button" title="Delete" ng-click="Delete(toe.invoicegid)"  class=" btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+    </div>
+ </div>

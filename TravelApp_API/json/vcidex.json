@@ -1,0 +1,10 @@
+{
+  "objectname": [
+    {
+      "id": "vcidex",
+      "value": "server=192.168.0.155;user=root;database=StoryboardTravel_ERP;port=3306;password=vision18"
+
+    }
+
+  ]
+}

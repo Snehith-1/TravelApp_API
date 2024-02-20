@@ -1,0 +1,134 @@
+
+  <div ng-controller="orderactivitycontroller as orderactivity">
+     <div class="row">
+         &nbsp;&nbsp;
+     </div>
+      <div class="panel-heading">
+                  <h3 class="panel-title">Customer Invoice Details</h3>
+      </div>
+     <div class="panel panel-default">    
+     <div class="table-responsive">
+      <table datatable="ng" class="table table-bordered table-hover">
+          <thead>
+              <tr>
+                  <th>Service Type</th>
+                  <th>Reference</th>
+                  <th>Activity Log</th>
+                  <th>Status</th>
+                  <th>Amount</th>                 
+              </tr>
+          </thead>
+          <tbody>
+              <tr ng-repeat="inv in invoice">
+                  <td>{{ inv.servicetype }}</td>
+                  <td>{{ inv.reference }}</td>
+                  <td>
+                      <textarea class="form-control">
+                          {{ inv.Activitylog }}
+                      </textarea>                            
+                  </td>
+                  <td>{{ inv.Status }}</td> 
+                   <td align="right">{{ inv.Amount }}</td>  
+           </tr>   
+       </tbody>
+   </table>
+
+  </div>
+   <div  class="row" >
+   <div class="panel-body">
+      <div  class="col-sm-8">
+        <div  class="form-group">
+        </div>          
+        </div>        
+         <div align="right" class="col-sm-2">
+          <div  class="form-group">
+            <label >Total</label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div  class="form-group">
+           <input  class="form-control" type="activity" placeholder="" />
+         </div>
+       </div>
+   </div>
+    <div class="panel-body">
+  <div  class="col-sm-8">
+    <div  class="form-group">
+  </div>          
+  </div>
+        
+         <div align="right" class="col-sm-2">
+          <div  class="form-group">
+            <label >Discount Value</label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div  class="form-group">
+           <input  class="form-control" type="activity" placeholder="" />
+         </div>
+       </div>
+   </div>  
+   </div>
+
+      <div  class="row" >
+   <div class="panel-body">
+  <div  class="col-sm-8">
+    <div  class="form-group">
+  </div>          
+  </div>
+        
+         <div align="right" class="col-sm-2">
+          <div  class="form-group">
+            <label >Net value</label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+           <input  class="form-control" type="activity" placeholder="" />
+         </div>
+       </div>
+   </div>  
+   </div>
+      <div  class="row" >
+   <div class="panel-body">
+  <div  class="col-sm-8">
+    <div  class="form-group">
+  </div>          
+  </div>
+        
+         <div align="right" class="col-sm-2">
+          <div  class="form-group">
+            <label >Advance Paid</label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+           <input  class="form-control" type="activity" placeholder="" />
+         </div>
+       </div>
+   </div>  
+   </div>
+      <div  class="row" >
+   <div class="panel-body">
+  <div  class="col-sm-8">
+    <div  class="form-group">
+  </div>          
+  </div>
+        
+         <div align="right" class="col-sm-2">
+          <div  class="form-group">
+            <label >Balance Amount due</label>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+           <input  class="form-control" type="activity" placeholder="" />
+         </div>
+       </div>
+   </div>  
+   </div>       
+  </div>
+  </div>

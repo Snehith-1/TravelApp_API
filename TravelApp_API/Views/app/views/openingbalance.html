@@ -1,0 +1,185 @@
+<h3 style="color:#000000;"> Opening Balance</h3>
+    <div ng-controller=" openingbalancecontroller as openingbalance" class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <button type="button" ng-click="addopenbalance()" class="pull-left btn btn-info btn-cons">
+                    Creat Opening Balance
+                 </button>
+            </div>
+        </div>
+        <div class="row">
+         <div class="col-md-2"></div>
+           <div class="col-sm-4">
+              <div class="mda-form-group">
+                <label>Branch</label>
+                    <select name="branch"  class="mda-form-control">
+                      <option>All</option>
+                      <option>KVR</option>
+                      <option>PR  Consultancy</option>
+                      <option>VTR Pvt Ltd</option>
+                    </select>
+              </div>
+            </div>
+             <div class="col-md-2"></div>
+            <div class="col-sm-4"> 
+               <div class="mda-form-group">
+                 <label>Financial Year</label>
+                 <select name="financialyear" class="mda-form-control">
+                   <option>2013-2014</option>
+                   <option>2014-2015</option>
+                   <option>2015-2016</option>
+                   <option>2016-2017</option>
+                 </select>
+               </div>
+            </div>
+        </div>
+        <div class="row">
+           <div class="panel panel-default">
+              <div class="panel-heading">
+                 Opening Balance
+              </div>
+           </div>
+          
+        </div>
+        <div class="row">
+
+          <div class="col-sm-6">
+              <div class="panel panel-default">
+          
+                 <div class="panel-heading">
+                   LIABILITY
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                ASSET
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="row">
+          
+          <div class="col-sm-6">
+             
+                  <div class="col-sm-6">
+                    <div class="panel panel-default">
+                      Account Name
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="col-sm-6">
+                    <div class="panel panel-default">
+                      Credit
+                    </div>
+                  </div>
+         
+      
+    
+
+         <div class="panel-body">
+       
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Account Group Name</th>
+                        <th>Account Name</th>
+                        <th>Opening Balance</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in openingbalance.toes">
+                        <td>{{ toe.accountgroupname }}</td>
+                        <td>{{ toe.accountname }}</td>
+                        <td class="text-right">{{ toe.openingbalance }}</td>
+                        <td class="text-right">{{ toe.debit }}</td>
+                        <td class="text-right">{{ toe.credit }}</td>
+                        <td>  
+                            <button type="button" class="btn btn-sm btn-warning" title="Edit">
+                               <em class="fa fa-pencil"></em>
+                            </button>
+                          
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+     
+    </div>
+   </div>
+
+
+
+          <div class="col-sm-6">
+        
+            <div class="col-sm-6">
+                    <div class="panel panel-default">
+                      Account Name
+                    </div>
+            </div>
+
+
+
+                  <div class="col-sm-6">
+                    <div class="panel panel-default">
+                      Debit
+                    </div>
+                  </div>
+
+
+         <div class="panel-body">
+       
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Account Group Name</th>
+                        <th>Account Name</th>
+                        <th>Opening Balance</th>
+                        <th>Debit</th>
+                        <th>Credit</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in openingbalance.toes">
+                        <td>{{ toe.accountgroupname }}</td>
+                        <td>{{ toe.accountname }}</td>
+                        <td class="text-right">{{ toe.openingbalance }}</td>
+                        <td class="text-right">{{ toe.debit }}</td>
+                        <td class="text-right">{{ toe.credit }}</td>
+                        <td>  
+                            <button type="button" class="btn btn-sm btn-warning" title="Edit">
+                               <em class="fa fa-pencil"></em>
+                            </button>
+                          
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+     
+    </div>
+
+
+         
+          </div>
+
+
+        </div>
+
+
+    </div>
+        

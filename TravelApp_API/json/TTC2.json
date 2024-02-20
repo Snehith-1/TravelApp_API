@@ -1,0 +1,10 @@
+{
+  "objectname": [
+    {
+      "id": "TTC2",
+      //"value": "server=localhost;user=root;database=travelapp1;port=3306;password=vision18"
+      "value": "server=localhost;user=root;database=travelapp;port=3306;password=vision18"
+
+    }
+  ]
+}

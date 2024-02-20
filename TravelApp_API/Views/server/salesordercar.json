@@ -1,0 +1,17 @@
+[{
+    "car_type": "Mini",
+    "no_days": "3",
+    "pick_city": "Ibri",
+    "drop_city": "Seeb",
+      "no_person": "2",
+    "remarks": "Need to get extra amount"
+},
+{
+    "car_type": "SUV",
+    "no_days": "2",
+    "pick_city": "Sohar",
+    "drop_city": "Rustaq",
+      "no_person": "2",
+    "remarks": "Need to return amount"
+}
+]

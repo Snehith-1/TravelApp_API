@@ -1,0 +1,114 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using BusinessEntities;
+using MySql.Data.MySqlClient;
+namespace DataAccess
+{
+    public class TokenDBAccess
+    {
+        string error;
+        public string GetuserID(string token_value)
+        {
+            string UserID = string.Empty;
+            MySqlCommand cmd = null;
+            try
+            {
+                cmd = new MySqlCommand("sp_trn_userdetails");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_token", token_value);
+                cmd.Parameters.AddWithValue("p_user_code", "");
+                MySqlDataReader rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    UserID = rd["user_gid"].ToString();
+                }
+                rd.Close();
+
+                return UserID;
+            }
+            catch(Exception ex)
+            {
+                error = ex.ToString();
+                return "error";
+               
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+        //TEST
+        public string GetcompanyID(string token_value)
+        {
+            string company_gid = string.Empty;
+            string company_code = string.Empty;
+            MySqlCommand cmd = null;
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_companydetails");
+                // karthi: commented this cmd.Parameters.AddWithValue("p_token", token_value);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;                              
+                MySqlDataReader rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    company_gid = rd["company_gid"].ToString();
+                    company_code = rd["company_code"].ToString();
+                }
+                rd.Close();
+
+                return company_gid;
+            }
+            catch (Exception ex)
+            {
+                error = ex.ToString();
+                return "error";
+                
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+
+        public string GetcompanyCode(string token_value)
+        {           
+            string company_code = string.Empty;
+            MySqlCommand cmd = null;
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_companydetails");
+                // Karthi: commented this cmd.Parameters.AddWithValue("p_token", token_value);
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                MySqlDataReader rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    company_code = rd["company_code"].ToString();
+                }
+                rd.Close();
+
+                return company_code;
+            }
+            catch (Exception ex)
+            {
+                error = ex.ToString();
+                return "error";
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+        }
+    }
+}

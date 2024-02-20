@@ -1,0 +1,64 @@
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:24:37
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 13:24:37
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:24:57
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 13:24:57
+=============Error Logging ===========
+===========Start============= 22/06/2017 13:26:48
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 13:26:48
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:25:17
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 14:25:17
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:33:51
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 14:33:52
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:36:48
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 14:36:48
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:43:51
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 14:43:51
+=============Error Logging ===========
+===========Start============= 22/06/2017 14:48:49
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 93
+===========End============= 22/06/2017 14:48:49
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:35:14
+Error Message: One or more errors occurred.
+Stack Trace:    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 102
+===========End============= 22/06/2017 15:35:14
+=============Error Logging ===========
+===========Start============= 22/06/2017 15:51:25
+Error Message: One or more errors occurred.
+Stack Trace:    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 96
+===========End============= 22/06/2017 15:51:25
+=============Error Logging ===========
+===========Start============= 22/06/2017 16:42:11
+Error Message: One or more errors occurred.
+Stack Trace:    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at DataAccess.LoginDBAccess.GetToken(String userName, String password) in D:\web\TravelApp_API\DataAccess\LoginDBAccess.cs:line 96
+===========End============= 22/06/2017 16:44:26

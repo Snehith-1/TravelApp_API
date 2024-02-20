@@ -1,0 +1,82 @@
+<h3 style="color:#000000;">Add Cash Book</h3>
+ <div ng-controller="addcashbookcontroller as cashbook">
+<div class="panel panel-default">
+
+    <div class="panel-heading">
+
+       <button type="button" class="btn btn-sm btn-info" ng-click="addcashentry()">
+       Add Entry   
+       </button>
+
+       <button type="button" class="pull-right" class="btn btn-sm btn-info" ng-click="back()">
+           Back
+       </button>
+    
+    </div>
+    <div class="row">
+    <div class="col-sm-4">
+        
+    </div>
+    <div class="col-sm-4">
+      <div class="mda-form-group font-lable">
+         <label>Fiancial Year</label>
+         <select name="fianacialyear" class="mda-form-controll">
+             <option>2012</option>
+             <option>2013</option>
+             <option>2014</option>
+             <option>2015</option>
+             <option>2016</option>
+             <option>2017</option>
+         </select>
+         <label>Year End 2018</label>
+      </div>
+      </div>
+
+         
+         
+             
+        
+
+    </div>
+   <div class="table-responsive">
+       
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                       
+                        <th width="15%">Transaction Date</th>
+                        <th width="10%">Ref No</th>
+                        <th>Branch Name</th>
+                        <th width="15%">Account Name</th>
+                        <th>Remarks</th>
+                        <th>Credit Amount</th>
+                        <th>Debit Amount</th>
+                        <th>Closing Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in cashbook.toes">
+                       
+                        <td>{{toe.transactiondate}}</td>
+                        <td>{{toe.refno}}</td>
+                        <td>{{toe.branchname}}</td>
+                        <td>{{toe.accountname}}</td>
+                        <td>{{toe.remarks}}</td>
+                        <td>{{toe.creditamount}}</td>
+                        <td>{{toe.debitamount}}</td>
+                        <td>{{toe.closingamount}}</td>
+                        <td class="text-center">
+                            
+                        <button type="button" class="btn btn-sm btn-warning" title="Delete">
+                        <em class="fa fa-trash"></em>
+                       </button>
+
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+     
+    </div>
+</div>
+</div>

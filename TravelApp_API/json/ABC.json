@@ -1,0 +1,8 @@
+{
+  "objectname": [
+    {
+      "id": "ABC",
+      "value": "server=localhost;user=root;database=abctravel;port=3306;password=vision18"
+    }
+  ]
+}

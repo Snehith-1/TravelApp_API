@@ -1,0 +1,232 @@
+  <h3 style="color:#000000;">{{'master.ADDEMPLOYEE' | translate }}</h3>
+  <div ng-controller="employeeaddcontroller as addemployee" class="container-fluid">	
+    <form role="form" name="employeeform" novalidate="" class="form-validate">
+      <div class="row">
+
+        <div class="col-md-12">
+         <div class="panel panel-default">
+
+         <div class="panel-heading"><h3 class="panel-title">{{'master.ENTREMPDTL' | translate }}</h3></div>
+          <div class="panel-body">
+
+           <div class="row">
+            <div class="col-md-1"></div>
+           <div class="col-md-4">
+            <label >{{'master.EMPLOYEECODE' | translate }}</label>
+            <input type="text" placeholder="Employee Code" required="" ng-model="employee_code" name="empcode"  class="form-control" />
+             <span ng-show="employeeform.empcode.$dirty &amp;&amp; employeeform.empcode.$error.required" class="text-danger">Enter Employee Code</span>
+          </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <label >{{'master.DEPARTMENT' | translate }}</label> 
+            <select name="category" ng-model="emp_department" name="empdepartment"  class="mda-form-control"  >
+                <option value="">--select-</option>
+                <option value="{{list.departmentgid}}" ng-repeat="list in department ">{{list.departmentname}}</option>
+                </select>
+                <span ng-show="employeeform.empdepartment.$dirty &amp;&amp; employeeform.empdepartment.$error.required" class="text-danger">Select The Employee Department</span>
+          </div>
+        </div>
+
+      </br>
+      <div class="row">
+       <div class="col-md-1"></div>
+       <div class="col-md-4">
+        <label >{{'master.FIRSTNAME' | translate }}</label>
+        <input type="text" ng-model="first_name" required="" name="firstname" placeholder="First Name" class="form-control" />
+         <span ng-show="employeeform.firstname.$dirty &amp;&amp; employeeform.firstname.$error.required" class="text-danger">Enter the Employee Firstname</span>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <label >{{'master.LASTNAME' | translate }}</label>
+        <input type="lastname" ng-model="last_name" placeholder="Last Name" class="form-control" />
+      </div>
+    </div>
+
+  </br>
+  <div class="row">
+   <div class="col-md-1"></div>
+   <div class="col-md-4">
+    <label >{{'master.PASSWORD' | translate }}</label>
+    <input type="password" ng-model="emp_password" name="password"   ng-pattern="/(?=.*[^a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/" ng-minlength="8" class="form-control" placeholder="Password" required="" />
+    <span ng-show="employeeform.password.$dirty &amp;&amp; employeeform.password.$error.required" class="text-danger">Password is required</span>
+    <span ng-show="employeeform.password.$dirty &amp;&amp; employeeform.password.$error.pattern" class="text-danger">One capital letter, one special character and minimum 8 characters required!</span>
+   </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <label >{{'master.CONFIRMPASSWORD' | translate }}</label>
+ <input type="password" id="cnfpassword" name="cnfpassword" ng-pattern=" /(?=.*[^a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])/" ng-minlength="8" ng-model="emppassword" class="form-control" placeholder="Confirm Password" required="" ng-cut="$event.preventDefault()" ng-copy="$event.preventDefault()" ng-paste="$event.preventDefault()"  ui-validate="'$value==emp_password'" ui-validate-watch/>
+  <span ng-show="employeeform.cnfpassword.$dirty &amp;&amp; employeeform.cnfpassword.$error.required" class="text-danger">Confirm Password is required</span>
+    <span ng-show="employeeform.cnfpassword.$dirty &amp;&amp; employeeform.cnfpassword.$error.pattern" class="text-danger">One capital letter, one special character and minimum 8 characters required!</span>
+    <span ng-show="emp_password!=undefined && employeeform.cnfpassword.$error.validator" class="text-danger">Password does not match</span>
+
+  </div>
+  </div>
+
+  </br>
+  <div class="row">
+   <div class="col-md-1"></div>
+   <div class="col-md-4">
+    <label >{{'master.EMAIL' | translate }}</label>
+    <input type="text" ng-model="emp_email" name="email_id" ng-model="itemToAdd.emailid" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" placeholder="Email ID" class="form-control" required="" />
+    <span ng-show="employeeform.email_id.$dirty &amp;&amp; employeeform.email_id.$error.required" class="text-danger">Email ID is required</span>
+    <span ng-show="employeeform.email_id.$dirty &amp;&amp; employeeform.email_id.$error.pattern" class="text-danger">Please Enter valid Email ID</span>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <label >{{'master.CONTACTNO' | translate }}</label>
+
+         <input class="form-control" placeholder="Enter Company Phone No." type="text" ng-model="contact_no" name="phone"  ng-pattern="/^\d+$/" maxlength="10" required="" />
+                <span ng-show="employeeform.phone.$dirty &amp;&amp; employeeform.phone.$error.required" class="text-danger"> Enter Contact No.</span>
+                <span ng-show="employeeform.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>
+         
+  </div>
+  </div>
+
+  </br>
+  <div class="row">
+   <div class="col-md-1"></div>
+   <div class="col-md-4">
+    <label >{{'Passport No.' | translate }}</label>
+    <input type="text"  placeholder="Passport" ng-model="passport_no" name="passport" required=""  class="form-control" />
+     <span ng-show="employeeform.passport.$dirty &amp;&amp; employeeform.passport.$error.required" class="text-danger">Enter Passport No.</span>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <label >{{'Date of Joining' | translate }}</label>
+   <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+              <p class="input-group">
+                <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="$parent.dateofjoining" is-open="dpick.opened"  datepicker-options="dpick.dateOptions" 
+                close-text="Close" class="form-control" />
+                <span class="input-group-btn">
+                  <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                    <em class="fa fa-calendar"></em>
+                  </button>
+                </span></p>
+              </div>
+    </div>
+  </div>
+
+  
+  <div class="row">
+         <div class="col-md-1"></div>
+          <div class="col-md-4">
+             <label >{{'Nationality' | translate }}</label>
+            <input type="text" placeholder="Nationality" ng-model="emp_nationality" name="nationality" required="" class="form-control" />
+            <span ng-show="employeeform.nationality.$dirty &amp;&amp; employeeform.nationality.$error.required" class="text-danger">Enter Nationality</span>
+         </div>
+          <div class="col-md-1"></div>
+        <div class="col-md-4">
+             <label >{{'Document Upload' | translate }}</label>
+           <input type="file" id="File1" name="upload" ng-model="uploadldocument" onchange="angular.element(this).scope().add(this.files)" accept=".csv" class="form-control" />
+       </div>
+  </div>
+ </br>
+
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <label >{{'master.GENDER' | translate }}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="" ng-model="gender" type="radio" placeholder="Male" name="optionsRadios" value="Male" checked="true" /><label>Male</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="" ng-model="genter" type="radio" placeholder="Female" name="optionsRadios" value="Female" checked="" /><label>Female</label>
+
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+
+      <label >{{'master.STATUS' | translate }}</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
+      <input id="" ng-model="emp_status"  type="radio" placeholder="Yes" name="Radios" value="active" checked="" />
+     <label>Active </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input id="" ng-model="emp_status"  type="radio" placeholder="No" name="Radios" value="inactive" checked="" /><label>Inactive</label>
+    </div>
+  </div>
+    </div>
+     
+  </div>
+
+  </div>
+  </div>
+       <div class="row">
+              <div class="col-md-12">
+
+               <div class="panel panel-default">
+               <div class="panel-body">
+                 <div class="panel-heading"> <h3 class="panel-title">{{'master.ENTRADDDTL' | translate }}</h3></div>
+                 <div class="row">
+       <div class="col-md-1"></div>
+       <div class="col-md-4">
+        <div class="form-group">
+        <label >{{'master.ADDRESS1' | translate }}</label>
+        <br>
+      <!--   <textarea rows="4" ng-model="emp_address1" name="address1" required="" class="form-control"></textarea> -->
+       <input id="" ng-model="emp_address1" class="form-control" type="text" placeholder="Enter Address"  />
+         <span ng-show="employeeform.address1.$dirty &amp;&amp; employeeform.address1.$error.required" class="text-danger">Enter the Address</span>
+        </div>
+
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+      <div class="form-group">
+        <label >{{'master.ADDRESS2' | translate }}</label>
+  <input id="" class="form-control" ng-model="emp_address2"  type="text" placeholder="Enter Address" name=""  />
+       <!--  <textarea rows="4" ng-model="emp_address2" class="form-control"></textarea> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+     <div class="col-md-1"></div>
+     <div class="col-md-4">
+      <label >{{'master.CITY' | translate }}</label>
+    <input type="text" ng-model="emp_city" name="city" required="" placeholder="City" class="form-control" />
+      
+        </div>
+   
+     <div class="col-md-1"></div>
+   <div class="col-md-4">
+    <label >{{'master.STATE' | translate }}</label>
+    <input type="text" ng-model="emp_state" placeholder="State" class="form-control" />
+  </div>
+  </div>
+  </br>
+  <div class="row">
+  
+  <div class="col-md-1"></div>
+    <div class="col-md-4" class="form-group">
+      <label >{{'master.COUNTRY' | translate }}</label>
+      <select name="category" ng-model="currency_gid"  class="form-control"  >
+                <option value="">--select-</option>
+                <option value="{{list.countrycode}}" ng-repeat="list in currencybind  ">{{list.countryname}}</option>
+
+                
+              </select>
+    </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-4">
+    <label >{{'master.PSTLCDE' | translate }}</label>
+    <input type="text" ng-model="postal_code" name="postal" required="" placeholder="Postal Code" class="form-control" />
+     <span ng-show="employeeform.postal.$dirty &amp;&amp; employeeform.postal.$error.required" class="text-danger">Enter the Postal Code</span>
+  </div>
+  </div>
+
+  <div class="panel-footer text-center">
+                  <button type="submit" class="btn btn-green" ng-disabled="employeeform.$invalid"  ng-click="employee()">Submit</button> &nbsp;
+                  <button type="cancel" class="btn btn-danger" ng-click="empcancel()">Cancel</button>
+              </div>  
+              </div>
+               
+                </div>
+           
+
+            
+              </div>
+              </div>
+
+             
+              </div>
+ </form>
+              
+</div>
+
+
+
+

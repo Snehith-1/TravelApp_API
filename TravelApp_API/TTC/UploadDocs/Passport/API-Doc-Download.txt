@@ -1,0 +1,37 @@
+
+[AllowAnonymous]
+        [HttpGet]
+        [ActionName("PreviewDownload")]
+        public HttpResponseMessage GetPreviewDownload(string Authorization, string document_path_name)
+        {
+            //Token Validation For Authorization User Authentication
+            var id = Authorization;
+            GetGidToken_Model = GetGidToken_Function.GetGidToken(id);
+            //PDF Operations Starts Here
+            HttpResponseMessage HttpResponse = new HttpResponseMessage();
+            string document_path = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["download"].ToString() + "\\" + document_path_name + ".pdf");
+            string filename = document_path_name;
+            System.IO.FileInfo FileName = new System.IO.FileInfo(document_path);
+            FileStream myFile = new FileStream(document_path, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            BinaryReader _BinaryReader = new BinaryReader(myFile);
+            long startBytes = 0;
+            string lastUpdateTiemStamp = File.GetLastWriteTimeUtc(document_path).ToString("r");
+            HttpContext.Current.Response.Clear();
+            HttpContext.Current.Response.Buffer = false;
+            HttpContext.Current.Response.AddHeader("Accept-Ranges", "bytes");
+            HttpContext.Current.Response.AppendHeader("Last-Modified", lastUpdateTiemStamp);
+            HttpContext.Current.Response.ContentType = "application/octet-stream";
+            HttpContext.Current.Response.AddHeader("Content-Disposition", "attachment;filename=" + filename + ".pdf");
+            HttpContext.Current.Response.AddHeader("Content-Length", (FileName.Length - startBytes).ToString());
+            HttpContext.Current.Response.AddHeader("Connection", "Keep-Alive");
+            _BinaryReader.BaseStream.Seek(startBytes, SeekOrigin.Begin);
+            int maxCount = (int)Math.Ceiling((FileName.Length - startBytes + 0.0) / 1024);
+            int i;
+            for (i = 0; i < maxCount && HttpContext.Current.Response.IsClientConnected; i++)
+            {
+                HttpContext.Current.Response.BinaryWrite(_BinaryReader.ReadBytes(1024));
+                HttpContext.Current.Response.Flush();
+            }
+            //Return Response In HttpResponseStatus
+            return HttpResponse;
+        }

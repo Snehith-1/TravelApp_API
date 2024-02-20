@@ -1,0 +1,103 @@
+[
+  {
+    "text": "Main Navigation",
+    "heading": "true",
+    "translate": "sidebar.heading.HEADER"
+  },
+  {
+    "text": "Dashboard ",
+    "sref": "app.admin",
+    "icon": "icon-bar-chart fa-2x ",   
+    "label": "label label-info", 
+    "translate": "sidebar.nav.dashboard"
+  },
+
+  { 
+    "text": "Company Setup",
+    "sref": "response",
+    "icon":"fa fa-building-o  fa-2x ",       
+    "label": "label label-info",
+    
+    "submenu": [                    
+      {"text": "Company",      "sref": "app.tap_mst_companydetails" },
+      {"text": "Documents",      "sref": "app.tap_trn_documentsummary" },          
+      {"text": "",       "sref": "#"}         
+    ]
+  },
+
+  { 
+    "text": "Master",
+    "sref": "response",
+    "icon":"fa fa-cog  fa-2x ",       
+    "label": "label label-info",
+    
+    "submenu": [                    
+      {"text": "Employee",      "sref": "app.tap_mst_employeemastersummary" },           
+      {"text": "Currency",       "sref": "app.tap_mst_currencymastersummary" },
+      {"text": "Activity",       "sref": "app.tap_trn_activitymaster" },
+      {"text": "Chart of Accounts",      "sref": "#" },
+      {"text": "Opening Balance",      "sref": "app.tap_mst_openingbalance" }
+      
+    ]
+  },
+  {
+    "text": "Sales ",
+    "sref": "response",
+    "icon": "fa fa-line-chart fa-2x ",           
+    "label": "label label-info",
+    "submenu": [
+      {"text": "Customer Management",      "sref": "app.tap_mst_Customermaster" },
+      {"text": "Sales team",       "sref": "app.tap_mst_salesteamsummary" },
+      {"text": "",       "sref": "Sales Manager#" },
+      {"text": "Enquiry Management",      "sref": "app.tap_trn_enquirysummary" },
+      {"text": " ",      "sref": "My Enquiry#" },
+      {"text": "Quotation Management ",      "sref": "app.tap_trn_quotationsummary" },
+      {"text": "Sales order form",      "sref": "app.tap_mst_salessummary" }          
+    ]
+  },
+  {
+    "text": "Operations ",
+    "sref": "response",
+    "icon": "fa fa-cubes fa-2x",   
+    "label": "label label-info",
+    "submenu": [
+      {"text": "Operation team",       "sref": "app.tap_mst_operationteamsummary" },
+      {"text": "",       "sref": "Operation Manager#" },
+      {"text": "Vendor Master",      "sref": "app.tap_mst_vendorsummary" },         
+      {"text": "Order Processing Form",      "sref": "app.tap_trn_orderprocesssummary" },
+      {"text": "Refund Process",      "sref": "app.tap_trn_refundsummary" },
+      {"text": "Customer Invoice",      "sref": "app.tap_trn_invoicesummary" },
+      {"text": "Vendor Invoice",      "sref": "app.tap_trn_vendorinvoicesummary" }
+      
+    ]
+  },
+  { 
+    "text": "Finance",
+    "sref": "response",
+    "icon": "fa fa-usd fa-2x ",
+    "label": "label label-info",
+    "submenu": [
+      {"text": "Receipt",      "sref": "#" },          
+      {"text": "Journal Entry",      "sref": "app.tap_trn_journalentrysummary" },
+      {"text": "Bank  Book",      "sref": "app.tap_trn_bankbooksummary" },
+      {"text": "Cash Book",      "sref": "app.tap_trn_cashbooksummary" },
+      {"text": "Journal Entry",      "sref": "#" },
+      {"text": "Salary Payment",      "sref": "#" }
+    ]
+  },
+  {
+    "text": "Reports",       
+    "sref": "response",
+    "icon": "icon-pie-chart fa-2x ",       
+    "label": "label label-info", 
+    "submenu": [
+      {"text": "Operational Trial Balance",      "sref": "#" },
+      {"text": "Income & Expense Statement",      "sref": "#" },
+      {"text": "Cash Flow statement",      "sref": "#" },
+      {"text": "Operational Balance Sheet Report",      "sref": "#" },
+      {"text": "Outstanding payable report",      "sref": "#" },
+      {"text": "Vendor Ledger Report",      "sref": "#" },
+      {"text": "Customer Ledger Reportt",      "sref": "#" }
+    ]    
+  }
+]

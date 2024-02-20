@@ -1,0 +1,58 @@
+    <h3 style="color:#000000;">Assign Employee</h3>
+    <div ng-controller="operationteamassignemployeecontroller as operationteamassignemployee">
+      <div class="panel panel-default">        
+        <div class="panel-body">
+          <!-- <div ng-dropdown-multiselect="" options="example1data" selected-model="example1model"> -->
+          <div class="row">
+            <div class="col-md-6" >
+              <label>Employee Name</label>  
+            </div>
+            <div class="col-sm-6">   
+            <div ng-dropdown-multiselect="" options="example1data" selected-model="example1model">     
+              <select name="category" ng-model=""  class="mda-form-control"  >
+              <option value="">--select-</option>
+              <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+              </select>
+              </div>
+            </div>
+          </div>
+          </br>
+          <div class="row">  
+            <div class="col-sm-4">
+              </div>     
+            <div class="col-sm-3">
+              <div  class="form-group">
+                <button type="button" ng-click="submit()" class="pull-left btn btn-green">
+                  Submit
+                </button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+               </div>    
+          </div>
+      </div>
+  <div class="panel panel-default">
+   <div class="table-responsive">
+      
+      <div class="row">
+        <div class="col-sm-12">
+          <table    datatable="ng"  class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th >Employee Code</th>
+                <th >Employee Name</th>
+              </tr>
+            </thead>      
+            <tbody>
+              <tr  ng-repeat="toe in activity">
+                <td>{{toe.employeecode}}</td>
+                <td>{{toe.employeename}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  </div>

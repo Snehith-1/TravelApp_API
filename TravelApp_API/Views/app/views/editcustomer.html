@@ -1,0 +1,166 @@
+	<h3 style="color:#000000;">Edit Customer</h3>
+	<small><h4><label>Update Customer Details</label></h4></small>
+    <div ng-controller="editcustomerCtrl as Customeredit" class="container-fluid">	
+		<div class="row">
+          <div class="col-md-12">
+		    <div class="panel panel-default">
+				<div class="panel-heading"></div>
+				  <div class="panel-body">
+				 <form role="form" name="CustomeraddForm" novalidate="" class="form-validate ">
+					<div class="row">
+						<div class="col-md-6">
+							<label>First Name</label>
+							<input class="form-control" type="name" ng-model="first_name" name="first_name" required="" placeholder="Enter First Name" />
+                             <span ng-show="CustomeraddForm.first_name.$dirty &amp;&amp; CustomeraddForm.first_name.$error.required" class="text-danger">Please Enter First Name
+                             </span>
+						</div>
+							<div class="col-md-6">
+							<label>Last Name</label>
+							<input class="form-control" type="name" ng-model="last_name" placeholder="Enter Last Name" />
+						    </div>
+					</div>
+				</br>
+		<div class="row">
+			<div class="col-md-6">
+				<label>Email address</label>
+				<input class="form-control" type="email" ng-model="email_address" placeholder="Enter email" />
+			</div>
+				<div class="col-md-6">
+					<label>Contact No</label>
+                     <div class="input-group">
+			              <div class="input-group-btn">
+			                  <button class="btn btn-default" type="button">+968
+			                     
+			                  </button>
+			                  
+			              </div>
+                          <input class="form-control" type="tel" ng-model="contact_no" name="contact_no" required="" />
+                          <span ng-show="CustomeraddForm.contact_no.$dirty &amp;&amp; CustomeraddForm.contact_no.$error.required" class="text-danger">Please Enter Contact No
+					 </span>	
+                    </div> 
+				</div>
+		</div>
+					</br>
+						<div class="row">
+						<div class="col-md-6">
+									<label>National ID</label>
+									<input class="form-control" type="number" ng-model="nationality" placeholder="Enter National ID" />
+									</div>
+									<div class="col-md-6">
+										<label>Customer Type</label>										
+										<select class="form-control" ng-model="customer_type" name="customer_type">
+											<option>Individual</option>
+											<option>Corporate</option>										
+										</select>
+									</div>	
+								</div>
+							</br>
+                              
+							</div>	
+							</div>	
+					<div class="row">					
+						
+<div class="col-md-12">
+   	<div class="panel panel-default">
+        <div class="panel-heading">
+
+            <h3 class="panel-title">Billing Address</h3>
+                </div>
+							
+							<div class="panel-body">
+							<form role="form" name="CustomerForm" novalidate="" class="form-validate ">
+								<div class="col-sm-6">
+									<label>Company Name</label>
+									<input class="form-control" type="text" placeholder="Enter Company Name" ng-model="company_name" name="company_name" required="" />
+									<span ng-show="CustomerForm.company_name.$dirty &amp;&amp; CustomerForm.company_name.$error.required" class="text-danger">Please Enter Company Name
+                                     </span>
+								</div>
+								<div class="col-sm-6">
+									<label>Address</label>
+									<textarea ng-model="billingaddress" name="billingaddress"  class="form-control" type="text" 
+									placeholder="Enter Address"></textarea>
+								</div>								
+								<div class="col-sm-6">
+									<label>Country</label>
+									<select class="form-control" ng-model="billingcountry" name="billingcountry">
+										<option>India</option>
+										<option>Sri Lanka</option>
+										<option>United states</option>
+										<option>Australia</option>
+										<option>Oman</option>
+									</select>								
+								</div>
+								<div class="col-sm-6">
+									<label>Credit Limit</label>
+									<input class="form-control" ng-model="credit" name="credit"  type="credit" required="" placeholder="Enter Credit Limit" />
+                                     <span ng-show="mailingaddressForm.credit.$dirty &amp;&amp; mailingaddressForm.credit.$error.required" class="text-danger">Please Enter Credit Limit
+                                     </span>
+
+								</div>
+								<div class="col-sm-6">
+									<label>Remarks</label>
+									<textarea ng-model="billingRemarks" name="Remarks"  class="form-control" type="Remarks" 
+									placeholder="Enter Remarks"></textarea>
+								</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				
+<div class="row">
+	<div class="col-md-12">
+   	    <div class="panel panel-default">
+            <div class="panel-heading">
+            <h3 class="panel-title">Mailing Address</h3>
+            </div>
+							
+				<div class="panel-body">
+				<form role="form" name="mailingaddressForm" novalidate="" class="form-validate " >
+					<div class="col-sm-6">
+							<label>Company Name</label>
+							<input class="form-control" ng-model="mailingcompany_name" name=" mailingcompany_name"  required="" placeholder="Enter Company Name" />
+
+                            <span ng-show="mailingaddressForm.mailingcompany_name.$dirty &amp;&amp; mailingaddressForm.mailingcompany_name.$error.required" class="text-danger">Please Enter Company Name
+
+					</div>
+						<div class="col-sm-6">
+							<label>Address</label>
+							<textarea ng-model="mailingaddress" name="address"  class="form-control" type="name" 
+									placeholder="Enter Address"></textarea>
+						</div>								
+							<div class="col-sm-6">
+									<label>Country</label>
+									<select class="form-control" ng-model="mailcountry" name="account">
+										<option>India</option>
+										<option>Sri Lanka</option>
+										<option>United states</option>
+										<option>Australia</option>
+										<option>Oman</option>
+									</select>								
+								</div>
+								<div class="col-sm-6">
+									<label>Remarks</label>
+									<textarea ng-model="Remarks" name="mailRemarks"  class="form-control" type="name" 
+									placeholder="Enter Remarks"></textarea>
+								</div>
+								</form>
+							</div>
+					
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer text-center">
+                <button type="update" class="btn btn-green" ng-click="update_customer()">Update</button> &nbsp;
+                <button type="cancel" class="btn btn-danger" ng-click="back_customer()">Back</button>
+            </div>  			
+		</div>
+
+		</div>
+
+		</div>
+
+</div>
+</form>
+</div>
+</div>
+</div>

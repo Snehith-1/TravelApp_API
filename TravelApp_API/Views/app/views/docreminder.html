@@ -1,0 +1,106 @@
+
+ 
+<h3 >Reminder</h3>
+<div ng-controller="documentremindercontroller as document">
+
+             <div class="panel panel-default">
+             <div class="panel-body">
+              <div class="row">               
+        <div class="col-sm-6">
+          <div  class="form-group">           
+            <label >Reminder</label>           
+          </div>
+        </div>
+        
+        <div class="col-sm-6">
+          <div class="form-group">
+            
+            <select name="reminder"   ng-model="reminder_type" class="mda-form-control">
+              <option>Every Year</option>
+              <option>Every Month</option>
+              <option>Every Week</option>
+              <option>Every Day</option>   
+            </select>
+          </div>
+        </div>
+
+        
+          
+        </div>
+             
+     <div class="row">
+        
+        <div class="col-sm-6">
+          <div  class="form-group">
+            
+            <label>Befor Reminder Days</label>
+
+            
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div  class="form-group">
+             <input class="form-control" ng-model="before_days" type="text" placeholder="" /> 
+          </div>
+        </div>
+        </div>
+  <div class="row">
+    <div class="col-sm-6">
+        <div ng-hide="showme" class="checkbox c-checkbox" >
+          <div>
+            <label><input type="checkbox" ng-model="smstext" id="chktextbox"  ng-change="ShowHide()"/> <span class="fa fa-check"></span>SMS</label>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+          <div class="form-group" ng-show="IsVisible">
+            <textarea class="form-control"  cols="30"  type="text" id="txttextbox" />
+              
+            </textarea>
+          </div>
+    </div>
+</div>
+   
+
+<div class="row">
+    <div class="col-sm-6">
+        <div ng-hide="showme" class="checkbox c-checkbox" >
+           <div>
+            <label><input type="checkbox" ng-model="emailtext" id="chktexemail" ng-change="ShowHide()" /><span class="fa fa-check"></span>Email</label>
+          </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+          <div class="form-group" ng-show="IsVisible" >
+            <textarea class="form-control" cols="30" type="email" id="txtemail" />
+              
+            </textarea>
+          </div>
+    </div>
+</div>
+  
+<div class="row">  
+    <div class="col-sm-4">
+              
+    </div>     
+            
+    <div class="col-sm-4">
+        <div  class="form-group">
+                
+          <button type="button" ng-click="submit()" class="pull-left btn btn-green">
+            Submit
+          </button>
+
+                
+        </div>
+    </div>
+    <div class="col-sm-4">
+              
+    </div>  
+            
+            
+            
+</div>
+</div>
+</div>
+</div>

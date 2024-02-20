@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html> 
+<html lang="en" data-ng-app="travelapp">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="{{app.description}}">
+   <meta name="keywords" content="app, responsive, angular, bootstrap, dashboard, admin">
+   <title data-ng-bind="::pageTitle()">Trend Travels</title>
+   <!-- Bootstrap styles-->
+   <link rel="stylesheet" href="app/css/bootstrap.css" data-ng-if="!app.layout.isRTL">
+   <link rel="stylesheet" href="app/css/bootstrap-rtl.css" data-ng-if="app.layout.isRTL">
+   <!-- Application styles-->
+   <link rel="stylesheet" href="app/css/app.css" data-ng-if="!app.layout.isRTL">
+   <link rel="stylesheet" href="app/css/app-rtl.css" data-ng-if="app.layout.isRTL">
+   <!-- Themes-->
+   <link rel="stylesheet" ng-href="{{app.layout.theme}}" data-ng-if="app.layout.theme">
+</head>
+
+<body data-ng-class="{ 'layout-fixed' : app.layout.isFixed, 'aside-collapsed' : app.layout.isCollapsed, 'layout-boxed' : app.layout.isBoxed, 'layout-fs': app.useFullLayout, 'hidden-footer': app.hiddenFooter, 'layout-h': app.layout.horizontal, 'aside-float': app.layout.isFloat, 'offsidebar-open': app.offsidebarOpen, 'aside-toggled': app.asideToggled}">
+   <!-- <div data-preloader></div> -->
+   <div data-ui-view="" data-autoscroll="false" class="wrapper"></div>
+   <script src="app/js/base.js"></script>
+   <script src="app/js/appv2.0.js"></script>
+   <script src="app/js/jquery.blockUI.js"></script>
+    <script type="text/javascript">
+        function lockUI() {
+            //$.uiLock('<b>wait a second...</b>');
+            $.blockUI({
+                message: '<h5><div style="text-align: center; color: white"><i class="fa fa-spinner fa-spin fa-4x"></i></div></h5>' +
+                '<div style="font-size:21px;color: white"><b>Just a Moment...</b></div>'
+            });
+        }
+        function unlockUI() {
+            //$.uiUnlock();
+            $.unblockUI();
+        }
+    </script>
+</body>
+
+</html>

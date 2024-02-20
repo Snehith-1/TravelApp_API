@@ -1,0 +1,104 @@
+
+ <div ng-controller="activityaddcontroller as activity">
+<h3 >Create Activity</h3>
+<div class="panel panel-default">
+     <div class="panel-body">
+         <form role="form" name="activityaddform" novalidate="" class="form-validate">
+            <div class="row">  							
+				<div class="col-sm-4">
+					<div  class="form-group">						
+						<label >{{ 'master.HEADER' | translate }}</label>						
+					</div>
+				 </div>
+				
+				<div class="col-lg-8">
+					<div class="form-group">
+						<select name="category" ng-model="process"  class="mda-form-control"  >
+							<option value="">--select-</option>
+							<option value="{{list.servicename}}" ng-repeat="list in servicelist ">{{list.servicename}}</option>
+                        </select>
+					</div>
+				</div>
+			</div>
+             
+         <div class="row">
+			<div class="col-sm-4">
+				<div  class="form-group">
+						<label>Activity</label>
+                </div>
+			</div>
+			<div class="col-sm-8">
+				<div  class="form-group">
+					<input class="form-control" required="" ng-model="add_activity" name="addactivity"  type="activity" placeholder="Enter Activity"/>
+					<span ng-show="activityaddform.addactivity.$dirty &amp;&amp; activityaddform.addactivity.$error.required" class="text-danger">Enter Activity Name</span>
+			    </div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label>Default Display</label>
+				</div>
+			</div>
+			<div class="col-sm-8">
+				<div  class="form-group">
+					<div class="radio">
+                     <label>
+                        <input id="optionsRadios1" type="radio" ng-model="default_display" name="optionsRadios" value="Y" checked="true" />Yes</label>
+                    </div>
+                    <div class="radio">
+                     <label>
+                        <input id="optionsRadios2" type="radio" ng-model="default_display"  name="optionsRadios" value="N" />No</label>
+                    </div>
+				</div>
+			 </div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4">
+				<div class="form-group">
+					<label>Billable</label>
+                </div>
+			</div>
+			<div class="col-sm-8">
+				<div  class="form-group">
+					<div class="radio">
+                     <label>
+                        <input id="optionsRadios11" type="radio" ng-model="activity_billable"  name="optionsRadios1" value="Y" checked="true" />Yes</label>
+                    </div>
+                  <div class="radio">
+                     <label>
+                        <input id="optionsRadios12" type="radio" ng-model="activity_billable" name="optionsRadios1" value="N" />No</label>
+                  </div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+		    <div class="col-sm-4">
+			    <div  class="form-group">
+					<label>Amount</label>
+                 </div>
+			</div>
+				<div class="col-sm-8">
+					<div  class="form-group">
+                    
+					<input class="form-control" placeholder="Enter Amount" type="text" ng-model="amount" name="phone"  ng-pattern="/^\d+$/" maxlength="" required="" />
+					<span ng-show="activityaddform.phone.$dirty &amp;&amp; activityaddform.phone.$error.required" class="text-danger">Enter Activity Name</span>
+				<span ng-show="activityaddform.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>	
+					</div>
+				</div>
+		</div>
+		<div class="row">  
+			<div class="col-sm-4"></div> 
+				<div class="col-sm-4">
+					<div  class="form-group">
+						<button type="button" ng-click="subactivity()" ng-disabled="activityaddform.$invalid" class="pull-left btn btn-green">
+						Submit
+						</button>
+					</div>
+				</div>
+			<div class="col-sm-4"></div>  
+	    </div>
+		</form>
+     </div>
+  </div>
+</div>

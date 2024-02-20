@@ -1,0 +1,664 @@
+ALTER TABLE `travelapp`.`sal_trn_tvendorinvoicedtl` ADD COLUMN `amount` DOUBLE AFTER `salesorder_gid`;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_vendorreport` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_vendorreport`(
+IN `p_fromdate` date,
+IN `p_todate` date
+)
+BEGIN
+
+if (p_fromdate is null and p_todate is null) then
+
+SELECT year(a.created_date) as year1,month(a.created_date) as month1,
+count(vendorinvoice_gid) as inv_count,sum(a.vendorinvoice_value) as amount
+FROM sal_trn_tvendorinvoice a where 0=0
+and a.created_date > DATE_SUB(now(), INTERVAL 6 MONTH) group by month(a.created_date);
+
+else
+
+SELECT year(a.created_date) as year1,month(a.created_date) as month1,
+count(vendorinvoice_gid) as inv_count,sum(a.vendorinvoice_value) as amount
+FROM sal_trn_tvendorinvoice a where 0=0
+and a.created_date<p_fromdate and a.created_date>p_todate group by month(a.created_date);
+
+end if ;
+
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_salesreport` $$
+CREATE PROCEDURE `travelapp`.`sp_sel_salesreport` (
+IN `p_fromdate` date,
+IN `p_todate` date
+)
+BEGIN
+
+if (p_fromdate is null and p_todate is null) then
+
+select year(created_date) as year,month(created_date) as month,
+count(salesorder_gid) as salescount,net_value as salesvalue
+from sal_trn_tsalesorder where 0=0
+and created_date > DATE_SUB(now(), INTERVAL 6 MONTH) group by month(created_date);
+
+else
+
+select year(created_date) as year,month(created_date) as month,
+count(salesorder_gid) as salescount,net_value as salesvalue
+from sal_trn_tsalesorder where 0=0
+and created_date<p_fromdate and created_date>p_todate group by month(a.created_date);
+
+end if ;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_vendordtlreport` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_vendordtlreport`(
+IN `p_month` varchar(64),
+IN `p_year` varchar(64)
+)
+BEGIN
+
+SELECT a.vendorinvoice_gid as inv_no,b.created_date as inv_date,
+c.vendor_companyname as vendor_name,concat(c.contactperson_name,'',c.contact_telephonenumber) as contact_details,
+a.amount FROM sal_trn_tvendorinvoicedtl a
+inner join sal_trn_tvendorinvoice b on b.vendorinvoice_gid=a.vendorinvoice_gid
+left join fin_mst_tvendor c on c.vendor_gid=b.salesorder_gid
+where 0=0 and month(b.created_date)=p_month and year(b.created_date)=p_year;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_salesdtlreport` $$
+CREATE PROCEDURE `travelapp`.`sp_sel_salesdtlreport` (
+IN `p_month` varchar(64),
+IN `p_year` varchar(64)
+)
+BEGIN
+
+SELECT salesorder_refno,created_date as inv_date,customer_name as customer_name,
+concat(mobile_no,'',email_id) as contact_details,net_value FROM sal_trn_tsalesorder
+where 0=0 and month(created_date)=p_month and year(created_date)=p_year;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_sel_customerinvoicereport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_customerinvoicereport`(
+IN `p_from` varchar(45),
+IN `p_to` varchar(45)
+)
+BEGIN
+
+if (p_from is null and p_to is null )then
+
+ select  round(sum(a.invoice_value),2) as invoiceamount,
+ year(a.created_date)as year,a.created_date,
+  substring(date_format(a.created_date,'%M'),1,3)as month,
+  customerinvoice_gid,  count(a.customerinvoice_gid) as invoicecount
+  from sal_trn_tcustomerinvoice a
+   where 0=0 and a.created_date >= DATE_FORMAT(CURDATE(), '%Y-%m-01') - INTERVAL 6 MONTH
+   group by year(a.created_date), date_format(a.created_date,'%M') order by a.created_date desc;
+
+else
+
+ select  round(sum(a.invoice_value),2) as invoiceamount,
+ year(a.created_date)as year,a.created_date,
+  substring(date_format(a.created_date,'%M'),1,3)as month,
+  customerinvoice_gid,  count(a.customerinvoice_gid) as invoicecount
+  from sal_trn_tcustomerinvoice a
+   where 0=0 and a.created_date >=STR_TO_DATE(p_from, '%d/%m/%Y') and created_date<=STR_TO_DATE(p_to, '%d/%m/%Y')
+   group by year(a.created_date), date_format(a.created_date,'%M') order by a.created_date desc;
+
+end if;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_sel_customerinvoicedtlreport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_customerinvoicedtlreport`(
+IN `p_month` varchar(45),
+IN `p_year` varchar(45),
+IN `p_from` varchar(45),
+IN `p_to` varchar(45)
+)
+BEGIN
+if (p_from is null and p_to is null )then
+
+select distinct a.customerinvoice_gid,a.created_by,
+date(a.created_date) as invoice_date ,
+concat(d.first_name,' ',d.last_name) as name,
+round((a.invoice_value),2) as invoiceamount,
+concat( z.first_name,' / ', z.contact_no) as customer_contactperson,
+z.contact_no  as mobile
+from sal_trn_tcustomerinvoice a
+left join sys_mst_tuser d on d.user_gid=a.created_by
+left join sal_mst_tcustomer z on z.customer_id=a.customer_gid
+where substring(date_format(a.created_date,'%M'),1,3)=p_month
+and year(a.created_date)=p_year and a.created_date >= DATE_FORMAT(CURDATE(), '%Y-%m-01') - INTERVAL 6 MONTH
+ Order by  a.created_date desc;
+
+else
+
+select distinct a.customerinvoice_gid,a.created_by,
+date(a.created_date) as invoice_date ,
+concat(d.first_name,' ',d.last_name) as name,
+round((a.invoice_value),2) as invoiceamount,
+concat( z.first_name,' / ', z.contact_no) as customer_contactperson,
+z.contact_no  as mobile
+from sal_trn_tcustomerinvoice a
+left join sys_mst_tuser d on d.user_gid=a.created_by
+left join sal_mst_tcustomer z on z.customer_id=a.customer_gid
+where substring(date_format(a.created_date,'%M'),1,3)=p_month
+and year(a.created_date)=p_year and a.created_date >=STR_TO_DATE(p_from, '%d/%m/%Y') and a.created_date<=STR_TO_DATE(p_to, '%d/%m/%Y')
+ Order by  a.created_date desc;
+
+end if;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_ins_vendorinvoicedtl` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_ins_vendorinvoicedtl`(
+IN `p_vendorinvoice_gid` int(11),
+IN `p_paymentnote_gid` int(11),
+IN `p_created_by`  varchar(64),
+IN `p_salesorder_gid` varchar(45),
+IN `p_amount` double
+
+)
+BEGIN
+
+set p_vendorinvoice_gid=(select vendorinvoice_gid from sal_trn_tvendorinvoice
+ where created_by=p_created_by order by vendorinvoice_gid desc limit 1  );
+
+
+insert into sal_trn_tvendorinvoicedtl
+(
+vendorinvoice_gid,
+paymentnote_gid,
+salesorder_gid,
+amount
+)values
+(
+p_vendorinvoice_gid,
+p_paymentnote_gid,
+p_salesorder_gid,
+p_amount
+);
+
+update sal_trn_paymentnotemain set status='Completed' where paymentnotemain_gid=p_paymentnote_gid;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_del_bankbookjournal` $$
+CREATE PROCEDURE `sp_del_bankbookjournal`(
+IN `p_transaction_gid` varchar(45)
+)
+BEGIN
+
+delete FROM  acc_trn_tjournalentrydtl  WHERE transaction_gid=p_transaction_gid;
+
+END $$
+
+DELIMITER ;
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_sel_bankbookdel` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_bankbookdel`(
+IN `p_journal_gid` varchar(45)
+)
+BEGIN
+select * from acc_trn_tjournalentrydtl where journal_gid=p_journal_gid;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_del_bankbookdel` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_del_bankbookdel`(
+
+IN `p_journal_gid` varchar(45)
+)
+BEGIN
+select * from acc_trn_tjournalentry where journal_gid=p_journal_gid;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_sel_customerinvoicedtlreport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_customerinvoicedtlreport`(
+IN `p_month` varchar(45),
+IN `p_year` varchar(45),
+IN `p_from` varchar(45),
+IN `p_to` varchar(45)
+)
+BEGIN
+if (p_from is null and p_to is null )then
+
+select distinct a.customerinvoice_gid as inv_no,a.created_by,
+date(a.created_date) as invoice_date ,
+concat(d.first_name,' ',d.last_name) as name,
+round((a.invoice_value),2) as invoiceamount,
+concat( z.first_name,' / ', z.contact_no) as customer_contactperson,
+z.contact_no  as mobile
+from sal_trn_tcustomerinvoice a
+left join sys_mst_tuser d on d.user_gid=a.created_by
+left join sal_mst_tcustomer z on z.customer_id=a.customer_gid
+where substring(date_format(a.created_date,'%M'),1,3)=p_month
+and year(a.created_date)=p_year and a.created_date >= DATE_FORMAT(CURDATE(), '%Y-%m-01') - INTERVAL 6 MONTH
+ Order by  a.created_date desc;
+
+else
+
+select distinct a.customerinvoice_gid as inv_no,a.created_by,
+date(a.created_date) as invoice_date ,
+concat(d.first_name,' ',d.last_name) as name,
+round((a.invoice_value),2) as invoiceamount,
+concat( z.first_name,' / ', z.contact_no) as customer_contactperson,
+z.contact_no  as mobile
+from sal_trn_tcustomerinvoice a
+left join sys_mst_tuser d on d.user_gid=a.created_by
+left join sal_mst_tcustomer z on z.customer_id=a.customer_gid
+where substring(date_format(a.created_date,'%M'),1,3)=p_month
+and year(a.created_date)=p_year and a.created_date >=STR_TO_DATE(p_from, '%d/%m/%Y') and a.created_date<=STR_TO_DATE(p_to, '%d/%m/%Y')
+ Order by  a.created_date desc;
+
+end if;
+END $$
+
+DELIMITER ;
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_sel_salesreport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_salesreport`(
+IN `p_fromdate` varchar(45),
+IN `p_todate` varchar(45)
+)
+BEGIN
+
+if (p_fromdate is null and p_todate is null) then
+
+select year(created_date) as year,month(created_date) as month,
+count(salesorder_gid) as salescount,net_value as salesvalue
+from sal_trn_tsalesorder where 0=0
+and created_date > DATE_SUB(now(), INTERVAL 6 MONTH) group by month(created_date);
+
+else
+
+select year(created_date) as year,month(created_date) as month,
+count(salesorder_gid) as salescount,net_value as salesvalue
+from sal_trn_tsalesorder where 0=0
+and created_date<p_fromdate and created_date>p_todate group by month(a.created_date);
+
+end if ;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `sp_sel_salesdtlreport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_salesdtlreport`(
+IN `p_month` varchar(64),
+IN `p_year` varchar(64)
+)
+BEGIN
+
+SELECT salesorder_refno,created_date as inv_date,customer_name as customer_name,
+concat(mobile_no,'',email_id) as contact_details,net_value FROM sal_trn_tsalesorder
+where 0=0 and substring(date_format(created_date,'%M'),1,3)=p_month and year(created_date)=p_year;
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_airfiles` $$
+CREATE PROCEDURE `travelapp`.`sp_sel_airfiles` ()
+BEGIN
+
+select air_gid, pnrnumber, sector, travel_date, passenger_name,a.first_name as created_by, a.created_date
+from sal_trn_tairfiles b
+inner join sys_mst_tuser a on a.user_gid=b.created_by order by a.air_gid;
+
+END $$
+
+DELIMITER ;
+
+
+CREATE TABLE  `travelapp`.`sal_trn_tairfiles` (
+  `air_gid` int(10) unsigned NOT NULL auto_increment,
+  `pnrnumber` varchar(45) default NULL,
+  `sector` varchar(64) default NULL,
+  `travel_date` varchar(45) default NULL,
+  `passenger_name` varchar(512) default NULL,
+  `created_by` varchar(64) default NULL,
+  `created_date` datetime default NULL,
+  `updated_by` varchar(64) default NULL,
+  `updated_date` datetime default NULL,
+  PRIMARY KEY  (`air_gid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_checkuserprivilege` $$
+CREATE PROCEDURE `travelapp`.`sp_sel_checkuserprivilege` (
+IN `p_user_gid` int(11)
+)
+BEGIN
+
+SELECT user_gid FROM sys_trn_tuserprivilege where user_gid=p_user_gid;
+
+
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_departmentprivilege` $$
+CREATE PROCEDURE `sp_sel_departmentprivilege`(
+IN `p_dept_gid` int(11)
+)
+BEGIN
+select a.module_gid,a.module_name from sys_mst_tmodule a
+left join sys_mst_tdepartmentprivilege s on  s.module_gid=s.module_gid
+left join sys_trn_tuserprivilege b on s.dept_privilege_gid=b.department_privileges where s.department_gid=p_dept_gid;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_departmentprivilege` $$
+CREATE PROCEDURE `sp_sel_departmentprivilege`(
+IN `p_dept_gid` int(11)
+)
+BEGIN
+
+select a.module_gid,a.module_name from sys_mst_tmodule a
+left join sys_mst_tdepartmentprivilege s on  s.module_gid=a.module_gid
+left join sys_mst_tuser b on b.department_gid=s.department_gid
+where s.department_gid=p_dept_gid;
+
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_rcustomerinvoice` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_rcustomerinvoice`(in `p_customer_gid` varchar(64))
+BEGIN
+select  concat(first_name,'',last_name,'/',email_address,'/',contact_no)as contact_details,a.customer_id, c.service_type,
+a.national_id, a.customer_type, a.billing_companyname, a.billing_address,b.invoice_value as invoice_amount,
+b.created_date ,b.customerinvoice_gid from sal_mst_tcustomer a
+inner join sal_trn_tcustomerinvoice b on b.customer_gid=a.customer_id
+inner join  sal_trn_tsalestoactivity c on b.salesorder_gid=c.salesorder_gid where a.customer_id=p_customer_gid;
+END $$
+
+DELIMITER ;
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_rcustomeroutstandingrpt` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_rcustomeroutstandingrpt`(in `p_customergid` varchar(64))
+BEGIN
+
+
+
+select  a.salesorder_gid,a.customer_gid, sum(a.invoice_value)as invoice_amount, sum(b.paid_value) as paid_value,  (sum(a.invoice_value)-sum(b.paid_value)) as outstanding_amt,a.created_by,a.created_date
+from sal_trn_tcustomerinvoice a
+inner join sal_trn_tcustomerreceiptdtl b on
+customerinvoice_gid=invoice_gid where a.customer_gid=p_customergid group by a.salesorder_gid;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_rcustomerreceipt` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_rcustomerreceipt`(in `p_customer_gid` varchar(64))
+BEGIN
+select a.customer_gid, a.salesorder_refno, a.customer_name,e.first_name,
+concat(a.email_id,'/', a.mobile_no)as contact_details, b.customer_type,d.service_type, c.customerreceipt_gid,c.receiptmethod,
+c.receipt_value,a.created_date from sal_trn_tsalesorder a
+inner join sal_mst_tcustomer b on b.customer_id=a.customer_gid
+inner join sal_trn_tsalestoactivity d on d.salesorder_gid=a.salesorder_gid
+inner join sal_trn_tcustomerreceipt c on a.customer_gid =c.customer_gid
+inner join sys_mst_tuser e on a.created_by=e.user_gid where a.customer_gid=p_customer_gid;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_rcustomerreport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_rcustomerreport`()
+BEGIN
+select a.salesorder_gid,a.customer_name, a.salesorder_refno, concat(customer_name,'/',mobile_no,'/',email_id)
+as contact_details, a.created_date, a.created_by,  a.net_value,  a.customer_gid, b.service_type from sal_trn_tsalesorder a inner join sal_trn_tsalestoactivity b on
+ b.salesorder_gid=a.salesorder_gid group by a.salesorder_refno;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_rcustomersalesordeerreport` $$
+CREATE DEFINER=`root`@`%` PROCEDURE `sp_sel_rcustomersalesordeerreport`(in `p_customergid` varchar(64))
+BEGIN
+select a.customer_gid,a.created_date, a.salesorder_refno, a.customer_name,a.salesorder_gid,
+concat(a.customer_name,'/',a.email_id,'/', a.mobile_no)as contact_details, b.customer_type, b.billing_companyname,d.service_type,
+c.receipt_value,a.created_by from sal_trn_tsalesorder a
+left join sal_mst_tcustomer b on b.customer_id=a.customer_gid
+left join sal_trn_tcustomerreceipt c on a.customer_gid =c.customer_gid left join sal_trn_tsalestoactivity d on
+ a.salesorder_gid=d.salesorder_gid where a.customer_gid=p_customergid;
+END $$
+
+DELIMITER ;
+
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.37-community-nt
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema travelapp
+--
+
+CREATE DATABASE IF NOT EXISTS travelapp;
+USE travelapp;
+
+--
+-- Definition of procedure `sp_del_userprivilege`
+--
+
+DROP PROCEDURE IF EXISTS `sp_del_userprivilege`;
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_del_userprivilege`(
+IN `p_user_gid` varchar(64)
+)
+BEGIN
+delete from sys_trn_tuserprivilege where user_gid=p_user_gid;
+END $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `sp_ins_userprevilege`
+--
+
+DROP PROCEDURE IF EXISTS `sp_ins_userprevilege`;
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_ins_userprevilege`(
+IN `p_user_gid` int(3),
+IN `p_module_gid` int(3)
+)
+BEGIN
+INSERT INTO sys_trn_tuserprivilege (user_gid, module_gid)
+VALUES (p_user_gid, p_module_gid);
+END $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `sp_sel_checkuserprivilege`
+--
+
+DROP PROCEDURE IF EXISTS `sp_sel_checkuserprivilege`;
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_checkuserprivilege`(
+IN `p_user_gid` varchar(64)
+)
+BEGIN
+select * from sys_mst_tmodule a
+INNER join sys_trn_tuserprivilege b on b.module_gid = a.module_gid
+where b.user_gid= p_user_gid;
+END $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `sp_sel_departmentprivilege`
+--
+
+DROP PROCEDURE IF EXISTS `sp_sel_departmentprivilege`;
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_departmentprivilege`(
+IN `p_dept_gid` varchar(64)
+)
+BEGIN
+select * from sys_mst_tmodule a
+INNER JOIN sys_mst_tdepartmentprivilege b on b.module_gid = a.module_gid
+where b.department_gid= p_dept_gid and menu_level = '1';
+END $$
+
+DELIMITER ;
+
+--
+-- Definition of procedure `sp_sel_userprivilege`
+--
+
+DROP PROCEDURE IF EXISTS `sp_sel_userprivilege`;
+
+DELIMITER $$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_userprivilege`(
+IN `p_user_gid` varchar(64)
+)
+BEGIN
+select * from sys_mst_tmodule a
+INNER join sys_trn_tuserprivilege b on b.module_gid = a.module_gid
+where b.user_gid= p_user_gid and menu_level = '1';
+END $$
+
+DELIMITER ;
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_submenu_userprevilege` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_submenu_userprevilege`(
+IN `P_module_ref_gid` varchar(64),
+IN `P_user_gid` varchar(64)
+)
+BEGIN
+select * from sys_mst_tmodule a
+INNER JOIN sys_trn_tuserprivilege b on b.module_gid = a.module_gid
+INNER JOIN sys_mst_tuser c on c.user_gid = b.user_gid
+where menu_ref_gid=P_module_ref_gid and b.user_gid = P_user_gid;
+END $$
+
+DELIMITER ;
+
+
+
+DELIMITER $$
+
+DROP PROCEDURE IF EXISTS `travelapp`.`sp_sel_submenu_departmentprevilege` $$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_sel_submenu_departmentprevilege`(
+IN `P_module_ref_gid` varchar(64),
+IN `P_dept_gid` varchar(64)
+)
+BEGIN
+select * from sys_mst_tmodule a
+INNER JOIN sys_mst_tdepartmentprivilege b on b.module_gid = a.module_gid
+where menu_ref_gid=P_module_ref_gid and b.department_gid = P_dept_gid;
+END $$
+
+DELIMITER ;

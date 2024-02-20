@@ -1,0 +1,29 @@
+[ 
+{
+    "country_code": "001",
+    "Country_name": "India",
+    "Currency_Code": "INR",
+    "Currency_Name": "Rupee",
+    "value": "10"
+    
+},
+
+{
+    "country_code": "002",
+    "Country_name": "Oman",
+    "Currency_Code": "OMR",
+    "Currency_Name": "Dollar",
+    "value": "10"
+    
+},
+
+{
+    "country_code": "003",
+    "Country_name": "America",
+    "Currency_Code": "USD",
+    "Currency_Name": "Pound",
+    "value": "10"
+    
+}
+
+]

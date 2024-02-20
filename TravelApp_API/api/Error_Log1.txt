@@ -1,0 +1,16 @@
+=============Error Logging ===========
+===========Start============= 21-07-2022 02:06:14
+Error Message: One or more errors occurred.
+Stack Trace:    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at DataAccess.LoginDBAccess.GetToken(String company_code, String user_code, String password) in E:\Web\safarsol\Safarsol\DataAccess\LoginDBAccess.cs:line 150
+===========End============= 21-07-2022 02:06:14
+=============Error Logging ===========
+===========Start============= 21-07-2022 02:06:35
+Error Message: One or more errors occurred.
+Stack Trace:    at System.Threading.Tasks.Task.ThrowIfExceptional(Boolean includeTaskCanceledExceptions)
+   at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at System.Threading.Tasks.Task`1.get_Result()
+   at DataAccess.LoginDBAccess.GetToken(String company_code, String user_code, String password) in E:\Web\safarsol\Safarsol\DataAccess\LoginDBAccess.cs:line 150
+===========End============= 21-07-2022 02:06:35

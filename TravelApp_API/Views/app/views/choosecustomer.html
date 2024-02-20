@@ -1,0 +1,51 @@
+<h3 style="color:#000000;">Choose Customer</h3>
+
+<div ng-controller="choosecustomercontroller as Customer" class="container-fluid" >  
+ <div class="panel-heading"> 
+<div class="table-responsive">
+  <table datatable="ng" class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Contact No</th>            
+        <th>National ID</th>                                                                         
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="toe in custom">
+       <td width="5%">
+         <div class="radio c-radio">
+           <label>
+            <input type="radio" name="toasts" ng-model="toast.toaster.type" value="info" />
+            <span class="fa fa-circle"></span>
+          </label>
+        </div>
+      </td>
+      <td>{{toe.emailid}}</td>
+      <td>{{toe.customername}}</td>
+      <td>{{toe.customercontactno}}</td>            
+      <td>{{toe.nationalid}}</td>                         
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>      
+<div class="row">
+<div class="col-md-12">
+
+   <div  class="col-md-6" align="center">
+    <button type="button" class="pull-left btn btn-info btn-cons" ng-click="choosecustomer(toe.customerid)" >
+      <em class="fa fa-add">So Customer</em>
+    </button>
+    </div>
+    <div class="col-md-6" align="center">    
+    <button type="button" class="pull-left btn btn-info btn-cons" ng-click="choosesubnewcustomer()" >
+      <em class="fa fa-add">New Customer</em>
+    </button>
+  </div>
+</div>
+</div>
+</div>
+

@@ -1,0 +1,23 @@
+[
+    {
+	"accountgroupname":"Current Liabilities",
+	"accountname":"Sundry Creditors",
+	"openingbalance":"0.00",
+	"debit":"57,696.71",
+	"credit": "126,221.63"
+	},
+	 {
+	"accountgroupname":"Current Liabilities",
+	"accountname":"Credit Cards",
+	"openingbalance":"0.00",
+	"debit":"353,686.26",
+	"credit": "87,085.90"
+	},
+	{
+	"accountgroupname":"Current Liabilities",
+	"accountname":"Trainee Caution Deposit",
+	"openingbalance":"0.00",
+	"debit":"0.00",
+	"credit": "0.00"
+	}
+]

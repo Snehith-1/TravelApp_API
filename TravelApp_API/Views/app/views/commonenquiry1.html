@@ -1,0 +1,50 @@
+
+<div ng-controller="myenquirycontroller as myenquiry">
+   <div class="row">
+       &nbsp;&nbsp;
+   </div>
+   <div class="panel panel-default">
+     <div class="table-responsive">
+
+    <table datatable="ng" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Enquiry No.</th>
+                <th>Customer Name</th>
+                <th>Contact Person Name</th>
+                <th>Contact Details</th>
+                <th>Lead Notes</th>
+                <th>Assigned Member</th>
+                <th>Action</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="toe in myenquiry.toes">
+                <td>{{ toe.sno }}</td> 
+                <td>{{ toe.enquiryno }}</td>
+                <td>{{ toe.customername }}</td>
+                <td> {{ toe.contactpersonname }}</td>
+                <td>{{ toe.contactdetails }}</td>
+                <td>
+                    <textarea class="form-control">
+                        {{ toe.leadnotes }}
+                    </textarea>                            
+                </td>
+                <td>{{ toe.assignedmember }}</td>
+                <td>
+                    <button type="button" class="panel-body whirl traditional" title="360" ng-click="circle()">360
+                
+                    </button>
+
+                </td> 
+                                       
+             
+         </tr>   
+     </tbody>
+ </table>
+
+</div>   
+</div>
+</div>

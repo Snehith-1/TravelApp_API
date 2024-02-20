@@ -1,0 +1,116 @@
+<h3 style="color:#000000;">Activity Log Edit</h3>
+<div ng-controller="orderactivitycontroller as orderactivity">
+   <div class="row">
+
+
+   </div>
+   <div class="row">
+       &nbsp;&nbsp;
+   </div>
+   <div class="panel panel-default">
+    <div class="table-responsive">
+
+
+        <table datatable="ng" class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Activity</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="toe1 in orderactivity.toes1">
+                    <td>
+                         <text class="form-control" enable-edit="true">
+                            {{ toe1.activity }}
+                        </text>
+                    </td>
+                    <td>
+                        <text class="form-control">
+                            {{ toe1.amount }}
+                        </text>
+                    </td>
+                    <td>
+                        <text class="form-control">
+                            {{ toe1.Date }}
+                        </text>
+                    </td>
+                    <td>
+                        <text class="form-control">
+                            {{ toe1.Status }}
+                        </text>
+                    </td>                       
+                    <td>  
+                        <button type="button" class="btn btn btn-danger" title="Close">
+                         <em class="fa fa-times-circle "></em>
+                     </button>
+                 </td>
+             </tr>  
+         </table>
+     </div>
+ </div>
+ <div class="panel panel-default">
+    <div class="panel-body">
+        <div class="row">
+
+            <div class="col-md-1"></div>
+               <div class="col-md-4">
+                <div  class="form-group">                    
+                    <label>Date of Progress</label>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div  class="form-group">
+                    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+                        <p class="input-group">
+                          <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}"  is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+                          close-text="Close" class="form-control"  value="14-June-2017"/>
+                          <span class="input-group-btn">
+                            <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                              <em class="fa fa-calendar"></em>
+                          </button>
+                      </span></p>
+                  </div>                 
+              </div>
+          </div>
+      </div> 
+      <div class="row">
+       <div class="col-md-1"></div>
+               <div class="col-md-4">
+            <div  class="form-group">
+                <label>Reminder Before</label>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div  class="form-group">
+               <input class="form-control" type="activity"  />
+           </div>
+       </div>
+   </div> 
+   <div class="row">
+
+   <div class="col-md-1"></div>
+               <div class="col-md-4">
+        <div  class="form-group">
+            <label>Remarks</label>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div  class="form-group">
+            <textarea rows="4" cols="50"></textarea>
+       </div>
+   </div>
+</div> 
+</tbody>
+</div>
+</div>
+</div>
+</div>
+<div class="panel-footer text-center">
+                <button type="submit" class="btn btn-green" ng-click="subemployee()">Submit</button> &nbsp;
+                <button type="cancel" class="btn btn-danger" ng-click="employee()">Cancel</button>
+            </div>  
+</div>

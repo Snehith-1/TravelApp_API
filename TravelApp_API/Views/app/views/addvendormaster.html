@@ -1,0 +1,269 @@
+  <h3 style="color:#000000;"> Add Vendor</h3>
+  <div ng-controller=" vendoraddcontroller as addvendor" class="container-fluid">
+  <div class="panel panel-default">
+    <div class="panel-body">
+     <form role="form" name="vendorForm" novalidate="" class="form-validate ">
+     <div class="row">
+      <div class="col-sm-5"> 
+        <div class="row">
+          <div class="col-sm-6">
+           <label>Vendor Code</label>
+         </div>
+
+         <div class="col-sm-6">
+          <div class="form-group">
+            <input class="form-control" type="text" ng-model="vendor_code" name="vendorcode"  placeholder="Enter vendorcode" required="">
+            <span ng-show="vendorForm.vendorcode.$dirty &amp;&amp; vendorForm.vendorcode.$error.required" class="text-danger">Please Enter Vendor Code</span>
+         </div>
+
+       </div>
+
+     </div>
+      <div class="row">
+    <div class="col-sm-6">
+      <label>Service Type</label>
+    </div>
+    <div class="col-sm-6" class="form-group">
+      <select class="form-control">
+
+      
+<option data-ng-repeat="p in parentChartId" ng-model="service_type" data-ng-value="{{p.id}}" data-ng-bind="p.id + ' - ' + p.chart_name"></option>
+
+      <!-- <option>Passport</option>
+      <option>Visa</option>
+      <option>Flight</option>
+      <option>Car</option>
+      <option>Hotel</option>
+      <option>Forex</option>
+      <option>Insurance</option> -->
+        
+      </select>
+      <!-- <div class="form-group"> 
+       <input class="form-control" type="text" ng-model="vendor_companyname" name="companyname" placeholder="Enter Vendor Companyname" required="">
+       <span ng-show="vendorForm.companyname.$dirty &amp;&amp; vendorForm.companyname.$error.required" class="text-danger">Please Enter Company Name</span>
+     </div> -->
+   </div>
+
+  </div>
+  </br>
+     <div class="row">
+      <div class="col-sm-6">
+       <label>Contact Person Name</label>
+     </div>
+
+     <div class="col-sm-6">
+      <div class="form-group">
+       <input class="form-control" type="text" ng-model="vendor_contact" name="vendorname" placeholder="Enter Contact Person Name" data-ng-change="textOnly()" required="" />
+      <span ng-show="vendorForm.vendor_name.$dirty &amp;&amp; vendorForm.vendor_name.$error.required" class="text-danger">Please Enter Contact Person Name</span>
+     </div>
+
+   </div>
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+   <label>Email Address</label>
+  </div>
+
+  <div class="col-sm-6">
+  <div class="form-group">
+    <input type="text" ng-model="vendor_email" name="email_id" ng-model="itemToAdd.emailid" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" placeholder="Email ID" class="form-control" required="" />
+    <span ng-show="vendorForm.email_id.$dirty &amp;&amp; vendorForm.email_id.$error.required" class="text-danger">Email ID is required</span>
+    <span ng-show="vendorForm.email_id.$dirty &amp;&amp; vendorForm.email_id.$error.pattern" class="text-danger">Please Enter valid Email ID</span>
+  </div>
+
+  </div>
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+   <label>Address1</label>
+  </div>
+
+  <div class="col-sm-6">
+  <div class="form-group">
+   <input class="form-control" type="text" ng-model="vendor_address1" placeholder="Enter Address1" name="address1" required="">
+   <span ng-show="vendorForm.address1.$dirty &amp;&amp; vendorForm.address1.$error.required" class="text-danger">Please Enter Address1</span>
+  </div>
+
+  </div>
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+   <label>City</label>
+  </div>
+
+  <div class="col-sm-6">
+  <div class="form-group">
+   <input class="form-control" type="text" ng-model="vendor_city" name="vendorcity" placeholder="Enter City" required="">
+   <span ng-show="vendorForm.vendorcity.$dirty &amp;&amp; vendorForm.vendorcity.$error.required" class="text-danger">Please Enter City</span>
+  </div>
+
+  </div>
+
+  </div>
+   <div class="row">
+  <div class="col-sm-6">
+    <label>Country</label>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+     <select name="category" ng-model="country_gid"  class="mda-form-control"  >
+      <option value="">--select-</option>
+      <option value="{{list.countrycode}}" ng-repeat="list in currencybind  ">{{list.countryname}}</option>
+
+
+    </select>
+  </div>
+  </div>
+
+  </div>
+
+  <div class="row">
+  <div class="col-sm-6">
+   <label>Currency</label>
+  </div>
+
+  <div class="col-sm-6">
+  <div class="form-group">
+   <select name="category" ng-model="currency_gid"  class="mda-form-control"  >
+    <option value="">--select-</option>
+    <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+
+
+  </select>
+  </div>
+
+  </div>
+
+  </div>
+  </div>
+
+  <div class="col-sm-2">
+
+  </div>
+
+
+
+
+  <div class="col-sm-5">
+  <div class="row">
+    <div class="col-sm-6">
+      <label>Vendor Companyname</label>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group"> 
+       <input class="form-control" type="text" ng-model="vendor_companyname" name="companyname" placeholder="Enter Vendor Companyname" required="">
+       <span ng-show="vendorForm.companyname.$dirty &amp;&amp; vendorForm.companyname.$error.required" class="text-danger">Please Enter Company Name</span>
+     </div>
+   </div>
+
+  </div>
+
+  <div class="row">
+  <div class="col-sm-6">
+    <label>Contact Number</label>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+    <input class="form-control" placeholder="Enter Company Phone No." type="text" ng-model="vendor_mobile" name="phone"  ng-pattern="/^\d+$/" maxlength="10" required="" />
+                <span ng-show="vendorForm.phone.$dirty &amp;&amp; vendorForm.phone.$error.required" class="text-danger">Please Enter Company phone No.</span>
+                <span ng-show="vendorForm.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>
+     <span ng-show="vendorForm.contactnumber.$error.pattern"  class="text-danger">Enter only 10 digits</span>
+     <span ng-show="vendorForm.contactnumber.$dirty &amp;&amp; vendorForm.contactnumber.$error.required" class="text-danger">Please Enter Contact Number</span>
+   </div>
+  </div>
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+    <label>Fax</label>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+     <input class="form-control" type="text" ng-model="vendor_fax" placeholder="Enter Fax" name="fax" required="">
+     <span ng-show="vendorForm.fax.$dirty &amp;&amp; vendorForm.fax.$error.required" class="text-danger">Please Enter Fax</span>
+   </div>
+  </div>
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+    <label>Address2</label>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+     <input class="form-control" type="text" ng-model="vendor_address2" name="address2" placeholder="Enter Address2" required="" >
+      <span ng-show="vendorForm.address2.$dirty &amp;&amp; vendorForm.address2.$error.required" class="text-danger">Please Enter Address2</span>
+   </div>
+  </div>
+
+  </div>
+  <div class="row">
+  <div class="col-sm-6">
+    <label>State</label>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+     <input class="form-control" type="text" ng-model="vendor_state" name="state" placeholder="Enter State" required="">
+     <span ng-show="vendorForm.state.$dirty &amp;&amp; vendorForm.state.$error.required" class="text-danger">Please Enter State</span>
+   </div>
+  </div>
+
+  </div>
+ 
+
+<div class="row">
+  <div class="col-sm-6">
+   <label>Postal Code</label>
+  </div>
+
+  <div class="col-sm-6">
+  <div class="form-group">
+   <input class="form-control" type="text" ng-model="postal_code" name="postalcode" placeholder="Enter postal code" required="">
+   <span ng-show="vendorForm.postalcode.$dirty &amp;&amp; vendorForm.postalcode.$error.required" class="text-danger">Please Enter Postal Code</span>
+  </div>
+
+  </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="row">
+  <div class="col-sm-6">
+    <label>Tax</label>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+     <input class="form-control" type="text" ng-model="vendor_tax" name="tax" placeholder="Enter Tax" required="">
+     <span ng-show="vendorForm.tax.$dirty &amp;&amp; vendorForm.tax.$error.required" class="text-danger">Please Enter Tax</span>
+   </div>
+  </div>
+
+  </div>
+
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-sm-4">
+  </div>
+  <div class="panel-footer text-center">
+    <button type="submit" class="btn btn-green" ng-disabled="vendorForm.$invalid" ng-click="subvendor()">Submit</button> &nbsp;
+    <button type="cancel" class="btn btn-danger" ng-click="cancel()">Cancel</button>
+  </div>  
+  <div class="col-sm-4">
+  </div>
+  </div>
+</form>
+  </div>
+  </div>
+  </div>

@@ -1,0 +1,26 @@
+[
+    {
+    "salesid":"SA01",
+    "customername":"Kiruthika",
+    "contactno":"897657890",
+    "estimatedprice":"10000.00",
+    "customerprice":"15000.00"
+   
+    },
+    {
+    "salesid":"SA02",
+    "customername":"Gayathri",
+    "contactno":"897657890",
+    "estimatedprice":"20000.00" ,
+    "customerprice":"21000.00"
+   
+    },
+    {
+    "salesid":"SA03",
+    "customername":"Karthika" ,
+    "contactno":"897657890" ,
+    "estimatedprice":"30000.00" ,
+     "customerprice":"35000.00"
+
+    }
+]

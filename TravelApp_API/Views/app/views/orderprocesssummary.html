@@ -1,0 +1,46 @@
+<h3 style="color:#000000;">Order Process Summary</h3>
+<div ng-controller="orderprocesssummarycontroller as orderprocess">   
+ <div class="panel panel-default">    
+   <div class="table-responsive">
+    <table datatable="ng" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Sales ID</th>
+                <th>Customer Name</th>
+                <th>Contact NO.</th>
+                <th>Estimated Price</th>
+                <th>Customer Price</th>
+                <th class="text-center" colspan="3">Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="toe in orderprocess.toes">
+                <td>{{ toe.salesid }}</td>
+                <td>{{ toe.customername }}</td>
+                <td>{{ toe.contactno }}</td>
+                <td align="right">{{ toe.estimatedprice }}</td>
+                 <td align="right">{{ toe.customerprice }}</td>
+                
+                <td class="text-center">
+                    <button type="button" class="btn btn-sm btn-warning" ng-click="processorderedit()" title="Edit">
+                       <em class="fa fa-edit"></em>
+                   </button>
+                   </td>
+                    <td class="text-center">
+
+                   <button type="button" class="btn btn-sm btn-danger" title="Cancel" ng-click="orderprocessingformcancel(toe.salesordergid)">
+                       <em class="fa fa-ban"></em>
+                   </button>
+                   </td>
+                    <td class="text-center">
+                   <button type="button" class="btn btn-sm btn-primary" ng-click="refount()" title="Refount Processing">
+                       <em class="fa fa-university"></em>
+                   </button>
+               </td>
+           </tr>   
+       </tbody>
+       </table>
+    </div>
+</div>
+</div>

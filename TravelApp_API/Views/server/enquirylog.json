@@ -1,0 +1,20 @@
+[
+    {
+    "status":"Follow up",
+    "enquiry":"Telephone",
+    "netreminder":"10-05-2017",
+    "remarks":"Follow up"    
+    },
+     {
+    "status":"Closed",
+    "enquiry":"Telephone",
+    "netreminder":"10-08-2017",
+    "remarks":"the status closed"    
+    },
+     {
+    "status":"Closed",
+    "enquiry":"Telephone",
+    "netreminder":"20-03-2017",
+    "remarks":"Follow up"    
+    }
+]

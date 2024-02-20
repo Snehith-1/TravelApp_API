@@ -1,0 +1,49 @@
+<h3 style="color:#000000;">Refund Summary</h3>
+
+<div ng-controller="refundsummarycontroller as refund" class="container-fluid" >
+	<div class="panel-heading">
+	<div class="table-responsive" >
+		<table datatable="ng" class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th width="20%">Refund No.</th>
+					<th>Refund Date.</th>
+					<th>SO Ref No.</th>
+					<th>Customer Name</th>
+					<th>Contact No.</th>            
+					<th>National ID</th>
+					<th>Refund Type</th>
+					<th>Order Amount</th>
+					<th>Received Amount</th>
+					<th width="20%">Refund Amount</th>
+					<th class="text-center" colspan="2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="toe in refund">       
+					<td>{{toe.refundnumber}}</td>
+					<td>{{toe.createddate}}</td>
+					<td>{{toe.salesorderrefno}}</td>
+					<td>{{toe.customername}}</td>            
+					<td>{{toe.contactno}}</td>
+					<td>{{toe.nationalid}}</td>
+					<td>{{toe.refundtype}}</td>
+					<td class="text-right">{{toe.orderamount}}</td>            
+					<td class="text-right" >{{toe.receivedamount}}</td>                          
+					<td class="text-right">{{toe.refundamount}}</td>
+					<td class="text-center">						
+						<button type="button" title="Edit" ng-click="refundedit(toe.refundgid)" class="btn btn-sm btn-warning">
+							<em class="fa fa-edit"></em>
+						</button>
+						</td>
+						<td class="text-center">
+						<button type="button" title="Delete" ng-click="delete(toe.refundgid)" class="btn btn-sm btn-danger">
+							<em class="fa fa-trash-o"></em>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div> 
+	</div>  
+</div>

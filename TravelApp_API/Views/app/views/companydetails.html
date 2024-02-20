@@ -1,0 +1,213 @@
+			<h3 style="color:#000000;">Company Details</h3>
+			
+			<div ng-controller="companydetailscontroller as company" class="container-fluid">	
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"></div>
+							<div class="panel-body">
+							 <form role="form" name="companyForm" novalidate="" class="form-validate ">
+							 
+								<div class="row">
+									<div class="col-md-6" ng-app="">
+										<label>Company Code</label>
+										<input class="form-control"  placeholder="Enter Company Code " name="companycodes" disabled="disabled" type="name"  ng-model="company_code" />
+										<!--  -->
+
+										
+									</div>
+									<div class="col-md-6" ng-app="" >
+										<label>Company Name</label>
+										<input class="form-control" placeholder="Enter Company Name" type="name" name="company_name" required="" ng-model="company_name" />
+										<span ng-show="companyForm.company_name.$dirty &amp;&amp; companyForm.company_name.$error.required" class="text-danger">Please Enter Company Name</span>
+
+									</div>
+								</div>
+							
+							</br>
+							<div class="row">
+								<div class="col-md-6" >
+									<label>Company Phone No.</label>
+							             <!--  <div class="input-group-btn">
+							                  <button class="btn btn-default" type="button">+968
+							                      
+							                  </button>
+							              </div> -->
+                                <input class="form-control" placeholder="Enter Company Phone No." type="text" ng-model="phone_no" name="phone"  ng-pattern="/^\d+$/" maxlength="10" required="" />
+								<span ng-show="companyForm.phone.$dirty &amp;&amp; companyForm.phone.$error.required" class="text-danger">Please Enter Company phone No.</span>
+								<span ng-show="companyForm.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>
+                                  
+                                </div>
+								<div class="col-md-6" >
+								<label>Company Mail Address</label>
+								<input class="form-control" type="phone" ng-model="Company_Mail" name="email_id" ng-model="itemToAdd.emailid" ng-pattern="/^[_a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/" placeholder="Enter Email Address" class="form-control" required="" />
+								<span ng-show="companyForm.email_id.$dirty &amp;&amp; companyForm.email_id.$error.required" class="text-danger">Email ID is required</span>
+                                <span ng-show="companyForm.email_id.$dirty &amp;&amp; companyForm.email_id.$error.pattern" class="text-danger">Please Enter valid Email ID</span>
+
+
+
+								</div>
+							</div>
+						</br>
+						<div class="row">
+						<div class="form-group">
+							<div class="col-md-6" >
+								<label>Contact Person Name</label>
+								<input class="form-control" type="name" required="" name="contact_name" placeholder="Enter Contact Person Name" ng-model="contact_persion" />
+								 <span ng-show="companyForm.contact_name.$dirty &amp;&amp; companyForm.contact_name.$error.required" class="text-danger">Please Enter Contact Person Name</span>
+							</div>
+							<div class="col-md-6">
+								<label>License</label>				
+								<input class="form-control" ng-model="license_name" type="name" placeholder="Enter License" />
+							</div>	
+						</div>
+						</div>
+					</br>
+					<div class="row">
+						<div class="col-md-6">
+							<label>Authentication Code</label>
+							<input class="form-control" placeholder="Enter Authentication Code" type="name" ng-model="Authentication_code" />
+						</div>
+						<div class="col-md-6" >
+							<label>Base Currency</label>					
+							<select name="category" ng-model="base_currency"  class="mda-form-control"  >
+							<option value="">--select-</option>
+							<option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+
+							
+						</select>
+
+						</div>	
+					</div>
+				</br>
+				<div class="row">
+					<div class="col-md-6"  >
+						
+						 <div class="form-group">
+							<label>Address</label>
+							<textarea rows="4" ng-model="company_address" class="form-control"></textarea>
+						</div>
+						
+						
+					</div>
+					<div class="col-md-6">
+						<label>Sms Credits</label>					
+						<input class="form-control" ng-model="sms_credits" type="name" placeholder="Enter SMS Credits" />
+					</div>	
+				</div>
+			</br>
+			<div class="row" >
+				<div class="col-md-6">
+					<label>Country</label>
+					<select name="category" ng-model="country_name"  class="mda-form-control"  >
+							<option value="">--select-</option>
+							<option value="{{list.countrycode}}" ng-repeat="list in currencybind  ">{{list.countryname}}</option>
+
+							
+						</select>
+				</div>
+				<div class="col-md-6">
+					<label>Fax</label>					
+					<input class="form-control" ng-model="company_fax" type="name" placeholder="Enter the Fax " />
+				</div> 
+			</div>
+		</br>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="col-sm-12">
+					<label>Financial Year Start</label>
+				</div>
+
+				<div class="col-sm-6">
+					<div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+						<p class="input-group">
+							<input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="financial_year" is-open="dpick.opened"   datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+							close-text="Close" class="form-control" />
+							<span class="input-group-btn">
+								<button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+									<em class="fa fa-calendar"></em>
+								</button>
+							</span></p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-6" ng-init="Web='http://www.storyboarderp.com'" >
+					<label>Company Website</label>					
+					<input class="form-control" type="name" ng-model="company_web" />
+				</div>	
+			</div>
+		</br>	
+		<div class="row">
+			<div class="col-md-6">
+				<div class="col-sm-12">
+					<label>Sequence Reset On</label>
+				</div>	
+				<div class="col-sm-6">
+					<div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+						<p class="input-group">
+							<input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="Sequence_reset" is-open="dpick.opened"   datepicker-options="dpick.dateOptions" date-disabled="false"
+							close-text="Close" class="form-control" />
+							<span class="input-group-btn">
+								<button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+									<em class="fa fa-calendar"></em>
+								</button>
+							</span></p>
+						</div>
+					</div>
+				</div>			
+				<div class="col-md-6">
+					<label>Employer Code</label>					
+					<input class="form-control" type="name" name="employer_code" required="" ng-model="employer_code" placeholder="Enter National ID" />
+
+					<span ng-show="companyForm.employer_code.$dirty &amp;&amp; companyForm.employer_code.$error.required" class="text-danger">Please Enter Employer Code</span>
+				</div>	
+			</div>
+		</br>
+</form>
+	</div>
+
+	</div>	
+	</div>	
+	</div>
+
+	<div class="row">
+	<div class="col-md-12">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Company Logo</h3>
+			</div>
+			<div class="panel-body">
+				<div class="col-sm-4">
+					<div align="center">
+						<label>Company Logo</label> </br>
+                         <input type="file" ng-change="pickimg()" ng-model="company_logo" multiple />
+					
+                        </span>
+
+					</div>
+					
+				</div>
+				<div class="col-sm-3">
+				</div>
+				<div class="col-sm-2">
+					<div align="center">
+						<label>Welcome Logo</label></br> 
+						<input type="file"  ng-change="pickimg()" ng-model="welcome_logo" multiple />
+                       </span>
+					</div>					
+				</div>	
+			</div>
+
+		</div>
+	</div>
+	</div>
+	<div class="panel-footer text-center">
+	<button type="submit" class="btn btn-green" ng-click="subcompany()">Update</button> &nbsp;
+	<button type="cancel" class="btn btn-danger" ng-click="cancompany()">Cancel</button>
+	</div>  			
+
+
+	</div>
+	</div>
+	</div>

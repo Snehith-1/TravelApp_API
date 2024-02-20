@@ -1,0 +1,27 @@
+[
+    {
+	"employeecode":"emp001",	
+	"employeename":"Mythili",
+	"employeedepartment":"Operation",
+	"status":"Active"	
+	},
+	{
+	"employeecode":"emp002",	
+	"employeename":"Mahi",
+	"employeedepartment":"Sales",
+	"status":"Inactive"	
+	},
+	{
+	"employeecode":"emp003",	
+	"employeename":"Yesvanth",
+	"employeedepartment":"Finance",
+	"status":"Active"
+	
+	},
+	{
+	"employeecode":"emp004",	
+	"employeename":"Aravind",
+	"employeedepartment":"Operation",
+	"status":"Active"	
+	}
+]

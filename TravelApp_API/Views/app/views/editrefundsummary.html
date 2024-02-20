@@ -1,0 +1,144 @@
+
+ 
+<h3 ></h3>
+<div ng-controller="editrefundCtrl as editquot">
+
+  <div class="panel panel-default">
+     <pre class="alert alert-info ng-binding">EDIT QUOTATION</pre>
+       <div class="panel-body">
+     <form role="form" name="editrefundform" novalidate="" class="from-validate">
+           <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Refund No.</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+		          <div class="form-group">
+		            <input type="text" class="form-control" ng-model="refund_no" disabled="disabled" placeholder="Enter Refund Number"  name="refundno" / >
+               <!--  <span ng-show="editrefundform.refundno.$dirty &amp;&amp; editrefundform.refundno.$error.required" class="text-danger">Enter Refund Number
+                   </span> -->
+		          </div>
+             </div>
+         </div>
+            
+
+         <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Refund Date</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+		          <div class="form-group">
+		          <input type="date" class="form-control" ng-model="refund_date" disabled="disabled" placeholder="Enter Refund Date"  name="refunddate" / >
+               <!--  <span ng-show="editrefundform.refunddate.$dirty &amp;&amp; editrefundform.refunddate.$error.required" class="text-danger">Enter Refund Date
+                   </span> -->
+		          </div>
+             </div>
+         </div>   
+
+         <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>SO Ref.No.</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+              <div class="form-group">
+               <input type="text" class="form-control" disabled="disabled" ng-model="soref_no" placeholder="Enter SO Ref.No." name="so_ref_no"/ >
+              <!--   <span ng-show="editrefundform.so_ref_no.$dirty &amp;&amp; editrefundform.so_ref_no.$error.required" class="text-danger">Enter SO Refernce Number                   </span> -->
+              </div>
+             </div>
+         </div>   
+
+           <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Customer Name</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+              <div class="form-group">
+                <input type="text" class="form-control" disabled="disabled" ng-model="customer_name" placeholder="Enter Customer Name" name="customer" / >
+               <!--  <span ng-show="editrefundform.customer.$dirty &amp;&amp; editrefundform.customer.$error.required" class="text-danger">Enter Customer Name
+                   </span> -->
+              </div>
+             </div>
+         </div>   
+         <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Order Amount</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+              <div class="form-group">
+               <input type="number" class="form-control" disabled="disabled" ng-model="order_amount" placeholder="Enter Order Amount"  name="orderamount" / >
+               <!--  <span ng-show="editrefundform.orderamount.$dirty &amp;&amp; editrefundform.orderamount.$error.required" class="text-danger">Enter Order Amount
+                   </span> -->
+              </div>
+             </div>
+         </div>   
+         
+         <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Received Amount</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+              <div class="form-group">
+               <input type="number" class="form-control" disabled="disabled" ng-model="received_amount" placeholder="Enter Received Amount"  name="receivedamount" / >
+                <!-- <span ng-show="editrefundform.receivedamount.$dirty &amp;&amp; editrefundform.receivedamount.$error.required" class="text-danger">Enter Received Amount
+                   </span> -->
+              </div>
+             </div>
+         </div>   
+         <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Refund Type</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+		          <div class="form-group">
+		            <input type="text" class="form-control" ng-model="refund_type" placeholder="Enter Refund Type" required=""  name="refund" data-ng-change="textOnly()"/ >
+		            <span ng-show="editrefundform.refund.$dirty &amp;&amp; editrefundform.refund.$error.required" class="text-danger">Enter Refund Type
+                   </span>
+		          </div>
+             </div>
+         </div> 
+         
+         <div  class="row">
+             <div class="col-sm-6">
+               <div class="form-group">
+                   <label>Refund Amount</label>
+               </div>
+             </div>
+             <div class="col-sm-6">
+              <div class="form-group">
+                <input type="number" class="form-control" ng-model="refund_amount" placeholder="Enter Refund Amount" required=""  name="amount" data-ng-change="numbersOnly()"/ >
+                <span ng-show="editrefundform.amount.$dirty &amp;&amp; editrefundform.amount.$error.required" class="text-danger">Enter Refund Amount 
+                   </span>
+              </div>
+             </div>
+         </div> 
+
+
+
+         <div class="row">
+              <div class="col-sm-4">
+              </div>
+              <div class="col-sm-4">
+                  <button class="btn btn-green" ng-click="editrefund()" type="button">
+                  	  Submit
+                  </button>
+              </div>
+              <div class="col-sm-4">
+              </div>
+         </div>  
+         </form>
+       </div>
+ </div>
+</div>

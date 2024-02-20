@@ -1,0 +1,8 @@
+{
+  "objectname": [
+    {
+      "id": "XYZ",
+      "value": "server=vcidex-vm017856.cloudapp.net;user=travelapp;database=xyztravel;port=3306;password=vision18"
+    }
+  ]
+}

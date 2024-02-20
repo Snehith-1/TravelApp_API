@@ -1,0 +1,58 @@
+(a)Employee
+
+1.First name, last name, city allowes numbers---completed
+2.National id does not allowes the number.---completed
+3.State allowes number---completed
+4.postal code allowes number.---completed\
+5. employeeadd not working
+6.user role- pending (under contruction)
+7.loginpopup- design only completed.
+
+(b)Currency
+
+1.addcountry- country name allowes number
+2.currency name allowes number
+3.change update button color
+
+(c)Activity
+
+1.Activity field allowes number
+2.Without choosing default display and billable, it permit to add.
+3.In edit activity service not binded.
+
+(d)Sales Team
+
+1.Sales team name allowes number
+
+(e) Operation Team
+
+1.Operation team allowes number
+
+(f)Customer
+
+1.Addcustomer, company name - first name allowes number
+
+2. Active and inactive removal pending
+
+3.Customer summary billing address removal pending, instead of customer type showing pending.
+
+4.When i'm choosing customer type individual, in edit screen billing address also displayed. and also company name showed in mailing address.
+
+5.customer- sales order form- customer detail-- sales&sales team emp. not binded.
+
+6. passenger name field allowes number
+7.passport issue date and expiry date need validation.
+8.passenger not binded in grid.
+9.passport- passenger drop down not showed.
+
+
+(f)Vendor
+
+1. vendor company name, city,contact person name allowes number.
+2.edit vendor company name and service drop down not showed.
+3. While editing address not binding in summary.
+
+Order Processing form:
+
+1.order processing form Billing notes Add(binding activities based on services).
+2.Order processing form edit ui block and unblock ui not working.

@@ -1,0 +1,42 @@
+[
+  {
+    "data": 25866.0,
+    "color": "#00b4ff",
+    "label": "car"
+  },
+  {
+    "data": 1459397.0,
+    "color": "#ffea88",
+    "label": "forex"
+  },
+  {
+    "data": 11155.0,
+    "color": "#ff3e43",
+    "label": "hotel"
+  },
+  {
+    "data": 1950100.0,
+    "color": "#4acab4",
+    "label": "insurance"
+  },
+  {
+    "data": 8560800.0,
+    "color": "",
+    "label": "package"
+  },
+  {
+    "data": 11458642.0,
+    "color": "#39C558",
+    "label": "passport"
+  },
+  {
+    "data": 879191.0,
+    "color": "#937fc7",
+    "label": "Ticket"
+  },
+  {
+    "data": 126177.0,
+    "color": "#FFBE41",
+    "label": "visa"
+  }
+]

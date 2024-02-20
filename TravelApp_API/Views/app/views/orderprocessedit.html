@@ -1,0 +1,2720 @@
+    <h3>Process Order Form</h3>
+    <div ng-controller="processorderformcontroller as processorderform" class="container-fluid">
+      <div class="row" >
+      <div class="col-md-10">
+      </div>
+      <div class="col-md-2">         
+          <div align="pull-right" >
+            <button type="button" class="pull-left btn btn-warning" ng-click="cancelord()">
+             Cancel Order
+           </button>
+         </div>      
+       </div>
+     </div>
+   </br>
+   <div class="col-md-3">
+     <div class="row" >
+      <div class="col-md-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Reminder</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+             <div class="col-md-6">
+              <div class="form-group">
+
+                <label>Process:</label>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <p>Passport</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+           <div class="col-md-6">
+            <div class="form-group">
+
+              <label>Reminder:</label>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+
+              <p>Submit address proof documents</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+         <div class="col-md-6">
+          <div class="form-group">
+
+            <label>Reminder Date:</label>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+
+            <label>11-06-2017</label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Customer Details</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+         <div class="col-md-4">
+          <div  class="form-group">
+           <label>Name:</label>
+
+         </div>
+       </div>
+       <div class="col-md-8">
+        <div  class="form-group">
+         <p>VCIDEX Solutions PVT LTD</p>            
+
+       </div>
+     </div>
+   </div>
+   <div class="row">
+     <div class="col-md-4">
+       <div  class="form-group">
+
+        <label>Mobile No.:</label>
+      </div>
+    </div>
+    <div class="col-md-8">
+     <div  class="form-group">
+      <p>9687453634</p>  
+
+    </div>
+  </div>
+</div>
+<div class="row">
+ <div class="col-md-4">
+  <div  class="form-group">
+
+    <label>Email Id:</label>
+  </div>
+</div>
+<div class="col-md-8">
+ <div  class="form-group">
+  <p>support@vcidex.com</p>  
+
+</div>
+</div>
+</div>
+<div class="row">
+ <div class="col-md-4">
+  <div  class="form-group">
+
+    <label>Nationality:</label>
+  </div>
+</div>
+<div class="col-md-8">
+  <div  class="form-group">
+   <p>India</p>  
+
+ </div>
+</div>
+</div>
+<!-- <div align="center" class="row">
+  <button type="button"   class="btn btn-green">
+    <em class="fa fa-add">Add Customer Details</em>
+  </button>
+</div> -->
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+<!-- END button group-->
+
+<!-- END box placeholder-->
+
+<div class="col-lg-9">
+  <div class="panel panel-default">
+   <div class="panel-body">
+    <form form-wizard="" steps="9" novalidate="" ng-submit="alertSubmit()">
+     <div class="form-wizard wizard-horizontal">
+      <ol class="row">
+        <li ng-class="{'active':wizard.active(1)}" ng-click="wizard.go(1)" class="col-md-2">
+          <h4>Passenger</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(2)}" ng-click="wizard.go(2)" class="col-md-2">
+          <h4>Passport</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(3)}" ng-click="wizard.go(3)" class="col-md-2">
+          <h4>Visa</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(4)}" ng-click="wizard.go(4)" class="col-md-2">
+          <h4>Flight</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(5)}" ng-click="wizard.go(5)" class="col-md-2">
+          <h4>Hotel</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(6)}" ng-click="wizard.go(6)" class="col-md-2">
+          <h4>Car</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(7)}" ng-click="wizard.go(7)" class="col-md-2">
+          <h4>Forex</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(8)}" ng-click="wizard.go(8)" class="col-md-2">
+          <h4>Package</h4>
+        </li>
+        <li ng-class="{'active':wizard.active(9)}" ng-click="wizard.go(9)" class="col-md-2">
+          <h4>Insurance</h4>
+        </li>
+      </ol>
+
+
+      <div ng-show="wizard.active(1)">
+        <div class="panel panel-default">
+         <div class="panel-heading">
+          <div class="row">
+
+
+
+            <div class="col-sm-2">
+              <div  class="form-group">
+
+                <label >First Name</label>
+
+
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+
+               <input class="form-control" type="activity" placeholder="First Name" />
+             </div>
+           </div>
+
+           <div class="col-sm-2">
+            <div  class="form-group">
+
+              <label >Last Name</label>
+
+
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+
+             <input class="form-control" type="activity" placeholder="Last Name" />
+           </div>
+         </div>
+
+
+
+       </div>
+
+       <div class="row">
+
+
+
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+            <label >Gender</label>
+
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+
+           <input class="form-control" type="activity" placeholder="Gender" />
+         </div>
+       </div>
+
+       <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Date of Birth</label>
+
+
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+
+         <input class="form-control" type="activity" placeholder="Date of Birth" />
+       </div>
+     </div>
+
+
+
+   </div>
+   <div class="row">
+
+
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Passport NO</label>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+       <input class="form-control" type="activity" placeholder="Passport NO" />
+     </div>
+   </div>
+
+   <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Passsport Expiry Date</label>
+
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+       <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+       close-text="Close" class="form-control" />
+       <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+
+
+
+</div>
+<div class="row">
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Passport Issued Date</label>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="col-sm-4">
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+        <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+        close-text="Close" class="form-control" />
+        <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+
+
+
+  </div>
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+
+    <div align="center" class="col-sm-4">
+      <div class="form-group">
+        <button type="button"   class="btn btn-green">
+          <em class="fa fa-add">Add Passenger Details</em>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+    <div class="table-responsive">
+    <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Passenger Name</th>
+          <th>Gender</th>
+          <th>Date of Birth</th>          
+          <th>Passport No</th>
+          <th>Passport Expiry Date</th>          
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in processorderform.toes">
+          <td>{{toe.passengername}}</td>
+          <td>{{toe.gender}}</td>
+          <td>{{toe.dataofbirth}}</td>
+          <td>{{toe.passportno}}</td>
+          <td>{{toe.passportexpirydate}}</td>
+          
+          <td class="text-center">
+
+            <button type="button" title="Edit" class="btn btn-sm btn-warning" >
+              <em class="fa fa-edit"></em>
+            </button>
+            <button type="button" title="Delete" class="btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</div>
+
+<div ng-show="wizard.active(2)">
+
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-3">
+        <div  class="form-group">
+
+          <label >Passenger Name</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+
+
+          <select class="form-control" name="account">
+            <option>Aravind</option>
+            <option>Mahi</option>
+
+            <option>Mythili</option>
+            <option>Yesvanth</option>
+          </select>               
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+
+     <!--  <div class="col-sm-1" >
+        <div class="form-group" >
+          <input type="checkbox" value="" />
+        </div>
+      </div> -->
+      <div class="col-sm-3" align="left">
+        <div  class="form-group" align="left">
+          <label >ID Proof</label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+         <input class="form-control" type="activity" placeholder="ID Proof" />
+       </div>
+     </div>
+
+      <!--  <div class="col-sm-1">
+    <div class="form-group">
+
+      <input type="checkbox" value="" />
+    </div>
+
+  </div> -->
+
+  <div class="col-sm-3">
+    <div  class="form-group">
+
+      <label >Additional Proof</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+   <div  class="form-group">
+     <input class="form-control" type="activity" placeholder="Additional Proof" />
+   </div>
+ </div>
+
+
+
+
+</div>
+
+<div class="row">
+
+
+<!--   <div class="col-sm-1">
+    <div class="form-group">
+
+      <input type="checkbox" value="" />
+    </div>
+
+  </div> -->
+  <div class="col-sm-3">
+    <div  class="form-group">
+
+
+      <label >Photo</label>
+
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <input class="form-control" type="activity" placeholder="Photo" />
+
+    </div>
+  </div>
+
+<!-- <div class="col-sm-1">
+    <div class="form-group">
+
+      <input type="checkbox" value="" />
+    </div>
+
+  </div> -->
+  <div class="col-sm-3">
+    <div  class="form-group">
+
+      <label >Any Government Document</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-3">
+    <div class="form-group">
+      <input class="form-control" type="activity" placeholder="Any Government Document" />
+    </div>
+  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="row">
+
+
+ <!--  <div class="col-sm-1">
+    <div class="form-group">
+
+     
+    </div>
+
+  </div> -->
+  <div class="col-sm-3">
+    <div  class="form-group">
+
+      <label >Amount</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div   class="form-group">
+
+     <input class="form-control" " type="activity" placeholder="Amount" />
+   </div>
+ </div>
+
+
+
+
+
+
+</div>
+<div class="row">
+  <div ng-controller="FileUploadController as form" nv-file-drop="" uploader="form.uploader" filters="queueLimit, 
+  customFilter">
+
+  <h4  style="font-size: 14px" class="panel-title">Upload Documents:</h4>
+  <div class="panel-body">
+    <input class="form-control" filestyle="" type="file" data-button-text="Multiple" data-class-button="btn btn-default" data-class-input="form-control inline" nv-file-select="" uploader="form.uploader" multiple="" />
+  </div>
+
+  <div class="col-md-9" style="margin-bottom: 20px;">
+    <div class="panel">
+     <div class="panel-body">
+      <p class="pull-right label label-info" ng-if="form.uploader.queue.length">Queue length: {{ form.uploader.queue.length }}</p>
+      <h4 style="font-size: 14px" class="panel-title">Upload queue</h4>
+      <p class="lead text-center" style="font-size: 15px" ng-if="!form.uploader.queue.length">No files in queue. Start adding some..</p>
+      <div ng-if="form.uploader.queue.length">
+       <table class="table" ng-if="form.uploader.queue.length">
+        <thead>
+         <tr>
+          <th width="50%">Name</th>
+          <th ng-show="form.uploader.isHTML5">Size</th>
+          <th ng-show="form.uploader.isHTML5">Progress</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr ng-repeat="item in form.uploader.queue">
+        <td>
+         <strong>{{ item.file.name }}</strong>
+       </td>
+       <td ng-show="form.uploader.isHTML5" nowrap="">{{ item.file.size/1024/1024|number:2 }} MB</td>
+       <td ng-show="form.uploader.isHTML5">
+         <div class="progress progress-xs" style="margin-bottom: 0;">
+          <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+        </div>
+      </td>
+      <td class="text-center">
+       <span ng-show="item.isSuccess">
+        <em class="fa fa-check fa-fw"></em>
+      </span>
+      <span ng-show="item.isCancel">
+        <em class="fa fa-ban-circle fa-fw"></em>
+      </span>
+      <span ng-show="item.isError">
+        <em class="fa fa-times fa-fw"></em>
+      </span>
+    </td>
+    <td nowrap="">
+     <button class="btn btn-info btn-xs" type="button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+      <span class="icon-cloud-upload mr"></span>Upload</button>
+      <button class="btn btn-warning btn-xs" type="button" title="Cancel" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+        <span class="icon-close mr"></span>Cancel</button>
+        <button class="btn btn-danger btn-xs" type="button" title="Remove" ng-click="item.remove()">
+          <span class="icon-trash mr"></span>Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+<div class="panel">
+ <div class="panel-body">
+  <div>
+   <p>Queue progress:</p>
+   <div class="progress progress-xs">
+    <div class="progress-bar" role="progressbar" ng-style="{ 'width': form.uploader.progress + '%' }"></div>
+  </div>
+</div>
+<button class="btn btn-info btn-s" type="button" ng-click="form.uploader.uploadAll()" ng-disabled="!form.uploader.getNotUploadedItems().length">
+ <span class="icon-cloud-upload mr"></span>Upload all</button>
+ <button class="btn btn-warning btn-s" type="button" ng-click="form.uploader.cancelAll()" ng-disabled="!form.uploader.isUploading">
+   <span class="icon-close mr"></span>Cancel all</button>
+   <button class="btn btn-danger btn-s" type="button" ng-click="form.uploader.clearQueue()" ng-disabled="!form.uploader.queue.length">
+     <span class="icon-trash mr"></span>Remove all</button>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Add Passport Details</em>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+   <!--  <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last name</th>
+          <th>Gender</th>
+          <th>Date of Birth</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in salesorderform.toes">
+          <td>{{toe.firstname}}</td>
+          <td>{{toe.lastname}}</td>
+          <td>{{toe.gender}}</td>
+          <td>{{toe.dataofbirth}}</td>
+          <td class="text-center">
+
+            <button type="button" class="btn btn-sm btn-warning">
+              <em class="fa fa-edit"></em>
+            </button>
+            <button type="button" class="btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
+</div>
+</div>
+
+<div  ng-show="wizard.active(3)">
+  <div class="panel-heading">
+
+  </div>
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Passenger Name</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+
+
+          <select class="form-control" name="account">
+            <option>Aravind</option>
+            <option>Mahi</option>
+
+            <option>Mythili</option>
+            <option>Yesvanth</option>
+          </select>               
+        </div>
+      </div>
+    </div>
+    <div class="row">
+
+
+
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+        <div class="form-group">
+
+
+        </div>
+      </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="row">
+
+
+
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Country</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+
+         <input class="form-control" type="activity" placeholder="Country" />
+       </div>
+     </div>
+
+
+
+     <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Application Date</label>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div ng-controller="DatepickerDemoCtrl as dpick"  class="form-group">
+        <p class="input-group">
+         <input type="text" name="date" required="" width="10px" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="row">
+
+
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Expiry Date</label>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+        <p class="input-group">
+          <input type="text" name="date" required="" width="10px" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+          close-text="Close" class="form-control" />
+          <span class="input-group-btn">
+            <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+              <em class="fa fa-calendar"></em>
+            </button>
+          </span></p>
+        </div>
+      </div>
+
+
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Visa Period</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <input class="form-control" type="activity" placeholder="Visa Period" />
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="row">
+
+
+
+
+
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Vendor</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+
+          <select class="form-control" name="account">
+            <option value=""></option>
+
+
+          </select>
+        </div>
+      </div>
+
+
+
+
+    </div>
+    <div class="row">
+
+
+
+     <div class="col-sm-1">
+      <div  class="form-group">
+
+        <label >Currency</label>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="form-group">
+       <select class="form-control" name="account">
+        <option>OMR</option>
+        <option>INR</option>
+        <option>USD</option>
+        <option>SGD</option>
+        <option>MYR</option>
+
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-1">
+    <div  class="form-group">
+
+      <label >Vendor Price</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="form-group">
+      <input width="100%" class="form-control" type="activity" placeholder="" />
+    </div>
+  </div>
+
+
+
+  <div class="col-sm-1">
+    <div  class="form-group">
+
+      <label >Exchange Rate</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="form-group">
+      <input class="form-control" type="activity" placeholder="" />
+    </div>
+  </div>
+
+  <div class="col-sm-1">
+    <div  class="form-group">
+
+      <label >Total Amount</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="form-group">
+      <input class="form-control" type="activity" placeholder="" />
+    </div>
+  </div>
+
+
+
+
+</div>
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Add Visa Details</em>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+   <!--  <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Country</th>
+          <th>Application NO</th>
+          <th>Application Date</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe1 in salesorderform.toes1">
+          <td>{{toe1.name}}</td>
+          <td>{{toe1.country}}</td>
+          <td>{{toe1.application_no}}</td>
+          <td>{{toe1.application_date}}</td>
+          <td class="text-center">
+
+            <button type="button" class="btn btn-sm btn-warning">
+              <em class="fa fa-edit"></em>
+            </button>
+            <button type="button" class="btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
+</div>
+</div>
+
+
+<div  ng-show="wizard.active(4)">
+
+
+  <div class="col-lg-6">
+    <div class="panel panel-default">
+     <div class="panel-heading">
+      <div class="row">
+        <div class="col-sm-2">
+          <div  class="form-group">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="form-group">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div  class="form-group">
+            <label >Flight No</label>
+            <input class="form-control" type="activity" placeholder="Flight No" />
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div  class="form-group">
+
+            <label >Flight Name</label>
+            <input class="form-control" type="activity" placeholder="Flight Name" />
+
+          </div>
+        </div>
+
+
+
+
+      </div>
+      <div class="row">
+
+
+
+        <div class="col-sm-6">
+          <div  class="form-group">
+
+            <label >Departure Date</label>
+
+            <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+              <p class="input-group">
+                <input type="text" name="date" width="10px" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+                close-text="Close" class="form-control" />
+                <span class="input-group-btn">
+                  <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                    <em class="fa fa-calendar"></em>
+                  </button>
+                </span></p>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-sm-6">
+            <div  class="form-group">
+
+              <label >Time</label>
+              <input class="form-control" type="activity" placeholder="Time" />
+
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+        <div class="row">
+
+
+
+
+
+         <div class="col-sm-6">
+          <div  class="form-group">
+
+            <label >From</label>
+            <input class="form-control" type="activity" placeholder="From" />
+
+          </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-6">
+          <div  class="form-group">
+
+            <label >to</label>
+
+            <input class="form-control" type="activity" placeholder="To" />
+          </div>
+        </div>
+
+
+
+
+
+      </div>
+      <div class="row">
+
+
+        <div class="col-sm-6">
+          <div  class="form-group">
+
+            <label >Amount</label>
+
+            <input  class="form-control" type="activity" placeholder="Amount" />
+          </div>
+        </div>
+
+
+
+
+
+        <div class="col-sm-6">
+          <div  class="form-group">
+
+
+            <label >Vendor</label>
+            <div   class="form-group">
+             <select class="form-control" name="account">
+              <option value=""></option>
+
+
+            </select>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+    </div>
+
+    <div class="row">
+
+
+
+     <div class="col-sm-6">
+      <div  class="form-group">
+
+        <label >Currency</label>
+
+        <select class="form-control" name="account">
+          <option>OMR</option>
+          <option>INR</option>
+          <option>USD</option>
+          <option>SGD</option>
+          <option>MYR</option>
+
+        </select>
+      </div>
+    </div>
+
+
+
+    <div class="col-sm-6">
+      <div  class="form-group">
+
+        <label >Vendor Price</label>
+        <input width="100%" class="form-control" type="activity" placeholder="" />
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div  class="form-group">
+
+        <label >Exchange Rate</label>
+        <input class="form-control" type="activity" placeholder="" />
+
+      </div>
+    </div>
+
+
+
+    <div class="col-sm-6">
+      <div  class="form-group">
+
+        <label >Total Amount</label>
+        <input class="form-control" type="activity" placeholder="" />
+
+      </div>
+    </div>
+
+
+  </div>
+  <div class="row">
+
+    <div class="col-sm-12">
+      <div  class="form-group">
+
+        <label >Remarks</label>
+        <textarea rows="4" class="form-control" cols="30"></textarea>
+
+
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+
+    <div align="center" class="col-sm-4">
+      <div class="form-group">
+        <button type="button"   class="btn btn-green">
+          <em class="fa fa-add">Add Flight Details</em>
+        </button>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+     <fieldset>
+
+       <table datatable="ng" class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th check-all="check-all">
+              <div class="checkbox c-checkbox">
+               <label>
+                <input type="checkbox" />
+                <span class="fa fa-check"></span>
+              </label>
+            </div>
+          </th>
+          <th>First Name/Passport No</th>
+          <th>Status</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe5 in processorderform.toes5">
+          <td>
+            <div class="checkbox c-checkbox">
+             <label>
+              <input type="checkbox" />
+              <span class="fa fa-check"></span>
+            </label>
+          </div>
+        </td>
+        <td>{{toe5.firstname}}</td>
+        <td>{{toe5.status}}</td>
+
+
+      </tr>
+    </tbody>
+  </table>
+
+</fieldset>
+
+</div>
+</div>
+
+</div>
+<div class="panel-heading">
+  <div class="row">
+    <!-- <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Passenger Name</th>
+          <th>Flight No</th>
+          <th>Flight Name</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Amount</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe2 in salesorderform.toes2">
+          <td>{{toe2.passenger_name}}</td>
+          <td>{{toe2.flight_no}}</td>
+          <td>{{toe2.flight_name}}</td>
+          <td>{{toe2.from}}</td>
+          <td>{{toe2.to}}</td>
+          <td>{{toe2.amount}}</td>
+          <td class="text-center">
+
+            <button type="button" class="btn btn-sm btn-warning">
+              <em class="fa fa-edit"></em>
+            </button>
+            <button type="button" class="btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
+</div>
+</div>
+
+<div ng-show="wizard.active(5)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+
+
+
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Hotel Name</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+
+         <input class="form-control" type="activity" placeholder="Hotel Name" />
+       </div>
+     </div>
+
+     <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Catogory</label>
+
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+
+       <input class="form-control" type="activity" placeholder="Catogory" />
+     </div>
+   </div>
+
+
+
+ </div>
+
+ <div class="row">
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >City</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+     <input class="form-control" type="activity" placeholder="City" />
+   </div>
+ </div>
+
+ <div class="col-sm-2">
+  <div  class="form-group">
+
+    <label >Destination</label>
+
+
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+
+   <input class="form-control" type="activity" placeholder="Destination" />
+ </div>
+</div>
+
+
+
+</div>
+<div class="row">
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Check In</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+
+     <p class="input-group">
+       <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+       close-text="Close" class="form-control" />
+       <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Check Out</label>
+
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+       <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+       close-text="Close" class="form-control" />
+       <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+
+
+
+</div>
+<div class="row">
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Total No of Days</label>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <input class="form-control" type="activity" placeholder="Total No of Days" />
+   </div>
+ </div>
+
+ <div class="col-sm-2">
+  <div  class="form-group">
+
+    <label >Total No of Passengers</label>
+
+
+  </div>
+</div>
+
+
+
+
+<div class="col-sm-4">
+  <div  class="form-group">
+   <input class="form-control" type="activity" placeholder="Total No of Passengers" />
+ </div>
+</div>
+
+</div>
+<div class="row">
+
+
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Vendor</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+     <select class="form-control" name="account">
+      <option value=""></option>
+
+
+    </select>
+  </div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+
+
+
+ <div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Currency</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+   <select class="form-control" name="account">
+    <option>OMR</option>
+    <option>INR</option>
+    <option>USD</option>
+    <option>SGD</option>
+    <option>MYR</option>
+
+  </select>
+</div>
+</div>
+
+<div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Vendor Price</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+    <input width="100%" class="form-control" type="activity" placeholder="" />
+  </div>
+</div>
+
+
+
+<div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Exchange Rate</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+    <input class="form-control" type="activity" placeholder="" />
+  </div>
+</div>
+
+<div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Total Amount</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+    <input class="form-control" type="activity" placeholder="" />
+  </div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Add Hotel Details</em>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+   <!--  <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Hotel Name</th>
+          <th>Category</th>
+          <th>No of days</th>
+          <th>No of Persons</th>
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe3 in salesorderform.toes3">
+          <td>{{toe3.hotel_name}}</td>
+          <td>{{toe3.category}}</td>
+          <td>{{toe3.no_days}}</td>
+          <td>{{toe3.no_person}}</td>
+          <td class="text-center">
+
+            <button type="button" class="btn btn-sm btn-warning">
+              <em class="fa fa-edit"></em>
+            </button>
+            <button type="button" class="btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
+</div>
+</div>
+<div ng-show="wizard.active(6)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+
+
+
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Car Type</label>
+
+
+        </div>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+
+         <select class="form-control" name="account">
+          <option></option>
+
+
+        </select>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+
+
+
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >From Date</label>
+
+
+      </div>
+    </div>
+
+    <div ng-controller="DatepickerDemoCtrl as dpick"  class="col-sm-4">
+      <div class="form-group">
+
+        <p class="input-group">
+         <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >To Date</label>
+
+
+      </div>
+    </div>
+    <div ng-controller="DatepickerDemoCtrl as dpick"  class="col-sm-4">
+      <div class="form-group">
+       <p class="input-group">
+         <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+         close-text="Close" class="form-control" />
+         <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+        
+      </div>
+    </div>
+  </div>
+  <div class="row">
+
+
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Pick-Up City</label>
+
+
+      </div>
+    </div>
+
+
+
+
+    <div class="col-sm-4">
+      <div  class="form-group">
+       <input class="form-control" type="activity" placeholder="Pick-Up City" />
+     </div>
+   </div>
+
+   <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Drop City</label>
+
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <input class="form-control" type="activity" placeholder="Drop City" />
+   </div>
+ </div>
+
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+
+    <label >No of Persons</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group">
+
+    <input class="form-control" type="activity" placeholder="No of Persons" />
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div  class="form-group">
+
+    <label >Total Amount</label>
+
+
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+    <input class="form-control" type="activity" placeholder="Total Amount" />
+  </div>
+</div>
+</div>
+<div class="row">
+
+
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Remarks</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+      <textarea rows="4" class="form-control" cols="30"></textarea>
+
+
+    </select>
+  </div>
+</div>
+</div>
+<div class="row">
+
+
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Vendor</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+     <select class="form-control" name="account">
+      <option value=""></option>
+
+
+    </select>
+  </div>
+</div>
+</div>
+<div class="row">
+
+
+
+ <div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Currency</label>
+
+
+  </div>
+</div>
+<div class="col-sm-2">
+  <div class="form-group">
+    <select class="form-control" name="account">
+      <option>OMR</option>
+      <option>INR</option>
+      <option>USD</option>
+      <option>SGD</option>
+      <option>MYR</option>
+
+    </select>
+  </div>
+</div>
+<div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Vendor Price</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+    <input width="100%" class="form-control" type="activity" placeholder="" />
+  </div>
+</div>
+
+
+
+<div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Exchange Rate</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+    <input class="form-control" type="activity" placeholder="" />
+  </div>
+</div>
+
+<div class="col-sm-1">
+  <div  class="form-group">
+
+    <label >Total Amount</label>
+
+
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+    <input class="form-control" type="activity" placeholder="" />
+  </div>
+</div>
+</div>
+
+<div class="row">
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Customer Cost</label>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <input class="form-control" type="activity" placeholder="Customer Cost" />
+   </div>
+ </div>
+
+ <div class="col-sm-2">
+  <div  class="form-group">
+
+    <label >Vendor Cost</label>
+
+
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+   <input class="form-control" type="activity" placeholder="Vendor Cost" />
+ </div>
+</div>
+
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Customer Tax</label>
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+      <input class="form-control" type="activity" placeholder="Customer Tax" />
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Vendor Tax</label>
+
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+      <input class="form-control" type="activity" placeholder="Vendor Tax" />
+    </div>
+  </div>
+
+
+
+</div>
+<div class="row">
+
+
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+     <label >Order Amount</label>
+
+
+   </div>
+ </div>
+
+ <div class="col-sm-4">
+  <div class="form-group">
+
+
+    <input class="form-control" type="activity" placeholder="Order Amount" />
+
+  </select>
+</div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+
+    </select>
+  </div>
+</div>
+
+
+<div class="col-sm-2">
+  <div  class="form-group">
+
+   <label >Advance Paid</label>
+
+
+ </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group">
+
+
+    <input class="form-control" type="activity" placeholder="Advance Paid" />
+
+  </select>
+</div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+
+
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+
+    </select>
+  </div>
+</div>
+
+
+<div class="col-sm-2">
+  <div  class="form-group">
+
+   <label >Balance to be Paid</label>
+
+
+ </div>
+</div>
+
+<div class="col-sm-4">
+  <div class="form-group">
+
+
+    <input class="form-control" type="activity" placeholder="Balance to be Paid" />
+
+  </select>
+</div>
+</div>
+
+
+
+
+</div>
+<div class="row">
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Add Car Details</em>
+      </button>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+
+
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+   <!--  <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Car Type</th>
+          <th>No of Days</th>
+          <th>Pick-up City</th>
+          <th>Drop City</th>
+          <th>No of Person</th>
+          <th>Remarks</th>
+
+          <th>ACTION</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe4 in salesorderform.toes4">
+          <td>{{toe4.car_type}}</td>
+          <td>{{toe4.no_days}}</td>
+          <td>{{toe4.pick_city}}</td>
+          <td>{{toe4.drop_city}}</td>
+          <td>{{toe4.no_person}}</td>
+          <td>{{toe4.remarks}}</td>
+          <td class="text-center">
+
+            <button type="button" class="btn btn-sm btn-warning">
+              <em class="fa fa-edit"></em>
+            </button>
+            <button type="button" class="btn btn-sm btn-danger">
+              <em class="fa fa-trash-o"></em>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
+</div>
+</div>
+
+
+</div>
+<div ng-show="wizard.active(7)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+
+      <div class="col-sm-3">
+        <div  class="form-group">
+          <label ></label>
+        </div>
+      </div>
+
+      <div align="center" class="col-sm-2">
+        <div class="form-group">
+          <label >Currency</label>
+        </div>
+      </div>
+
+      <div align="center" class="col-sm-2">
+        <div  class="form-group">
+          <label >Amount</label>
+        </div>
+      </div>
+
+      <div align="center" class="col-sm-2">
+        <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+         <label >Exchange Rate</label>
+       </div>
+     </div>
+     <div align="center" class="col-sm-2">
+      <div class="form-group">
+        <label >Total Amount</label>
+      </div>
+    </div>
+
+
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-sm-3">
+      <div  class="form-group">
+        <label >Customer Paid Amount</label>
+      </div>
+    </div>
+
+    <div class="col-sm-2">
+      <div class="form-group">
+       <select class="form-control" name="account">
+        <option value="OMR">OMR</option>
+        <option value="USD">USD</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <input class="form-control" type="activity" placeholder="Amount" />
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <input class="form-control" type="activity" placeholder="Exchange Rate" />
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="form-group">
+      <input class="form-control" type="activity" placeholder="Total Amount" />
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="row">
+
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Customer Received Amount</label>
+    </div>
+  </div>
+
+  <div class="col-sm-2">
+    <div class="form-group">
+     <select class="form-control" name="account">
+      <option value="OMR">OMR</option>
+      <option value="USD">USD</option>
+    </select>
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div  class="form-group">
+    <input class="form-control" type="activity" placeholder="Amount" />
+  </div>
+</div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+   <input class="form-control" type="activity" placeholder="Exchange Rate" />
+ </div>
+</div>
+<div class="col-sm-2">
+  <div class="form-group">
+    <input class="form-control" type="activity" placeholder="Total Amount" />
+  </div>
+</div>
+
+
+
+</div>
+<div class="row">
+
+  <div class="col-sm-3">
+    <div  class="form-group">
+      <label >Remarks</label>
+    </div>
+  </div>
+
+  <div class="col-sm-7">
+    <div class="form-group">
+      <textarea rows="4" class="form-control" cols="30"></textarea>
+    </div>
+  </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="row">  
+  <div align="center" class="col-sm-12">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Add Forex Details</em>
+      </button>
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+
+<div class="panel-heading">
+  <div class="row">
+
+  </div>
+</div>
+</div>
+
+
+
+<div ng-show="wizard.active(8)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-3">
+        <div  class="form-group">
+          <label ></label>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+                        
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3" align="left">
+        <div  class="form-group" align="left">
+          <label >Remarks</label>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+       <textarea rows="5" cols="70"
+            ></textarea>
+       </div>
+     </div>
+     <div class="col-sm-3">
+      <div  class="form-group">
+        
+      </div>
+    </div>
+    <div class="col-sm-3">
+     <div  class="form-group">
+      
+     </div>
+   </div>
+ </div>
+
+
+<div class="row">
+  <div ng-controller="FileUploadController as form" nv-file-drop="" uploader="form.uploader" filters="queueLimit, 
+  customFilter">
+  <h4  style="font-size: 14px" class="panel-title">Upload Documents:</h4>
+  <div class="panel-body">
+    <input class="form-control" filestyle="" type="file" data-button-text="Multiple" data-class-button="btn btn-default" data-class-input="form-control inline" nv-file-select="" uploader="form.uploader" multiple="" />
+  </div>
+  <div class="col-md-9" style="margin-bottom: 20px;">
+    <div class="panel">
+     <div class="panel-body">
+      <p class="pull-right label label-info" ng-if="form.uploader.queue.length">Queue length: {{ form.uploader.queue.length }}</p>
+      <h4 style="font-size: 14px" class="panel-title">Upload queue</h4>
+      <p class="lead text-center" style="font-size: 15px" ng-if="!form.uploader.queue.length">No files in queue. Start adding some..</p>
+      <div ng-if="form.uploader.queue.length">
+       <table class="table" ng-if="form.uploader.queue.length">
+        <thead>
+         <tr>
+          <th width="50%">Name</th>
+          <th ng-show="form.uploader.isHTML5">Size</th>
+          <th ng-show="form.uploader.isHTML5">Progress</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr ng-repeat="item in form.uploader.queue">
+        <td>
+         <strong>{{ item.file.name }}</strong>
+       </td>
+       <td ng-show="form.uploader.isHTML5" nowrap="">{{ item.file.size/1024/1024|number:2 }} MB</td>
+       <td ng-show="form.uploader.isHTML5">
+         <div class="progress progress-xs" style="margin-bottom: 0;">
+          <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+        </div>
+      </td>
+      <td class="text-center">
+       <span ng-show="item.isSuccess">
+        <em class="fa fa-check fa-fw"></em>
+      </span>
+      <span ng-show="item.isCancel">
+        <em class="fa fa-ban-circle fa-fw"></em>
+      </span>
+      <span ng-show="item.isError">
+        <em class="fa fa-times fa-fw"></em>
+      </span>
+    </td>
+    <td nowrap="">
+     <button class="btn btn-info btn-xs" type="button" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
+      <span class="icon-cloud-upload mr"></span>Upload</button>
+      <button class="btn btn-warning btn-xs" type="button" ng-click="item.cancel()" ng-disabled="!item.isUploading">
+        <span class="icon-close mr"></span>Cancel</button>
+        <button class="btn btn-danger btn-xs" type="button" ng-click="item.remove()">
+          <span class="icon-trash mr"></span>Remove</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+<div class="panel">
+ <div class="panel-body">
+  <div>
+   <p>Queue progress:</p>
+   <div class="progress progress-xs">
+    <div class="progress-bar" role="progressbar" ng-style="{ 'width': form.uploader.progress + '%' }"></div>
+  </div>
+</div>
+<button class="btn btn-info btn-s" type="button" ng-click="form.uploader.uploadAll()" ng-disabled="!form.uploader.getNotUploadedItems().length">
+ <span class="icon-cloud-upload mr"></span>Upload all</button>
+ <button class="btn btn-warning btn-s" type="button" ng-click="form.uploader.cancelAll()" ng-disabled="!form.uploader.isUploading">
+   <span class="icon-close mr"></span>Cancel all</button>
+   <button class="btn btn-danger btn-s" type="button" ng-click="form.uploader.clearQueue()" ng-disabled="!form.uploader.queue.length">
+     <span class="icon-trash mr"></span>Remove all</button>
+   </div>
+ </div>
+</div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+  <div align="center" class="col-sm-4">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Submit</em>
+      </button>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="form-group">
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row"> 
+  </div>
+</div>
+</div>
+<div ng-show="wizard.active(9)">
+  <div class="panel panel-default">
+   <div class="panel-heading">
+    <div class="row">
+      <div class="col-sm-2">
+       <div  class="form-group">
+        <label >Name</label>
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+       <select class="form-control" name="Name">
+        <option>Aron</option>
+        <option>Jalal</option>
+        <option>Sevior</option>
+        <option>Dhana</option>
+        <option>Sulfikar</option>
+      </select>      
+    </div>
+  </div>
+  <div class="col-sm-2">
+   <div  class="form-group">
+    <label >Date Of Birth</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+   <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+    <p class="input-group">
+      <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="'1970-01-01'" max-date="dpick.minDate" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+      close-text="Close" class="form-control" />
+      <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Arrival port</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+      <input class="form-control" type="activity" placeholder="Enter Arrival port" />
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div  class="form-group">
+      <label >Start Date</label>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+     <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+        <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+        close-text="Close" class="form-control" />
+        <span class="input-group-btn">
+          <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+            <em class="fa fa-calendar"></em>
+          </button>
+        </span></p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >End Date</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+   <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+    <p class="input-group">
+      <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+      close-text="Close" class="form-control" />
+      <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+  </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Currency</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+   <select class="form-control" name="Name">
+    <option>OMR</option>
+    <option>INR</option>
+    <option>USD</option>
+    <option>KWD</option>
+    <option>GSP</option>
+  </select>      
+</div>
+</div>
+</div>
+<div class="row">
+ <div class="col-sm-2">
+  <div  class="form-group">
+    <label >Amount</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div  class="form-group">
+    <input class="form-control" type="activity" placeholder="Amount" />
+  </div>
+</div>
+<div class="col-sm-2">
+  <div  class="form-group">
+    <label >Remarks</label>
+  </div>
+</div>
+<div class="col-sm-4">
+  <div class="form-group">
+    <textarea rows="4" class="form-control" cols="30"></textarea>
+  </div>
+</div>
+</div>
+<div class="row">  
+  <div align="center" class="col-sm-12">
+    <div class="form-group">
+      <button type="button"   class="btn btn-green">
+        <em class="fa fa-add">Add Package</em>
+      </button>
+    </div>
+  </div> 
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+</form>
+</div>
+</div>
+</div>
+<div class="col-sm-12">
+  <div  ng-include="'app/views/orderactivity.html'" >
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div align="center"  class="col-md-12">
+   <div  class="panel-heading">
+     <button type="cancel" class="btn btn-danger" ng-click="canprocessorder()">Cancel</button>
+   </div>
+ </div>
+</div>
+</div>
+
+
+
+
+
+
+

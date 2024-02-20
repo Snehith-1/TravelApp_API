@@ -1,0 +1,61 @@
+  <h3 style="color:#000000;">Currency Master</h3>
+
+  <div ng-controller="currencymastercontroller as currency" class="container-fluid">  
+    <div class="row">
+      <div class="col-sm-4">
+
+    <button type="button" ng-click="addcurrency()" class="pull-left btn btn-info btn-cons">
+      Add Currency
+    </button>
+  </div>
+</div>
+<div class="row">
+   &nbsp;&nbsp;
+</div>
+
+    <div class="panel panel-default">
+     <div class="table-responsive">
+       <table datatable="ng" class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>Country Code</th>
+              <th>Country Name</th>
+              <th>Currency Code</th>
+              <th>Value</th>
+              <th>Status</th>
+              <th class="text-center" colspan = "3">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="toe in currency">
+              <td>{{toe.countrycode}}</td>
+              <td>{{toe.countryname}}</td>
+              <td>{{toe.currencycode}}</td>
+              <td>{{toe.currencyname}}</td>
+              <td>{{toe.currencystatus}}</td>
+              <td class="text-center">
+             
+              
+         <button type="button" title="Active" class="btn btn-sm btn-green" ng-click="currencyactivate(toe.currencygid)"
+         ng-disabled="toe.currencystatus=='Active'" >
+             <em class="fa fa-thumbs-o-up"></em>
+           </button>
+           </td>
+           <td class="text-center">
+           <button type="button" title="Inactive" class="btn btn-sm btn-danger" ng-click="currencydeactivate(toe.currencygid)"
+           ng-disabled="toe.currencystatus=='Inactive'" >
+             <em class="fa fa-thumbs-o-down"></em>
+           </button>
+         </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     
+  </div>
+         
+  </div>
+  
+
+
+

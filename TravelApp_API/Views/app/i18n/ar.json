@@ -1,0 +1,306 @@
+{
+  "dashboard": {
+    "WELCOME": "مرحبا بكم في السفر التطبيق"
+  },
+
+  "master": {
+    "HEADER": "معالج",
+    "ENTREMPDTL":"أدخل تفاصيل الموظف",
+    "ADDEMPLOYEE": "إضافة موظف",
+    "EMPLOYEECODE": "رمز الموظف",
+    "DEPARTMENT":" قسم، أقسام",
+    "FIRSTNAME":"الاسم الاول",
+    "LASTNAME":"الكنية",
+    "PASSWORD":"كلمه السر",
+    "CONFIRMPASSWORD":"تأكيد كلمة المرور",
+    "EMAIL":"البريد الإلكتروني",
+    "CONTACTNO":"رقم الاتصال.",
+    "GENDER":"جنس",
+    "STATUS":"الحالة",
+    "ENTRADDDTL":"أدخل تفاصيل العنوان",
+    "ADDRESS1":"العنوان 1",
+    "ADDRESS2":"العنوان 2",
+    "CITY":"مدينة",
+    "COUNTRY":"بلد",
+    "STATE":"حالة",
+    "PSTLCDE":"الرمز البريدي",
+    "SUBMIT":"عرض",
+    "CANCEL":"إلغاء",
+    "EMPDEPT":"إدارة الموظفين",
+    "EMPNAME":"اسم الموظف",
+    "ACTION":"عمل",
+    "EMPMSTR":"موظف ماستر",
+    "CRNCYMSTR":"العميل الرئيسي",
+    "ADDCRNCY":"Add Currency",
+    "CONTRYCDE":"Country Code",
+    "CONTRYNAME":"Country Name",
+    "CRNCYCDE":"Currency Code",
+    "CRNCYNAME":"Currency Name",
+    "VALUE":"value",
+    "CRNCYADD":"Currency Add",
+    "ACTVTYSMRY":"Activity Summary",
+    "ADDACTVTY":"Add Activity",
+    "ACTVTY":"Activity",
+    "DFLTDSPLY":"Default Display",
+    "BILLABLE":"Billable",
+    "BILITEM":"Billing Item",
+    "ADDACTVTY":"Activity Add"
+ },
+
+
+
+
+   "operation": {
+    "HEADER": "Process",
+    "ADDEMPLOYEE": "Add Employee",
+    "EMPLOYEE CODE": "Employee Code",
+    "CNTCTMSTR":"Contact Master",
+    "ADDCSTMR":"ADD Customer",
+    "ID":"ID",
+    "NAME":"Name",
+    "CONTCTNO":"Contact No",
+    "EMAIL":"Email",
+    "NATNLID":"National ID",
+    "CSTMRTYP":"Customer Type",
+    "BILLADD":"Billing address",
+    "ADDCSTMR":"Add Customer",
+    "ENTRCSTMRDTL":"Enter Customer Details",
+    "EMAILADD":"Email address",
+    "BLLGADD":"Billing Addresss",
+    "CMPNYNAME":"Company Name",
+    "ADD":"Address",
+    "REMRKS":"Remarks",
+    "ADDCSTMR":"Add Customer",
+    "SLSTEAM":"Sales Team",
+    "ADDSLSTEAM":"Add Salesteam",
+    "SLSTMSMRY":"Sales Team Summary",
+    "BRNCH":"Branch",
+    "TEAMNME":"Team Name",
+    "ASGNDMNGR":"Assigned Manager",
+    "ASGDEMP":"Assigned Employee",
+    "NFASGNDEMP":"No of Assigned employee",
+    "ADSLATEAM":"Add Sales Team",
+    "SLSTMMGR":"Sales Team Manager",
+    "SLSTMMNGRSMRY":"Sales Team ManagerSummary",
+    "BRANCH":"Branch",
+    "TEAMNME":"Team Name",
+    "SORDRSMRY":"Sales Order Summary",
+    "CSO":"Create Sales Order",
+    "SLSID":"Sales ID",
+    "CSTNAME":"Customer Name",
+    "CNTCTNO":"Contact NO.",
+    "ESMDPRC":"Estimated Price",
+    "SOF":"Sales Order Form",
+    "RMDR":"Remainder",
+    "RMDRDTE":"Remainder Date",
+    "CSTDTL":"Customer Details",
+    "NAME":"Name",
+    "MBLNO":"Mobile No",
+    "EMLID":"Email Id",
+    "ADDCSTDTL":"Add Customer Details",
+    "PSGR":"Passenger",
+    "PSPRT":"Passport",
+    "VSA":"Visa",
+    "FLT":"Flight",
+    "HTL":"Hotel",
+    "CAR":"Car",
+    "FORX":"Forex",
+    "DOB":"Date of Birth",
+    "PSPRTNO":"Passport No",
+    "PSPEXDT":"Passsport Expiry Date",
+    "PSPRTISDT":"Passport Issued Date",
+    "APD":"Add Pessenger Details",
+    "IDPRF":"ID Proof",
+    "UPLDDOC":"Upload Documents",
+    "ADNLPRF":"Additional Proof",
+    "AMNT":"Amount",
+    "PHOTO":"Photo",
+    "AGVTDOC":"Any Government Document",
+    "APSDTL":"Add Passport Details",
+    "EXPDT":"Expiry Date",
+    "APPDTE":"Application Date",
+    "VSAPRD":"Visa Period",
+    "VNDR":"Vendor",
+    "CRNCY":"Currency",
+    "VNRPRC":"Vendor Price",
+    "EXRATE":"Exchange Rate",
+    "TTLAMT":"Total Amount",
+    "AVDT":"Add Visa Details",
+    "APPNO":"Application NO",
+    "FNMEPN":"First Name/Passport No",
+    "FLGTNO":"Flight No",
+    "FLGHTNME":"Flight Name",
+    "DEPDTE":"Departure Date",
+    "TIME":"Time",
+    "FRM":"From",
+    "TO":"to",
+    "AFLDTL":"Add Flight Detail",
+    "PSGRNME":"Passenger Name",
+    "TO":"To",
+    "UPLDDOC":"Upload queue",
+    "QUEPRO":"Queue progress",
+    "SIZE":"Size",
+    "PGRS":"Progress",
+    "ACTIONS":"Actions",
+    "UPLAD":"Upload",
+    "CNCL":"CanceL",
+    "REMVE":"Remove",
+    "UPLDAL":"Upload all",
+    "CNCLAL":"Cancel all",
+    "REMVEAL":"Remove all",
+    "ACT":"Activity",
+    "CARTYPE":"Car Type",
+    "NDYS":"No of Days",
+    "PUCTY":"Pick-up City",
+    "DRPCTY":"Drop City",
+    "NOP":"No of Person",
+    "REMKS":"Remarks"
+  },
+
+
+ 
+
+ "Finance": {
+
+    "VNDMST":"Vendor Master",
+    "AVND":"Add vendor",
+    "SNO":"S.No.",
+    "VNRCDE":"Vendor Code",
+    "VNRCMP":"Vendor Company",
+    "CNTPER":"Contact Person",
+    "VNRADD":"Vendor Address",
+    "ACTION":"Action",
+    "AVMST":"Add Vendor Master",
+    "VNRCMPNME":"Vendor Companyname",
+    "CNPERNME":"Contact Person Name",
+    "CNTNUM":"Contact Number",
+    "FAX":"Fax",
+    "ADD1":"Address1",
+    "ADD2":"Address2",
+    "CRNCY":"Currency",
+    "TAX":"Tax"
+
+
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  "topbar": {
+    "messages": {
+      "UNREAD": "Unread messages",
+      "MORE": "More messages"
+    },
+    "search": {
+      "PLACEHOLDER": "Type and hit enter.."
+    },
+    "notification": {
+      "MORE": "More notifications"
+    }
+  },
+  "offsidebar": {
+    "setting": {
+      "SETTINGS": "Settings",
+      "THEMES": "Themes",
+      "layout": {
+        "FIXED": "Fixed",
+        "COLLAPSED": "Collapsed"
+      }
+    },
+    "chat": {
+      "CONNECTIONS": "Connections",
+      "SEARCH": "Search contacts",
+      "ONLINE": "ONLINE",
+      "OFFLINE": "OFFLINE",
+      "LOAD_MORE": "Load More",
+      "TASK_COMPLETION": "Tasks completion",
+      "QUOTA": "Upload Quota"
+    }
+  },
+
+  "sidebar": {
+    "WELCOME": "Welcome",
+    "heading": {
+      "HEADER": "Main Navigation",
+      "COMPONENTS": "Components",
+      "MORE": "More"
+    },
+    "nav": {
+      "dashboard": "Dashboard",
+      "WIDGETS": "Widgets",
+      "WIDGETS": "Widgets",
+      "DOCUMENTATION": "Documentation",
+      "element": {
+        "ELEMENTS": "Elements",
+        "BUTTON": "Button",
+        "COLOR": "Colors",
+        "NOTIFICATION": "Notification",
+        "INTERACTION": "Interaction",
+        "SPINNER": "Spinner",
+        "ANIMATION": "Animation",
+        "DROPDOWN": "Dropdown",
+        "PANEL": "Panel",
+        "PORTLET": "Portlet",
+        "GRID": "Grid",
+        "GRID_MASONRY": "Grid Masonry",
+        "TYPO": "Typography",
+        "FONT_ICON": "Font Icons",
+        "WEATHER_ICON": "Weather Icons"
+      },
+      "form": {
+        "FORM": "Forms",
+        "STANDARD": "Standard",
+        "EXTENDED": "Extended",
+        "VALIDATION": "Validation",
+        "WIZARD": "Wizard",
+        "UPLOAD": "Upload"
+      },
+      "chart": {
+        "CHART": "Charts",
+        "FLOT": "Flot",
+        "RADIAL": "Radial"
+      },
+      "table": {
+        "TABLE": "Table",
+        "STANDARD": "Standard",
+        "EXTENDED": "Extended",
+        "DATATABLE": "Datatable"
+      },
+      "map": {
+        "MAP": "Maps",
+        "GOOGLE": "Google Map",
+        "VECTOR": "Vector Map"
+      },
+      "extra": {
+        "EXTRA": "Extras",
+        "MAILBOX": "Mailbox",
+        "TIMELINE": "Timeline",
+        "CALENDAR": "Calendar",
+        "INVOICE": "Invoice",
+        "SEARCH": "Search",
+        "TODO": "Todo List",
+        "PROFILE": "Profile"
+      },
+      "pages": {
+        "PAGES": "Pages",
+        "LOGIN": "Login",
+        "REGISTER": "Register",
+        "RECOVER": "Recover password",
+        "PROFILE": "Profile",
+        "LOCK": "Lock",
+        "STARTER": "Starter Template"
+      }
+    }
+  }
+}

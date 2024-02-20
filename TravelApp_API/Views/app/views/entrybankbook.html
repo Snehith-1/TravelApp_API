@@ -1,0 +1,191 @@
+<h3 style="color:#000000;">Add Bank Book</h3>
+ <div ng-controller="entrybankcontroller as entrybankbook">
+
+
+
+    <div class="col-sm-6">
+        <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group">
+                 <label>Account Ref.No</label>
+               </div>
+             </div> 
+             
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <input class="form-control" type="accountrefno" placeholder="Enter Ref.No." />
+               </div>
+             </div> 
+
+        </div>
+ 
+
+        <div class="row">
+            <div class="col-sm-6">
+               <div class="form-group">
+                 <label>Branch Code</label>
+               </div>
+             </div> 
+             
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <input class="form-control" type="branch" placeholder="Enter Branch Code" />
+               </div>
+             </div> 
+
+        </div>
+
+
+          <div class="row">  
+            <div class="col-sm-6">
+               <div class="form-group">
+                  <label>GL Code</label>
+               </div>
+             </div> 
+             <div class="col-sm-6">
+               <div class="form-group">
+                  
+               </div>
+             </div> 
+
+        </div>
+
+
+         <div class="row">
+               <div class="col-sm-6">
+                <div class="form-group">
+                <label>Remarks</label>
+               </div> 
+              </div>
+            <div class="col-sm-6">
+            <div   class="form-group">
+                   <textarea rows="4" class="form-control" cols="60"></textarea>
+            </div>
+           </div>
+ 
+
+</div>
+
+
+    </div>
+
+  <div class="col-sm-6">
+        <div class="row">
+                            <div class="col-sm-6">
+
+
+                                <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+                                    <div class="mda-form-group float-label ng-touched">
+                                        <label>Transaction Date</label>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <p class="input-group">
+                                            <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+                                                   close-text="Close" class="form-control" />
+                                            <span class="input-group-btn">
+                                        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                                        <em class="fa fa-calendar"></em>
+                                        </button>
+                                        </span>
+                                        </p>
+                                        
+                                    </div>
+                                </div>
+                     
+     </div>
+    
+<div class="row">
+    <div class="col-sm-6">
+        <div class="form-group">
+        <label>Branch</label>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+        <label>AI Qurum Branch</label>
+        </div>
+
+    </div>
+
+</div>
+<div class="row">
+  <div class="col-sm-6">
+        <div class="form-group">
+        <label>Entered By</label>
+        </div>
+
+    </div>
+    <div class="col-sm-6">
+        <div class="form-group">
+        <label>Management</label>
+        </div>
+
+    </div>
+  
+</div>
+
+</div>
+
+<div class="panel-body">
+       <div class="table-responsive">
+            <table datatable="ng" class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                       
+                        <th>Account Group</th>
+                        <th>Account Name</th>
+                        <th>Transaction Type</th>
+                        <th>Transaction Amount</th>
+                        <th>Remarks</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="toe in entrybankbook.toes">
+                       <td>{{toe.accountgroup}}</td>
+                       <td>{{toe.accountname}}</td>
+                        <td>{{toe.transactiontype}}</td>
+                        <td>{{toe.transactionamount}}</td>
+                         <td>{{toe.remarks}}</td>
+     
+                       
+
+                        <td class="text-center">
+                            
+                        <button type="button" class="btn btn-sm btn-info" title="Add">
+                        <em class="ffa fa-plus-square"></em>
+                       </button>
+
+                        </td>
+                    </tr>   
+                </tbody>
+            </table>
+            </div>
+     
+    </div>
+
+<div class="row">
+<div class="col-sm-4">
+    
+</div>
+<div class="col-sm-4">
+<button type="button" class="btn btn-sm btn-info">Confirm    
+</button>
+<button type="button" class="btn btn-sm btn-info" ng-click="cancel()">Cancel    
+</button>
+
+
+</div>
+<div class="col-sm-4">
+    
+</div>
+    
+</div>
+
+
+
+</div>

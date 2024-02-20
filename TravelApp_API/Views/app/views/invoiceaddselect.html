@@ -1,0 +1,86 @@
+<h3>Invoice Add Select</h3>
+<div ng-controller="invoiceaddselectcontroller as invoice" class="container-fluid">
+  
+<div class="row">
+   &nbsp;&nbsp;
+</div>
+ <div class="row">
+ <div class="panel panel-default">
+             
+             
+  <div class="panel-heading">
+  <div class="row">
+				<div class="col-sm-4">
+					<div style="font-size: 18px;" class="form-group">
+						
+						<label></label>
+						
+					</div>
+				</div>
+			</div>
+      <div class="row">
+        <div class="table-responsive">
+ <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+           <th check-all="check-all">
+                  <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+               </th>
+         <th>SO Ref No</th>
+          <th>Customer Name</th>
+          <th>Contact Details</th>
+            <th>Created By</th>
+             <th>Created Date</th>
+              <th>Invoice Amount</th>
+         
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in invoiceaddselect">
+          <td width="5%">
+              <div class="checkbox c-checkbox">
+                    <label>
+                      <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                    </label>
+              </div>
+          </td>
+          <td>{{toe.salesorderrefno}}</td>
+          <td>{{toe.customername}}</td>
+          <td>{{toe.customercontactno}}</td>
+          <td>{{toe.createdby}}</td>
+          <td>{{toe.createddate}}</td>
+           <td align="right">{{toe.estimatedprice}}</td>
+         
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+
+
+    
+    <div  class="row" >
+    <div class="panel-heading">
+     
+      <div align="center" class="col-sm-12">
+       <div class="form-group">
+ <button type="button" ng-click="btn_invoice(toe.salesorderid)" class="btn btn-green">
+        Raise Invoice
+    </button>
+        <button type="button" ng-click="invoiceaddback()" class="btn btn-danger">
+       Back
+    </button>
+    </div>
+</div>
+  </div>
+    </div>
+    </div>
+    </div>
+ </div>

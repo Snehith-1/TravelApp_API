@@ -1,0 +1,629 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using MySql.Data.MySqlClient;
+using BusinessEntities;
+using System.Configuration;
+
+namespace DataAccess
+{
+    public class VendorDBAccess
+    {
+        int mnresult = 0;
+        MySqlCommand cmd = null;
+        MySqlDataReader rd;
+        string error;
+        public Vendor GetAll()
+        {
+            Vendor vendor = new Vendor();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_vendor");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.Connection = con;
+                 rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Vendorlist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Vendorlist
+                        {
+
+                            vendor_gid = rd["vendor_gid"].ToString(),
+                            vendor_code = rd["vendor_code"].ToString(),
+                            vendor_companyname = rd["vendor_companyname"].ToString(),
+                            vendor_name = rd["vendor_name"].ToString(),
+                            vendor_address_line1 = rd["vendor_address_line1"].ToString(),
+                            active_flag = rd["active_flag"].ToString ()
+
+                        });
+                    }
+                    vendor.vendorlist = summary;
+                    vendor.status = true;
+                    
+                }
+                else
+                {
+                    vendor.status = false;
+                    
+                }
+                rd.Close();
+
+            }
+            catch (Exception ex)
+            {
+                vendor.status = false;
+                vendor.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return vendor;
+        }
+        public Vendormodel Add(Vendordetail val, string user_gid)
+        {
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_vendorcodevalidation");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_code", val.vendor_code);
+                MySqlDataReader rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    val.status = false;
+                    val.message = "Vendor Code Already Exist!";
+
+                }
+                else
+                {
+                    cmd = new MySqlCommand("sp_ins_vendor");
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("p_vendor_code", val.vendor_code);
+                    cmd.Parameters.AddWithValue("p_vendor_companyname", val.vendor_companyname);
+                    cmd.Parameters.AddWithValue("p_vendor_name", val.vendor_name);
+                    cmd.Parameters.AddWithValue("p_contact_number", val.contact_number);
+                    cmd.Parameters.AddWithValue("p_email_address", val.email_address);
+                    cmd.Parameters.AddWithValue("p_fax", val.fax);
+                    cmd.Parameters.AddWithValue("p_vendor_address_line1", val.vendor_address_line1);
+                    cmd.Parameters.AddWithValue("p_vendor_address_line2", val.vendor_address_line2);
+                    cmd.Parameters.AddWithValue("p_state", val.state);
+                    cmd.Parameters.AddWithValue("p_city", val.city);
+                    cmd.Parameters.AddWithValue("p_postal_code", val.postal_code);
+                    cmd.Parameters.AddWithValue("p_currency_code", val.currency_code);
+                    cmd.Parameters.AddWithValue("p_country_gid", val.country_gid);
+                    cmd.Parameters.AddWithValue("p_tax", val.tax);
+                    cmd.Parameters.AddWithValue("p_created_by", user_gid);
+                    cmd.Parameters.AddWithValue("p_service_type", val.service_type);
+                    cmd.Parameters.AddWithValue("p_ticket_vendor", val.ticket_vendor);
+                    cmd.Parameters.AddWithValue("p_vendor_gid", "");
+                    //cmd.Connection = con;
+                    mnresult = DBAccess.ExecuteNonQuery(cmd);
+                    if (mnresult == 1)
+                    {
+                        val.status = true;
+                        val.message = "Records added sucessfully";
+                    }
+                    else
+                    {
+                        val.status = false;
+                        val.message = "Error Occured While Inserting Vendor";
+                    }
+
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                val.status = false;
+                val.message = "Error Occured While Inserting Vendor";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+           
+            return val;
+        }
+
+        public Vendormodel Delete(int values)
+        {
+            Vendormodel vendordelete = new Vendormodel();
+            try
+            {
+                 cmd = new MySqlCommand("sp_del_vendor");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", values);
+                //cmd.Connection = con;
+                mnresult = DBAccess.ExecuteNonQuery(cmd);
+                if (mnresult == 1)
+                {
+                    vendordelete.status = true;
+                    vendordelete.message = "Vendor Deleted Successfully";
+                }
+                else
+                {
+                    vendordelete.status = false;
+                    vendordelete.message = "Error Occured While Deleting Vendor";
+                }
+            }
+            catch (Exception ex)
+            {
+                vendordelete.status = false;
+                vendordelete.message = "Error Occured While Deleting Vendor";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return vendordelete;
+        }
+        public Vendordetail Get(string  val)
+        {
+            Vendordetail Vendordetail = new Vendordetail();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_vendoredit");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", val);
+                //cmd.Connection = con;
+                 rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    Vendordetail.vendor_gid = rd["vendor_gid"].ToString();
+                    Vendordetail.vendor_name = rd["vendor_name"].ToString();
+                    Vendordetail.contact_number = rd["contact_number"].ToString();
+                    Vendordetail.email_address = rd["email_address"].ToString();
+                    Vendordetail.fax = rd["fax"].ToString();
+                    Vendordetail.vendor_address_line1 = rd["vendor_address_line1"].ToString();
+                    Vendordetail.vendor_address_line2 = rd["vendor_address_line2"].ToString();
+                    Vendordetail.state = rd["state"].ToString();
+                    Vendordetail.city = rd["city"].ToString();
+                    Vendordetail.postal_code = rd["postal_code"].ToString();
+                    Vendordetail.currency_code = rd["currency_code"].ToString();
+                    Vendordetail.country_gid = rd["country_gid"].ToString();
+                    Vendordetail.tax = rd["tax"].ToString();
+                    Vendordetail.vendor_company_name = rd["vendor_company_name"].ToString();
+                    Vendordetail.service_type = rd["service_type"].ToString();
+                    Vendordetail.vendor_code = rd["vendor_code"].ToString();
+                    Vendordetail.ticket_vendor = rd["ticket_vendor"].ToString();
+                    Vendordetail.status = true;
+                    
+                }
+                else
+                {
+                    Vendordetail.status = false;
+                    Vendordetail.message = "No Records found!";
+                }
+                rd.Close();
+            }
+            catch(Exception ex)
+            {
+                Vendordetail.status = false;
+                Vendordetail.message = "Internal Error Occured!";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return Vendordetail;
+        }
+        public Vendormodel Update(Vendordetail val, string user_gid)
+        {
+            Vendormodel Vendor = new Vendormodel();
+            try
+            {
+                 cmd = new MySqlCommand("sp_upt_vendoredit");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", val.vendor_gid);
+                cmd.Parameters.AddWithValue("p_vendor_name", val.vendor_name);
+                cmd.Parameters.AddWithValue("p_contact_number", val.contact_number);
+                cmd.Parameters.AddWithValue("p_vendor_address_line1", val.vendor_address_line1);
+                cmd.Parameters.AddWithValue("p_email_address", val.email_address);
+                cmd.Parameters.AddWithValue("p_fax", val.fax);
+                cmd.Parameters.AddWithValue("p_vendor_address_line1", val.vendor_address_line1);
+                cmd.Parameters.AddWithValue("p_city", val.city);
+                cmd.Parameters.AddWithValue("p_state", val.state);
+                cmd.Parameters.AddWithValue("p_postal_code", val.postal_code);
+                cmd.Parameters.AddWithValue("p_country", val.country_gid);
+                cmd.Parameters.AddWithValue("p_currency_code", val.currency_code);
+                cmd.Parameters.AddWithValue("p_tax", val.tax);
+                cmd.Parameters.AddWithValue("p_updated_by", user_gid);
+                cmd.Parameters.AddWithValue("p_vendor_company_name",val.vendor_company_name);
+                cmd.Parameters.AddWithValue("p_service_type", val.service_type);
+                cmd.Parameters.AddWithValue("p_ticket_vendor", val.ticket_vendor);
+                //cmd.Connection = con;
+                mnresult = DBAccess.ExecuteNonQuery(cmd);
+                if (mnresult == 1)
+                {
+                    Vendor.status = true;
+                    Vendor.message = "Vendor updated succesfully";
+                }
+                else
+                {
+                    Vendor.status = false;
+                    Vendor.message = "Error Occured While Updating Vendor!";
+                }
+            }
+            catch (Exception ex)
+            {
+                Vendor.status = false;
+                Vendor.message = "Error Occured While Updating Vendor!";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }            
+            return Vendor;
+        }
+        public Vendormodel Status(Vendordetail val, string user_gid)
+        {
+            Vendormodel Vendor = new Vendormodel();
+            try
+            {
+                 cmd = new MySqlCommand("sp_upt_vendorstatus");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", val.vendor_gid);
+                cmd.Parameters.AddWithValue("p_vendor_status", val.vendor_status);
+                cmd.Parameters.AddWithValue("p_updatedby", user_gid);
+                //cmd.Connection = con;
+                mnresult = DBAccess.ExecuteNonQuery(cmd);
+                if (mnresult == 1)
+                {
+                    Vendor.status = true;
+                    Vendor.message = "Vendor updated succesfully";
+                }
+                else
+                {
+                    Vendor.status = false;
+                    Vendor.message = "Error Occured While Updating Vendor!";
+                }
+            }
+            catch (Exception ex)
+            {
+                Vendor.status = false;
+                Vendor.message = "Error Occured While Updating Vendor!";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }            
+            return Vendor;
+        }
+        public Vendor paymentvendorsummary()
+        {
+            Vendor vendor = new Vendor();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_paymentvendorsummary");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;               
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Vendorlist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Vendorlist
+                        {
+
+                            vendor_gid = rd["vendor_gid"].ToString(),
+                            vendor_code = rd["vendor_code"].ToString(),
+                            vendor_companyname = rd["vendor_companyname"].ToString(),
+                            vendor_name = rd["vendor_name"].ToString(),
+                            vendor_address_line1 = rd["vendor_address_line1"].ToString(),
+                            active_flag = rd["active_flag"].ToString()
+
+                        });
+                    }
+                    vendor.vendorlist = summary;
+                    vendor.status = true;
+                    
+                }
+                else
+                {
+                    vendor.status = false;
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                vendor.status = false;
+                vendor.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return vendor;
+        }
+        public Vendor ticketvendor()
+        {
+            Vendor vendor = new Vendor();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_ticketvendorlist");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Vendorlist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Vendorlist
+                        {
+                            vendor_gid = rd["vendor_gid"].ToString(),
+                            vendor_name = rd["vendor_name"].ToString()                        
+                        });
+                    }
+                    vendor.vendorlist = summary;
+                    vendor.status = true;
+                    
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                vendor.status = false;
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return vendor;
+        }
+
+        public Vendormodel vendoradvanceadd(Vendordetail val, string user_gid)
+        {
+            Vendormodel add = new Vendormodel();
+            try
+            {
+                cmd = new MySqlCommand("sp_ins_vendoradvanceadd");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", val.vendor_gid);
+                cmd.Parameters.AddWithValue("p_vendor_name", val.vendor_name);
+                cmd.Parameters.AddWithValue("p_vendor_company_name", val.vendor_company_name);
+                cmd.Parameters.AddWithValue("p_advance_date", val.advance_date);
+                cmd.Parameters.AddWithValue("p_payment_mode", val.payment_mode);
+                cmd.Parameters.AddWithValue("p_remarks", val.remarks);
+                cmd.Parameters.AddWithValue("p_advance", val.advance);
+                cmd.Parameters.AddWithValue("p_created_by", user_gid);
+                //cmd.Parameters.AddWithValue("p_bank_name", val.bank_name);
+                cmd.Parameters.AddWithValue("p_bank_name", "");
+                cmd.Parameters.AddWithValue("p_bank_gid", val.bank_gid);
+                cmd.Parameters.AddWithValue("p_transaction_number", val.transaction_number);
+                mnresult = DBAccess.ExecuteNonQuery(cmd);
+                if (mnresult == 1)
+                {
+                    add.status = true;
+                    add.message = "Records added sucessfully";
+                }
+                else
+                {
+                    add.status = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                add.status = false;
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return add;
+        }
+
+        public Vendor vendoradvancesummary(string val)
+        {
+            Vendor Adv = new Vendor();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_vendoradvancevalue");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", val);
+                rd = DBAccess.ExecuteReader(cmd);
+                if(rd.Read())
+                {
+                    Adv.vendor_name = rd["vendor_name"].ToString();
+                    Adv.vendor_companyname = rd["vendor_companyname"].ToString();
+
+                }
+                rd.Close();
+                cmd = new MySqlCommand("sp_sel_vendoradvancesummary");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_vendor_gid", val);
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Vendoradvancelist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Vendoradvancelist
+                        {
+                            vendor_gid = rd["vendor_gid"].ToString(),
+                            vendor_name = rd["vendor_name"].ToString(),
+                            vendor_company_name = rd["vendor_companyname"].ToString(),
+                            payment_mode = rd["payment_mode"].ToString(),
+                            remarks = rd["remarks"].ToString(),
+                            advance_date = rd["advance_date"].ToString(),
+                            advance_amount = rd["advance_amount"].ToString(),
+                           
+                        });
+                    }
+                    Adv.Vendoradvancelist = summary;
+                    Adv.status = true;
+                }
+                else
+                {
+                    Adv.status = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Adv.status = false;
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return Adv;
+        }
+
+        public Vendor vendorledgersummary()
+        {
+            Vendor Adv = new Vendor();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_vendorledgersummary");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.Parameters.AddWithValue("p_vendor_gid", val);
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Vendorledgersummarylist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Vendorledgersummarylist
+                        {
+                            vendor_gid = rd["vendor_gid"].ToString(),
+                            vendor_name = rd["vendor_name"].ToString(),
+                            contact_details = rd["contact_details"].ToString(),
+                            invoice_amount = Double.Parse(rd["invoice_amount"].ToString()),
+                            payment_amount = Double.Parse(rd["payment_amount"].ToString()),
+                            outstanding_amount = Double.Parse(rd["outstanding_amount"].ToString()),
+                            advance_amount = Double.Parse(rd["advance_amount"].ToString()),
+                            refund_amount = Double.Parse(rd["refund_amount"].ToString())
+
+
+                        });
+                    }
+                    Adv.Vendorledgersummarylist = summary;
+                    Adv.status = true;
+                }
+                else
+                {
+                    Adv.status = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Adv.status = false;
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return Adv;
+        }
+
+
+        public Vendor vendorledgerchildreport(Vendordetail val)
+        {
+            Vendor Adv = new Vendor();
+            try
+            {
+                if(val.from_date==null)
+                {
+                    val.from_date = "null";
+                }
+                if(val.to_date==null)
+                {
+                    val.to_date = "null";
+                }
+
+                cmd = new MySqlCommand("sp_sel_vendorledgerchildreport");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_from_date", val.from_date);
+                cmd.Parameters.AddWithValue("p_to_date", val.to_date);
+                cmd.Parameters.AddWithValue("p_vendor_gid", val.vendor_gid);
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Vendorledgerchildreport>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Vendorledgerchildreport
+                        {
+                            vendor_gid = rd["vendor_gid"].ToString(),
+                            reference_no = rd["reference_no"].ToString(),
+                            reference_gid = rd["reference_gid"].ToString(),
+                            transaction_date = rd["transaction_date"].ToString(),
+                            total_debit = Double.Parse(rd["total_debit"].ToString()),
+                            total_credit = Double.Parse(rd["total_credit"].ToString()),
+                            outstanding_amount = Double.Parse(rd["outstanding_amount"].ToString()),
+                            type = rd["type"].ToString(),
+                            
+                        });
+                    }
+                    Adv.Vendorledgerchildreport = summary;
+                    Adv.status = true;
+                }
+                else
+                {
+                    Adv.status = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Adv.status = false;
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return Adv;
+        }
+    }
+}

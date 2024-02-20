@@ -1,0 +1,406 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using MySql.Data.MySqlClient;
+using BusinessEntities;
+using System.Configuration;
+
+namespace DataAccess
+{
+    public class CurrencyDBAccess
+    {
+        int mnresult = 0;
+        MySqlCommand cmd = null;
+        MySqlDataReader rd;
+        //MySqlConnection con = new MySqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ToString());
+        string error;
+        public Currency GetAll()
+        {
+            Currency currency = new Currency();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_currency");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.Connection = con;
+                 rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Currencylist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Currencylist
+                        {
+
+                            currency_gid = int.Parse(rd["currency_gid"].ToString()),
+                            currency_code = rd["currency_code"].ToString(),
+                            currency_name = rd["currency_name"].ToString(),
+                            country_code = rd["country_code"].ToString(),
+                            country_name = rd["country_name"].ToString(),
+                            currency_status = rd["currency_status"].ToString(),
+                            currency_amount = Convert.ToDouble(rd["currency_amount"].ToString())
+
+                           
+                        });
+                    }
+                    currency.currencyList = summary;
+                    currency.status = true;
+                    
+                }
+                else
+                {
+                    currency.status = false;
+                    
+                    
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                currency.status = false;
+                currency.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                    
+                }
+            }
+            return currency;
+        }
+        public Currencymodel Add(Currencydetail val, string user_gid)
+        {
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_currencyvalidation");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_currency_code", val.currency_code);
+                rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    val.status = false;
+                    val.message = "Currency Code Already Exist!";
+                }
+                else
+                {
+                    cmd = new MySqlCommand("sp_sel_countryvalidation");
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("p_country_code", val.country_code);
+                    rd = DBAccess.ExecuteReader(cmd);
+                    if (rd.Read())
+                    {
+                        val.status = false;
+                        val.message = "Country Code Already Exist!";
+                    }
+                    else
+                    {
+                        cmd = new MySqlCommand("sp_ins_currency");
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("p_currency_code", val.currency_code);
+                        cmd.Parameters.AddWithValue("p_country_code", val.country_code);
+                        cmd.Parameters.AddWithValue("p_country_name", val.country_name);
+                        cmd.Parameters.AddWithValue("p_currency_status", val.currency_status);
+                        cmd.Parameters.AddWithValue("p_currency_name", val.currency_name);
+                        cmd.Parameters.AddWithValue("p_currency_amount", val.currency_amount);
+                        cmd.Parameters.AddWithValue("p_created_by", user_gid);                        
+                        mnresult = DBAccess.ExecuteNonQuery(cmd);
+                        if (mnresult == 1)
+                        {
+                            val.status = true;
+                            val.message = "Records added sucessfully";
+                        }
+                        else
+                        {
+                            val.status = false;
+                            val.message = "Internal Error Occured";
+                        }
+                    }                    
+                }
+                rd.Close();
+            }
+            catch(Exception ex)
+            {
+                val.status = false;
+                val.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                    rd.Close();
+                }
+            }
+            return val;
+        }
+
+        public Currencymodel currencyedit(Currencylist val, string user_gid)
+        {
+            Currencydetail currency = new Currencydetail();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_currencyedit");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;                
+                cmd.Parameters.AddWithValue("p_currency_gid", val.currency_gid);
+                rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {
+                    currency.currency_code = rd["currency_code"].ToString();
+                    currency.currency_name = rd["currency_name"].ToString();
+                    currency.country_code = rd["country_code"].ToString();
+                    currency.country_name = rd["country_name"].ToString();
+                    currency.status = true;
+                    //rd.Close();
+                }
+                else
+                {
+                    currency.status = false;
+                    currency.message = "No Records found!";
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                currency.status = false;
+                currency.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return currency;
+        }
+
+        public Currencymodel currencyupdate(Currencylist val, string user_gid)
+        {
+            Currencymodel currency = new Currencymodel();
+            try
+            {
+                cmd = new MySqlCommand("sp_upt_currency");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_currency_code", val.currency_code);
+                cmd.Parameters.AddWithValue("p_currency_name", val.currency_name);
+                cmd.Parameters.AddWithValue("p_country_code", val.country_code);
+                cmd.Parameters.AddWithValue("p_country_name", val.country_name);
+                cmd.Parameters.AddWithValue("p_currency_gid", val.currency_gid);
+                cmd.Parameters.AddWithValue("p_updated_by", user_gid);                
+                mnresult = DBAccess.ExecuteNonQuery(cmd);
+                if (mnresult == 1)
+                {
+                    currency.status = true;
+                    currency.message = "Status updated succesfully";
+                }
+                else
+                {
+                    currency.status = false;
+                    currency.message = "Internal Error Occured";
+                }
+            }
+            catch (Exception ex)
+            {
+                currency.status = false;
+                currency.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }
+            return currency;
+        }
+
+
+        public Currencymodel Update(Currencylist val, string usergid)
+        {
+            Currencymodel currency = new Currencymodel();
+            try
+            {                
+                cmd = new MySqlCommand("sp_upt_currency_status");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_currency_status", val.currency_status);
+                cmd.Parameters.AddWithValue("p_currency_gid", val.currency_gid);
+                cmd.Parameters.AddWithValue("p_updated_by", user_gid);
+                //cmd.Connection = con;
+                mnresult = DBAccess.ExecuteNonQuery(cmd);
+                if (mnresult == 1)
+                {
+                    currency.status = true;
+                    currency.message = "Status updated succesfully";
+                }
+                else
+                {
+                    currency.status = false;
+                    currency.message = "Internal Error Occured";
+                }
+            }
+            catch(Exception ex)
+            {
+                currency.status = false;
+                currency.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                }
+            }           
+            return currency;
+        }
+        public Currencydetail getcurrency(int val)
+        {
+            Currencydetail currency = new Currencydetail();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_getcurrency");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_currencygid", val);
+                rd = DBAccess.ExecuteReader(cmd);
+                if (rd.Read())
+                {                 
+                    currency.currency_name = rd["currency_name"].ToString();                  
+                    currency.status = true;
+                    //rd.Close();
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                currency.status = false;
+                error = ex.ToString();
+
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                    
+                }
+            }
+            return currency;
+        }
+
+
+        public Currency currencymastersummary()
+        {
+            Currency currency = new Currency();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_currencymastersummary");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.Connection = con;
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Currencylist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Currencylist
+                        {
+
+                            currency_gid = int.Parse(rd["currency_gid"].ToString()),
+                            currency_code = rd["currency_code"].ToString(),
+                            currency_name = rd["currency_name"].ToString(),
+                            country_code = rd["country_code"].ToString(),
+                            country_name = rd["country_name"].ToString(),
+                            currency_status = rd["currency_status"].ToString(),
+                            currency_amount = Convert.ToDouble(rd["currency_amount"].ToString())
+
+
+                        });
+                    }
+                    currency.currencyList = summary;
+                    currency.status = true;
+
+                }
+                else
+                {
+                    currency.status = false;
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                currency.status = false;
+                currency.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+
+                }
+            }
+            return currency;
+        }
+
+        public Currency countrysummary()
+        {
+            Currency currency = new Currency();
+            try
+            {
+                cmd = new MySqlCommand("sp_sel_country");
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                //cmd.Connection = con;
+                rd = DBAccess.ExecuteReader(cmd);
+                var summary = new List<Countrylist>();
+                if (rd.HasRows == true)
+                {
+                    while (rd.Read())
+                    {
+                        summary.Add(new Countrylist
+                        {
+
+                           
+                            country_name = rd["country_name"].ToString(),
+                            country_code = rd["country_code"].ToString(),
+                            
+
+
+                        });
+                    }
+                    currency.Countrylist = summary;
+                    currency.status = true;
+
+                }
+                else
+                {
+                    currency.status = false;
+
+                }
+                rd.Close();
+            }
+            catch (Exception ex)
+            {
+                currency.status = false;
+                currency.message = "Internal Error Occured";
+                error = ex.ToString();
+            }
+            finally
+            {
+                if (cmd.Connection.State == System.Data.ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+
+                }
+            }
+            return currency;
+        }
+    }
+}

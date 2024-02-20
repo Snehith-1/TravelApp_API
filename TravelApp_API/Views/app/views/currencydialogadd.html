@@ -1,0 +1,195 @@
+
+
+<h3 >Currency Add</h3>
+<div ng-controller="addcurrencycontroller as currency">
+
+	<form role="form" name="currencyform" novalidate="" class="form-validate">
+         <div class="panel panel-default">
+         <div class="panel-body">
+          
+         	<div class="row">
+           <div class="form-group">
+            <div class="col-md-1"></div>
+			<div class="col-sm-4">
+				<div  class="form-group">
+					
+					<label>Country Code</label>
+
+					
+				</div>
+			</div>
+			 <div class="col-md-1"></div>
+			<div class="col-sm-7">
+				<div  class="form-group">
+
+				 <input class="form-control" name="countrycode" ng-model="country_code"  type="text" placeholder="Enter Country Code"  required="" />
+				 <span ng-show="currencyform.countrycode.$dirty &amp;&amp; currencyform.countrycode.$error.required" class="text-danger">Enter Country Code</span>
+					 
+
+					
+				</div>
+			</div>
+			</div>
+		</div>
+         	<div class="row">  
+			
+			 <div class="col-md-1"></div>
+			<div class="col-sm-4">
+				<div  class="form-group">
+					
+					<label >Country Name</label>
+
+					
+				</div>
+			</div>
+			
+			<div class="col-sm-7">
+				<div class="form-group">
+					
+					 <input class="form-control" ng-model="country_name" type="text" name="countryname" placeholder="Enter Country name" required="" />
+                      <span ng-show="currencyform.countryname.$dirty &amp;&amp; currencyform.countryname.$error.required" class="text-danger">Enter Country Name</span>
+
+
+				</div>
+			</div>
+
+			
+				
+			</div>
+
+			<div class="row">
+           <div class="col-md-1"></div>
+			<div class="col-sm-4">
+				<div  class="form-group">
+					
+					<label>Currency Code</label>
+
+					
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div  class="form-group">
+
+				 <input class="form-control" ng-model="currency_code" type="billingitem" name="countrycode" placeholder="Enter Currency Code" required="" />
+				<span ng-show="currencyform.countrycode.$dirty &amp;&amp; currencyform.countrycode.$error.required" class="text-danger">Enter Country Code</span>
+
+					 
+
+					
+				</div>
+			</div>
+		</div>
+
+
+		<div class="row">  
+			
+			 <div class="col-md-1"></div>
+			<div class="col-sm-4">
+				<div  class="form-group">
+					
+					<label >Currency Name</label>
+
+					
+				</div>
+			</div>
+			
+			<div class="col-sm-7">
+				<div class="form-group">
+					
+					 <input class="form-control" ng-model="currency_name" name="currencyname" type="billingitem" placeholder="Enter Currency Name" required="" />
+					 <span ng-show="currencyform.currencyname.$dirty &amp;&amp; currencyform.currencyname.$error.required" class="text-danger">Enter Country Name</span>
+				</div>
+			</div>
+
+			
+				
+			</div>
+
+
+			<!-- <div class="row"> -->
+           <!-- <div class="col-md-1"></div>
+			<div class="col-sm-4">
+				<div  class="form-group">
+					
+					<label>Value</label>
+
+					
+				</div>
+			</div> -->
+			<!-- <div class="col-sm-7">
+				<div  class="form-group">
+
+				
+				<input class="form-control" placeholder="Enter Value" type="text" ng-model="currency_value" name="phone"  ng-pattern="/^\d+$/" maxlength="" required="" />
+				<span ng-show="currencyform.phone.$error.pattern"  class="text-danger">Enter only Numbers</span>	
+					 
+
+					
+				</div>
+			</div>
+		</div> -->
+         
+
+			
+				<div class="row">
+			 <div class="col-md-1"></div>
+			<div class="col-sm-4">
+				<div  class="form-group">
+					
+					<label>Status</label>
+
+					
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div  class="form-group">
+					 <div class="radio">
+                 <label>
+                    <input id="optionsRadios11" ng-model='currency_status' type="radio"  name="optionsRadios1" value="Active" checked="true" />Active</label>
+              </div>
+              <div class="radio">
+                 <label>
+                    <input id="optionsRadios12" ng-model='currency_status' type="radio" name="optionsRadios1" value="InActive" />InActive</label>
+              </div>
+				
+					
+
+					
+				</div>
+			</div>
+			</div>
+			
+		<div class="row">  
+					<div class="col-sm-4">
+						
+					</div>     
+					
+					<div class="col-sm-4">
+						<div  class="form-group">
+							
+							<button type="button" ng-click="subcurrency()" class="pull-left btn btn-green" ng-disabled="currencyform.$invalid" >
+								Submit
+							</button>
+
+							
+						</div>
+					</div>
+					<div class="col-sm-4">
+						
+					</div>  
+					
+					
+					
+				</div>
+				
+         
+         </div>
+        
+        </form>
+
+        </div>
+        
+
+
+         
+

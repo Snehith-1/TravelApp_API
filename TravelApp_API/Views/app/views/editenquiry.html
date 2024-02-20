@@ -1,0 +1,264 @@
+        <h3 style="color:#000000;"> Edit Enquiry</h3>
+        <div ng-controller=" editenquirycontroller as editenquiry" class="container-fluid">
+          <div class="panel panel-default">
+            <div class="panel-body">
+
+              <div class="panel-heading">
+                <h3 class="panel-title">Enquiry Details</h3>
+              </div>
+              <div class="panel-body">
+              <form role="form" name="enquiryForm" novalidate="" class="from-validate">
+                <div class="row">
+                  <div class="col-md-1"></div>
+                  <div class="col-md-4">
+                    <label >Customer Type</label>
+                    <select name="category"   class="form-control">
+                      <option>Select type</option>
+                      <option>INDIVIDUAL</option>
+                      <option>CORPORATE</option>                            
+                    </select>
+                  </div>
+                  <div class="col-md-1"></div>
+                  <div class="col-md-4">
+                    <label >Enquiry Source</label> 
+                    <select name="category"   class="form-control">
+                      <option>Select service</option>
+                      <option>Sales</option>
+                      <option>Operation</option>
+                      <option>Finance</option>
+                    </select>
+                  </div>
+                </div>
+              </br>
+              <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                  <label >Customer Name</label>
+                  <input type="firstname" placeholder="Enter Customer Name" ng-model="customername" name="customername" required="" class="form-control" />
+                   <span ng-show="enquiryForm.customername.$dirty &amp;&amp; enquiryForm.customername.$error.required" class="text-danger">This  field is required 
+                 </span>
+
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-4">
+                  <label >Contact No.</label>
+
+           <div class="input-group">
+              <div class="input-group-btn" >
+                  <button class="btn btn-default" type="button">+968
+                      
+                  </button>
+            
+              </div>
+                     <input class="form-control" ng-model="contactno" name="contactno" required="" type="text" />
+                      <span ng-show="enquiryForm.contactno.$dirty &amp;&amp; enquiryForm.contactno.$error.required" class="text-danger">Please Enter Contact number 
+                    </span>
+
+          </div> 
+                </div>
+              </div>
+            </br>
+            <div class="row">
+              <div class="col-md-1"></div>
+              <div class="col-md-4">
+                <label >Travel From</label>
+                <input type="name" placeholder="Enter Travel from" ng-model="travelfrom" name="travelfrom" required="" class="form-control" />
+
+                 <span ng-show="enquiryForm.travelfrom.$dirty &amp;&amp; enquiryForm.travelfrom.$error.required" class="text-danger">This  field is required 
+               </span>
+              </div>
+              <div class="col-md-1"></div>
+              <div class="col-md-4">
+                <label >Travel To</label>
+                <input type="name" ng-model="travelto" name="travelto" required="" placeholder="Enter Travel to" class="form-control" />
+                 <span ng-show="enquiryForm.travelto.$dirty &amp;&amp; enquiryForm.travelto.$error.required" class="text-danger">This  field is required 
+                </span>
+
+              </div>
+            </div>
+          </br>
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-4">
+              <label >Email Address</label>
+              <input type="email" placeholder="Enter Email" class="form-control" />
+            </div>
+            <div class="col-md-1"></div>
+
+            <div class="col-md-6">
+              <label >Remarks</label>
+              <textarea rows="4" class="form-control"></textarea>
+            </div>  
+          </div>
+        </br> 
+        </form>          
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default"> 
+    <div class="panel-body">
+     <!-- START row --> <div class="panel-heading">
+     <h3 class="panel-title">Travel Details</h3>
+   </div>
+   <div class="row">
+    &nbsp;&nbsp;
+  </div>
+  <form form-wizard="" steps="4" novalidate="" ng-submit="alertSubmit()">
+
+   <!--END row-->
+   <fieldset>
+
+    <div class="row">
+     <div class="col-sm-4">
+       <div class="pull-left">
+        <div>
+         <label class="checkbox-inline c-checkbox">
+          <input id="inlineCheckbox10" type="checkbox" value="option1" />
+          <span class="fa fa-check"></span>Air Ticket</label>
+        </div>
+        <div>
+         <label class="checkbox-inline c-checkbox">
+          <input id="inlineCheckbox20" type="checkbox" value="option2" />
+          <span class="fa fa-check"></span>Hotel Booking</label> 
+        </div>
+        <div>
+         <label class="checkbox-inline c-checkbox">
+          <input id="inlineCheckbox30" type="checkbox" value="option3" />
+          <span class="fa fa-check"></span>Tour Packages</label>
+        </div>      
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div>
+        <label class="checkbox-inline c-checkbox">
+          <input id="inlineCheckbox10" type="checkbox" value="option1" />
+          <span class="fa fa-check"></span>Visa</label>
+        </div>
+        <div>
+          <label class="checkbox-inline c-checkbox">
+            <input id="inlineCheckbox20" type="checkbox" value="option2" />
+            <span class="fa fa-check"></span>Car Rental</label> 
+          </div>
+          <div>
+            <label class="checkbox-inline c-checkbox">
+              <input id="inlineCheckbox30" type="checkbox" value="option3" />
+              <span class="fa fa-check"></span>Other Services</label>
+            </div>      
+
+          </div>
+          <div class="col-sm-4">
+            <div>
+             <label class="checkbox-inline c-checkbox">
+              <input id="inlineCheckbox10" type="checkbox" value="option1" />
+              <span class="fa fa-check"></span>Passport</label>
+            </div>
+            <div>
+             <label class="checkbox-inline c-checkbox">
+              <input id="inlineCheckbox20" type="checkbox" value="option2" />
+              <span class="fa fa-check"></span>Forex</label>
+            </div> 
+          </div>
+        </div>
+      </fieldset>
+      <div class="row">
+        <div class="col-lg-8">
+          <label>Remarks</label>
+          <div >
+            <textarea rows="4" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <label>No Of People Travel</label>
+          <div>
+           <input type="name" ng-model="noofpeopletravel" name="noofpeopletravel" required="" placeholder="Enter No of People" class="form-control" />
+           <span ng-show="enquiryForm.noofpeopletravel.$dirty &amp;&amp; enquiryForm.noofpeopletravel.$error.required" class="text-danger">This  field is required 
+          </span>
+
+         </div>
+       </div>
+     </div>           
+     <div class="row">
+      <div class="col-sm-2">
+       <div class="mda-form-group">
+         <label>Adult(>16yrs)</label>
+         <input  class="form-control" type="activity" placeholder="" />
+       </div>
+     </div>
+     <div class="col-sm-2">
+       <div class="mda-form-group">
+
+       </div>
+     </div>
+     <div class="col-sm-2">
+       <div class="mda-form-group">
+         <label>Children(3-15)yrs</label>
+         <input  class="form-control" type="activity" placeholder="" />
+       </div> 
+     </div>
+     <div class="col-sm-2">
+       <div class="mda-form-group">
+
+       </div>
+     </div>
+     <div class="col-sm-2">
+      <div class="mda-form-group">
+        <label>Infant(>3)yrs</label>
+        <input  class="form-control" type="activity" placeholder="" />
+      </div> 
+
+    </div>
+    <div class="col-sm-2">
+     <div class="mda-form-group">
+
+     </div>
+   </div>
+ </div>
+ <div class="row">
+  <div class="col-sm-6">
+    <div class="mda-form-group">
+      <label>Enquiry Status</label>
+      <select name="enquiry_status"  class="form-control">
+        <option>Follow up</option>
+        <option>Closed</option>
+        <option>Referred</option>
+      </select>
+    </div> 
+  </div>
+  <div class="col-sm-6">
+
+    <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <div class="mda-form-group float-label ng-touched">
+        <label>Choose Date</label>
+        <p class="input-group">
+        <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+          close-text="Close" class="form-control" />
+          <span class="input-group-btn">
+            <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+              <em class="fa fa-calendar"></em>
+            </button>
+          </span></p>              
+        </div>
+
+      </div>
+
+    </div>
+
+    <div align="center">
+     <div class="row">
+      <button class="btn btn-green" ng-click="edit_submit()" type="button">Submit</button>
+      <button class="btn btn-danger" ng-click="back_enquiry()" type="button">Back</button>
+    </div>
+  </div>
+
+
+  <div>
+  </div>
+
+
+</div>
+</form>
+</div>
+</div>
+</div>
+
+

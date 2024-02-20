@@ -1,0 +1,14 @@
+[
+  {
+    "value": 22.0,
+    "color": "#F39C12",
+    "label": "Insurance",
+    "highlight": "#F39C12"
+  },
+  {
+    "value": 402.0,
+    "color": "#73761c",
+    "label": "Ticket",
+    "highlight": "#73761c"
+  }
+]

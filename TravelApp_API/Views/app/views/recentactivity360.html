@@ -1,0 +1,256 @@
+    <h3>MY ENQUIRY</h3>
+    <div ng-controller="myenquiry360viewcontroller as myenquiry360" class="container-fluid">
+        <div class="col-lg-12">
+          <div class="panel panel-default">
+           <div class="panel-body">
+            <form form-wizard="" steps="3" novalidate="" ng-submit="alertSubmit()">
+             <div class="form-wizard wizard-horizontal">
+              <ol class="row">
+                 <li ng-class="{'active':wizard.active(1)}" ng-click="wizard.go(1)" class="col-md-4">
+                  <h4>Schedule</h4>
+              </li>
+              <li ng-class="{'active':wizard.active(2)}" ng-click="wizard.go(2)" class="col-md-3">
+                  <h4>Call Log</h4>
+              </li>
+               <li ng-class="{'active':wizard.active(3)}" ng-click="wizard.go(3)" class="col-md-5">
+                  <h4>Field Visit/Meeting</h4>
+              </li>
+          </ol>
+          <div ng-show="wizard.active(1)">
+            <div class="row">
+              <div class="col-sm-12">
+               <div class="row"> 
+                <div class="col-sm-6">
+                 <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+                    <div class="mda-form-group float-label ng-touched">
+                        <label>Schedule Date</label>
+                        <p class="input-group">
+                            <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+                            close-text="Close" class="form-control" />
+                            <span class="input-group-btn">
+                                <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                                    <em class="fa fa-calendar"></em>
+                                </button>
+                            </span>
+                        </p>
+                        <span ng-show="form.validateInput('date', 'required')" class="text-danger">This field is required</span>
+                    </div>
+                </div>   
+               </div>
+              </div>
+              <div  class="row">
+              <div class="col-sm-6">
+                <div class="col-sm-3">
+                    <label>Schedule Time</label>
+                </div>
+               <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="scheduletime" class="form-control" placeholder="">
+                    <em class="fa fa-clock-o"></em>
+                </div>
+                </div>
+              </div>
+              </div>
+        <div  class="row">
+         <div class="col-sm-6">
+            <div class="col-sm-3">
+                <label>Schedule Type</label>
+            </div>
+            <div class="col-sm-3" class="form-group">
+                <select class="form-control">
+                    <option>Call Log</option>
+                    <option>Meeting</option>
+                </select>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+        <div class="col-sm-6">
+         <div class="col-sm-3">
+             <label>Schedule Remarks</label>
+         </div>
+         <div ng-controller="schedule">
+          <textarea rows="4"  class="form-control" cols="5"></textarea>
+      </div>
+      </div>
+  </div>
+
+  <div class="row">
+
+      <div class="col-sm-4">
+      </div>
+
+      <div class="col-sm-4">
+       <button type="button" class="mb-sm btn btn-purple">Schedule</button>
+   </div>
+
+   <div class="col-sm-4">
+   </div>
+</div>
+</div>
+</div>
+</div>
+
+<div ng-show="wizard.active(2)">
+   <fieldset>
+       <label>Call Log</label>
+       <div class="row" class="form-group">
+         <div class="col-sm-6">
+            <label>Dialed Number</label>
+        </div>
+        <div  class="col-sm-6">
+          <input type="dialednumber" class="form-control" placeholder="" />
+      </div>
+
+  </div>
+  <div class="row" class="form-group">
+   <div class="col-sm-6">
+       <label>Call Response</label>
+   </div>
+   <div  class="col-sm-6">
+       <select class="form-group">
+        <option>Ringing Not Response</option>  
+        <option>Not Reachable</option> 
+        <option>Switched Off</option>
+        <option>Busy Tone</option>
+        <option>Not Intrested</option>
+        <option>Wrong Number</option>
+        <option>Call Back Later</option>                
+    </select>
+</div>
+</div>
+<div  class="row">
+   <div  class="col-sm-6">
+    <label>Remarks</label>
+</div>
+<div ng-controller="schedule">
+    <textarea rows="4"  class="form-control" cols="5"></textarea>
+</div>
+</div>
+
+</fieldset>
+</div>
+
+<div ng-show="wizard.active(3)">
+   <fieldset>
+       <label>Field Visit/Meeting</label>
+
+       <div  class="row">
+         <div  class="col-sm-6">
+            <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+                <div class="mda-form-group float-label ng-touched">
+                    <label>Schedule Date</label>
+                    <p class="input-group">
+                        <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" date-disabled="dpick.disabled(date, mode)"
+                        close-text="Close" class="form-control" />
+                        <span class="input-group-btn">
+                            <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                                <em class="fa fa-calendar"></em>
+                            </button>
+                        </span>
+                    </p>
+                    <span ng-show="form.validateInput('date', 'required')" class="text-danger">This field is required</span>
+                </div>
+            </div>   
+
+        </div>
+
+    </div>
+
+    <div  class="row">
+        <div class="col-sm-6">
+          <div  class="form-group">
+            <label>Meeting Type</label>
+        </div>
+    </div>
+
+    <div  class="radio">
+        <div  class="form-group">
+            <label>
+              <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" checked="true" />Demo</label>
+
+              <label>
+                <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" checked="true" />Non-Demo</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group">
+         <div class="col-sm-6">
+            <label>Contact Person</label>
+        </div>
+        <div class="col-sm-6">
+          <input type="contactperson" class="form-control" placeholder="">
+      </div>
+
+  </div>
+</div>
+
+<div  class="row">
+   <div  class="col-sm-6">
+      <div  class="form-group">
+        <label>Meeting Remarks</label>
+    </div>
+</div>
+<div ng-controller="schedule">
+    <textarea rows="4"  class="form-control" cols="5"></textarea>
+</div>
+</div>
+
+<div class="row">
+
+  <div class="col-sm-4">
+  </div>
+
+  <div class="col-sm-4">
+   <button type="button" class="mb-sm btn btn-purple">Submit Meeting</button>
+</div>
+
+<div class="col-sm-4">
+</div>
+</div>
+
+</fieldset>
+</div>
+</div>
+
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

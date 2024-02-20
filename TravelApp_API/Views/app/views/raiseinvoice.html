@@ -1,0 +1,408 @@
+<h3>Raise Invoice</h3>
+<div ng-controller="raiseinvoicecontroller as raise" class="container-fluid">
+<div class="panel panel-default">
+         <div class="panel-heading">
+          <form role="form" name="raiseinvoiceForm" novalidate="" class="from-validate">
+          <div class="row">
+
+
+
+            <div class="col-sm-2">
+              <div  class="form-group">
+
+                <label >Invoice Ref No</label>
+
+
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <div class="form-group">
+
+               <input class="form-control" type="text" ng-model="invoiceref_no" placeholder="Enter Invoice Reference Number" />
+             </div>
+           </div>
+
+           <div class="col-sm-2">
+            <div  class="form-group">
+
+              <label >Invoice Date</label>
+
+
+            </div>
+          </div>
+          <div class="col-sm-2">
+           <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+      <p class="input-group">
+       <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick_date" is-open="dpick.opened" min-date="false" max-date="false" datepicker-options="dpick.dateOptions" date-disabled="false"
+       close-text="Close" class="form-control" />
+       <span class="input-group-btn">
+        <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+          <em class="fa fa-calendar"></em>
+        </button>
+      </span></p>
+    </div>
+         </div>
+
+ <div class="col-sm-2">
+            <div  class="form-group">
+
+            
+
+            </div>
+          </div>
+
+       </div>
+
+       <div class="row">
+
+
+
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+            <label >Customer Name</label>
+
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+
+          <input class="form-control" type="text" name="customername" ng-model="customer_name" placeholder="Enter Customer Name" required="" /> 
+         </div>
+       </div>
+
+       <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Contact Type</label>
+
+
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <div class="form-group">
+
+        <select class="form-control" name="contacttype" ng-model="contact_type">
+      <option value="">Mailing Address</option>
+       <option value="">Billing Address</option>
+       </select>
+       </div>
+     </div>
+
+
+
+   </div>
+    <div class="row">
+
+
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Company Name</label>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+     <input type="text" name="companyname" class="form-control" ng-model="company_name" placeholder="Enter Company Name" required="" /> 
+     </div>
+   </div>
+
+  
+
+
+
+</div>
+   <div class="row">
+
+
+
+    <div class="col-sm-2">
+      <div  class="form-group">
+
+        <label >Contact No</label>
+
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+       <input class="form-control" type="text" ng-model="contact_no" placeholder="Enter Contact Number" required="" />
+
+     </div>
+   </div>
+
+   <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Email Address</label>
+
+
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div  class="form-group">
+       <input class="form-control" type="email" ng-model="email_address" placeholder="Enter Email Address" />
+    </div>
+  </div>
+
+
+
+</div>
+<div class="row">
+
+
+
+  <div class="col-sm-2">
+    <div  class="form-group">
+
+      <label >Address</label>
+
+
+    </div>
+  </div>
+
+
+
+
+  <div class="col-sm-4">
+    <div  class="form-group">
+      <textarea rows="4"  class="form-control" ng-model="add" cols="30"></textarea>
+      </div>
+    </div>
+
+  <div class="col-sm-2">
+          <div  class="form-group">
+
+            <label >Country</label>
+
+
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="form-group">
+
+         <select class="form-control" name="text" ng-model="country">
+              <option value="">--select-</option>
+              <option value="{{list.countrycode}}" ng-repeat="list in currencybind  ">{{list.countryname}}</option>
+       </select>
+         </div>
+       </div>
+
+  </div>
+    <div class="row">
+
+
+
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+            <label >Currency</label>
+
+
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+           <select  class="form-control" ng-model="currency" name="text">
+      <option value="">--select-</option>
+              <option value="{{list.currencygid}}" ng-repeat="list in currencybind ">{{list.currencyname}}</option>
+       </select>
+         </div>
+       </div>
+
+<div class="col-sm-2">
+          <div  class="form-group">
+
+          
+         </div>
+       </div>
+       <div class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Exchange Rate</label>
+
+
+        </div>
+      </div>
+      <div class="col-sm-1">
+        <div class="form-group">
+
+         <input class="form-control" type="text" placeholder="" ng-model="exchange_rate" />
+       </div>
+     </div>
+
+<div class="col-sm-3">
+          <div  class="form-group">
+
+          
+         </div>
+       </div>
+
+   </div>
+      <div class="row">
+
+
+
+        <div class="col-sm-2">
+          <div  class="form-group">
+
+            <label >Remarks</label>
+
+
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div  class="form-group">
+
+            <textarea rows="4"  class="form-control" ng-model="remks" cols="30"></textarea>
+         </div>
+       </div>
+
+
+     
+     
+
+
+
+   </div>
+  <div class="row">
+
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+
+   
+    <div class="col-sm-4">
+      <div class="form-group">
+
+
+      </div>
+    </div>
+  </div>
+  </form>
+</div>
+</div>
+<div class="panel-heading">
+  <div class="row">
+    <div class="table-responsive">
+    <table datatable="ng" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+        <th>SO Ref no</th>
+          <th>Service Type</th>
+          <th>Activity</th>
+          <th>Amount</th>                  
+        
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="toe in raiseadd">
+          <td>{{toe.salesorderrefno}}</td>
+          <td>{{toe.servicetype}}</td>
+          <td>{{toe.remarks}}</td>
+          <td>{{toe.amount}}</td>
+         
+          
+         
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+ <div  class="row" >
+<div  class="col-sm-8">
+  <div  class="form-group">
+
+</div>
+          
+         </div>
+       
+       <div align="right" class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Amount</label>
+
+
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+         <input  class="form-control" ng-model="amount" type="Number" placeholder="" />
+       </div>
+     </div>
+ </div>
+  <div  class="row" >
+<div  class="col-sm-8">
+  <div  class="form-group">
+
+</div>
+          
+         </div>
+       
+       <div align="right" class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Tax</label>
+
+
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+         <input  class="form-control" type="Number" ng-model="tax" placeholder="" />
+       </div>
+     </div>
+ </div>
+  <div  class="row" >
+<div  class="col-sm-8">
+  <div  class="form-group">
+
+</div>
+          
+         </div>
+       
+       <div align="right" class="col-sm-2">
+        <div  class="form-group">
+
+          <label >Total Amount</label>
+
+
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div  class="form-group">
+
+         <input  class="form-control" type="Number" ng-model="total_amount" placeholder="" />
+       </div>
+     </div>
+ </div>
+
+
+ <div class="panel-footer text-center">
+                <button type="submit" class="btn btn-green" ng-click="raise_invoice(toe.salesorderid)">Submit</button> &nbsp;
+                <button type="cancel" class="btn btn-danger" ng-click="invoiceraiseback()">Back</button>
+            </div>  
+ 
+ 
+</div>

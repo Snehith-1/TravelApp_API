@@ -1,0 +1,32 @@
+[
+  {
+    "value": 60.0,
+    "color": "#26C6DA  ",
+    "label": "Car",
+    "highlight": "#26C6DA  "
+  },
+  {
+    "value": 44343.0,
+    "color": "#03A9F4  ",
+    "label": "Hotel",
+    "highlight": "#03A9F4  "
+  },
+  {
+    "value": 504587.0,
+    "color": "#AED581",
+    "label": "Passport",
+    "highlight": "#AED581"
+  },
+  {
+    "value": 151290.0,
+    "color": "#73761c",
+    "label": "Ticket",
+    "highlight": "#73761c"
+  },
+  {
+    "value": 33543.0,
+    "color": "#2b6bb4",
+    "label": "Visa",
+    "highlight": "#2b6bb4"
+  }
+]

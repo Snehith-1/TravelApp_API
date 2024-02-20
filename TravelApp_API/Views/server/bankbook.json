@@ -1,0 +1,64 @@
+[
+    {
+	"bankcode":"CBO001",
+	"bankname":"Central Bank of Oman",
+	"branchname":"CBO",
+	"accountno": "12345678901",
+	"ifsccode":"CBO00567",
+	"neftcode":"CBO456",
+	"swiftcode":"CBO897",
+	"openingbalance":"1,203.97",
+	"closingbalance":"67,630.23"
+	},
+
+
+	 {
+	"bankcode":"AIB001",
+	"bankname":"Alizz islamic bank",
+	"branchname":"AIB",
+	"accountno": "12345678901",
+	"ifsccode":"AIB345",
+	"neftcode":"AIB345",
+	"swiftcode":"AIB987",
+	"openingbalance":"1,203.97",
+	"closingbalance":"67,630.23"
+	},
+
+	{
+	"bankcode":"BMUS002",
+	"bankname":"BankMuscat",
+	"branchname":"BMUS",
+	"accountno": "12345678901",
+	"ifsccode":"BMUS45",
+	"neftcode":"44534",
+	"swiftcode":"43434",
+	"openingbalance":"1,203.97",
+	"closingbalance":"67,630.23"
+	},
+
+
+	{
+	"bankcode":"NBO001",
+	"bankname":"National Bank of Oman",
+	"branchname":"NBO",
+	"accountno": "12345678901",
+	"ifsccode":"NBO077",
+	"neftcode":"NE877",
+	"swiftcode":"6665756",
+	"openingbalance":"1,203.97",
+	"closingbalance":"67,630.23"
+	},
+
+
+	{
+	"bankcode":"OAB001",
+	"bankname":"Oman Arab Bank",
+	"branchname":"OAB",
+	"accountno": "12345678901",
+	"ifsccode":"OAB69",
+	"neftcode":"OAB78689",
+	"swiftcode":"6878676",
+	"openingbalance":"1,203.97",
+	"closingbalance":"67,630.23"
+	}
+]

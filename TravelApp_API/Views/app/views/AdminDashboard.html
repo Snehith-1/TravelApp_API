@@ -1,0 +1,180 @@
+<h3 style="color:#000000;">{{ 'dashboard.WELCOME' | translate }}</h3>
+<div ng-controller="AdminDashboardController" class="container-fluid">
+	<div class="row">
+		<div class="col-lg-12">
+			<!-- START panel-->
+			<div class="panel panel-info" id="panelDemo9">
+				<div class="panel-heading">June 2017</div>
+				<div class="panel-body">
+				
+					<div class="row">
+						<div class="col-lg-3 col-sm-6">
+							<div class="panel widget">
+								<div class="panel widget bg-success">
+									<div  class="row row-table">
+										<div class="col-xs-4 text-center bg-success-dark pv-lg">
+											<em class="fa fa-plane fa-4x"></em>
+										</div>
+										<div class="col-xs-8 pv-lg">
+											<div class="h1 m0 text-bold">234</div>
+											<div class="text-uppercase">Flight Bookings</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="panel widget">
+								<div class="panel widget bg-primary">
+									<div class="row row-table">
+										<div class="col-xs-4 text-center bg-primary-dark pv-lg">
+											<em class="fa fa-flag fa-3x"></em>
+										</div>
+										<div class="col-xs-8 pv-lg">
+											<div class="h1 m0 text-bold">95</div>
+											<div class="text-uppercase">VISAs</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="panel widget">
+								<div class="panel widget bg-warning">
+									<div  class="row row-table">
+										<div class="col-xs-4 text-center bg-warning-dark pv-lg">
+											<em class="fa fa-bed  fa-3x"></em>
+										</div>
+										<div class="col-xs-8 pv-lg">
+											<!--<div class="h1 m0 text-bold">{{client_email_balance}}</div>-->
+											<div class="h1 m0 text-bold">304</div>
+											<div class="text-uppercase">Hotel Bookings</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<div class="panel widget">
+								<div class="panel widget bg-purple">
+									<div  class="row row-table">
+										<div class="col-xs-4 text-center bg-purple-dark pv-lg">
+											<em class="fa fa-gift  fa-3x"></em>
+										</div>
+										<div class="col-xs-8 pv-lg">
+											<!--<div class="h1 m0 text-bold">{{client_email_balance}}</div>-->
+											<div class="h1 m0 text-bold">350</div>
+											<div class="text-uppercase">Packages</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div> 
+					<br />
+				</div>
+				
+			</div>
+			<!-- END panel-->
+		</div>
+	</div><!-- End Row -->
+	<!-- START row-->
+	<div class="row" class="container-fluid" >
+		 <div class="col-md-4"  ng-controller="ChartistController as chart">
+         <div class="panel panel-default">
+            <div class="panel-heading">Revenue Chart</div>
+            <div class="panel-body">
+               <div class="ct-chart" chartist="" chartist-data="chart.barHorizontalData" chartist-chart-type="Bar" chartist-chart-options="chart.barHorizontalOptions"></div>
+            </div>
+         </div>
+      </div>
+      	<div class="col-md-4" ng-controller="FlotChartController as chart">
+			<div class="panel panel-default" id="panelChart6">
+				<div class="panel-heading">
+				<paneltool tool-collapse="tool-collapse" tool-dismiss="tool-dismiss"></paneltool>
+				<div class="panel-title">Sales per service type  - Year 2017
+				</div>
+				</div>
+				<div class="panel-wrapper" uib-collapse="panelChart6">
+				<div class="panel-body">
+				<flot dataset="chart.donutData" options="chart.donutOptions" height="240px"></flot>
+				</div>
+				</div>
+			</div>
+      	</div>
+    <div class="panel-title">Recent Transactions</div>
+            <!-- START table responsive-->
+            <div class="table-responsive">
+               <table class="table table-bordered table-hover table-striped">
+                  <thead>
+                     <tr>
+                        <th>Sales ID #</th>
+                        <th>Order Date</th>
+                        <th>Sales Team</th>
+                        <th>Amount (OMR)</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr>
+                        <td>3326</td>
+                        <td>10/21/2013</td>
+                        <td>Team Harmony</td>
+                        <td>321.33</td>
+                     </tr>
+                     <tr>
+                        <td>3325</td>
+                        <td>10/21/2013</td>
+                        <td>Team Salallah</td>
+                        <td>234.34</td>
+                     </tr>
+                     <tr>
+                        <td>3324</td>
+                        <td>10/21/2013</td>
+                        <td>Team Muscat</td>
+                        <td>724.17</td>
+                     </tr>
+                     <tr>
+                        <td>3323</td>
+                        <td>10/21/2013</td>
+                         <td>Team Muscat</td>
+                        <td>23.71</td>
+                     </tr>
+                     <tr>
+                        <td>3322</td>
+                        <td>10/21/2013</td>
+                        <td>Team Harmony</td>
+                        <td>8345.23</td>
+                     </tr>
+                     <tr>
+                        <td>3321</td>
+                        <td>10/21/2013</td>
+                         <td>Team Salallah</td>
+                        <td>245.12</td>
+                     </tr>
+                     <tr>
+                        <td>3320</td>
+                        <td>10/21/2013</td>
+                         <td>Team Salallah</td>
+                        <td>5663.54</td>
+                     </tr>
+                     <tr>
+                        <td>3319</td>
+                        <td>10/21/2013</td>
+                        <td>Team Harmony</td>
+                        <td>943.45</td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <!-- END table responsive-->
+            <div class="panel-footer text-right"><a class="btn btn-default btn-sm" href="#">View All Transactions</a>
+            </div>
+         </div>
+   </div>
+   <div class="row">
+  
+   <div  class="col-md-4" >
+   </div>
+   <!-- END row-->
+
+</div>

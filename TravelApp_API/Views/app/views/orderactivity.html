@@ -1,0 +1,49 @@
+
+<div ng-controller="orderactivitycontroller as orderactivity">
+   <div class="row">
+       &nbsp;&nbsp;
+   </div>
+   <div class="panel panel-default">
+    <div  class="panel-heading">
+     Activity Log Summary
+    </div>
+   <div class="table-responsive">
+
+    <table datatable="ng" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Service Type</th>
+                <th>Reference</th> 
+                <th>Activity Log</th>
+                <th>Status</th>
+                <th>Amount</th>
+                <th>Action</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="toe in orderactivity.toes">
+                <td>{{ toe.servicetype }}</td>
+                <td>{{ toe.reference }}</td>
+                <td>
+                    <textarea class="form-control">
+                        {{ toe.activitylog }}
+                    </textarea>                            
+                </td>
+                <td>{{ toe.status }}</td> 
+                 <td align="right">{{ toe.amount }}</td>                        
+                <td class="text-center">  
+                    <button type="button" ng-click="editorder()" class="btn btn-sm btn-warning" title="Edit">
+                     <em class="fa fa-pencil"></em>
+                 </button>
+                 </td>
+                   <td class="text-center">  
+                 <button type="button" class="btn btn btn-danger" title="Cancel">
+                     <em class="fa fa-ban"></em>
+                 </button>
+             </td>
+         </tr>   
+     </tbody>
+ </table>     
+</div>
+</div>
+</div>

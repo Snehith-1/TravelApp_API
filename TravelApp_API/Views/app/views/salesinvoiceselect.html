@@ -1,0 +1,62 @@
+<h3 style="color:#000000;"> Sales Invoice Select</h3>
+    <div ng-controller=" invoiceselectcontroller as invoice" class="container-fluid">
+        
+        <div class="row">
+   &nbsp;&nbsp;
+</div>
+        <div class="row">
+        <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="table-responsive">
+            <table datatable="ng" class="table table-bordered table-hover"> 
+               <thead>
+                   <tr>
+
+                       <th check-all="check-all">
+                  <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+               </th>
+                       <th>Sales ID</th>
+                       <th>Sales InvoiceName</th>
+                       <th>Contact Persion</th>
+                       <th>Payment Amount</th>
+                   </tr>
+               </thead>
+               <body>
+                   <tr  ng-repeat="toe in invoice.toes">
+                    <td width="5%">
+                       <div class="checkbox c-checkbox">
+                     <label>
+                        <input type="checkbox" />
+                        <span class="fa fa-check"></span>
+                     </label>
+                  </div>
+              </td>
+                        <td>{{toe.invoiceid}}</td>
+                        <td>{{toe.invoicename}}</td>
+                        <td>{{toe.contactpersion}}</td>
+                         <td align="right">{{toe.amount}}</td>
+                       
+                    </tr>
+        
+
+               </body>
+               
+            </table>
+<div class="panel-footer text-center">
+                <button type="submit" class="btn btn-green" ng-click="raiseinvoice()">Raise Invoice</button> &nbsp;
+                <button type="cancel" class="btn btn-danger" ng-click="backinvoice()">Back</button>
+            </div>  
+
+
+            
+           </div>
+        </div>
+        </div>
+        </div>
+    </div>
+           

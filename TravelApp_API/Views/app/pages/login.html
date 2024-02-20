@@ -1,0 +1,45 @@
+<div ng-controller="LoginFormController as login" class="block-center mt-xl wd-xl">
+    <!-- START panel-->
+    <div class="panel  panel-flat">
+        <div class="panel-heading text-center">
+            <a href="#">
+                <img src="app/img/Travel_logo.png" width="100%" alt="Image" class="img-rounded" />
+            </a>
+        </div>
+        <div class="panel-body">
+            <form role="form" name="loginForm" novalidate="" class="form-validate ">
+                <div class="form-group">
+                    <input id="txtcompanycode" max-length="225" type="text" name="account_companycode" placeholder="Enter Company code" autocomplete="off" ng-model="company_code" required="" class="form-control" />
+                    <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                    <span ng-show="loginForm.account_companycode.$dirty &amp;&amp; loginForm.account_companycode.$error.required" class="text-danger">Please Enter Company Code</span>
+                </div>
+                <div class="form-group">
+                    <input id="txtusercode" type="text" name="account_usercode" placeholder="Enter user code" autocomplete="off" ng-model="user_code" required="" class="form-control" />
+                    <span class="fa fa-envelope form-control-feedback text-muted"></span>
+                    <span ng-show="loginForm.account_usercode.$dirty &amp;&amp; loginForm.account_usercode.$error.required" class="text-danger">Please Enter User Code</span>
+                </div>
+                <div class="form-group">
+                    <input id="txtuserpwd" type="password" name="account_password" placeholder="Password" ng-model="pwd" required="" class="form-control" />
+                    <span class="fa fa-lock form-control-feedback text-muted"></span>
+                    <span ng-show="loginForm.account_password.$dirty &amp;&amp; loginForm.account_password.$error.required" class="text-danger">Please Enter Password</span>
+                </div>
+                <div class="clearfix">
+                    <div class="pull-right">
+                        <a ui-sref="page.recover" class="text-muted">Forgot Password?</a>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-block btn-primary mt-lg" ng-disabled=" loginForm.$invalid" ng-click="login()" >Login<i ng-show="loadingLogin" class="fa fa-spinner fa-spin"></i></button>
+            </form>
+            <!--<div ng-show="login.authMsg" class="alert alert-danger text-center">{{login.authMsg}}</div>-->
+        </div>
+    </div>
+    <!-- END panel-->
+    <div class="p-lg text-center">
+        <span>&copy;</span>
+        <span ng-bind="app.year"></span>
+        <span>-</span>
+        <span ng-bind="app.name"></span>
+        <br />
+        <span ng-bind="app.description"></span>
+    </div>
+</div>

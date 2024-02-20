@@ -1,0 +1,59 @@
+[
+    {
+	"transactiondate":"12-05-2017",
+	"refno":"0.00",
+	"branchname":"Muscat City Center Branch",
+	"accountname":"7656445556",
+	"remarks":"Office Maintenance",
+	"creditamount":"0.00",
+	"debitamount":"2,000.00",
+	"closingamount":"67,630.23"
+	},
+
+
+	 {
+	"transactiondate":"12-05-2017",
+	"refno":"222",
+	"branchname":"AI Qurum Branch",
+	"accountname":"7656445556",
+	"remarks":"Office Maintenance",
+	"creditamount":"0.00",
+	"debitamount":"2,000.00",
+	"closingamount":"67,630.23"
+	},
+
+	 {
+	"transactiondate":"12-05-2017",
+	"refno":"333",
+	"branchname":"AI Seeb branch",
+	"accountname":"7656445556",
+	"remarks":"Office Maintenance",
+	"creditamount":"0.00",
+	"debitamount":"2,000.00",
+	"closingamount":"67,630.23"
+	},
+
+	 {
+	"transactiondate":"12-05-2017",
+	"refno":"444",
+	"branchname":"Falaj Branch",
+	"accountname":"7656445556",
+	"remarks":"Office Maintenance",
+	"creditamount":"0.00",
+	"debitamount":"2,000.00",
+	"closingamount":"67,630.23"
+	},
+
+
+	{
+	"transactiondate":"12-05-2017",
+	"refno":"555",
+	"branchname":"Muscat Branch",
+	"accountname":"7656445556",
+	"remarks":"Office Maintenance",
+	"creditamount":"0.00",
+	"debitamount":"2,000.00",
+	"closingamount":"67,630.23"
+	}
+
+]

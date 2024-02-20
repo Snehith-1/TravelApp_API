@@ -1,0 +1,92 @@
+<h3>Refund Processing</h3>
+<div ng-controller="refoundprocessing as refound">
+   <div class="panel panel-default">
+   <div>
+       <div class="panel-body">
+       <div class="row">
+         <div class="col-sm-6">
+         <label>Refund No.</label>
+         </div>
+         <div class="col-sm-6" class="form-group">
+         <input type="text" name="refundno" class="form-control" required="" />
+         </div>
+       </div>
+       </br>
+       <div class="row">
+          <div class="col-sm-6">
+         <label>Refund Date</label>
+         </div>
+         <div class="col-sm-6">
+                 <div ng-controller="DatepickerDemoCtrl as dpick" class="form-group">
+            <p class="input-group">
+             <input type="text" name="date" required="" datepicker-popup="{{dpick.format}}" ng-model="dpick.date" is-open="dpick.opened" min-date="dpick.minDate" max-date="'2019-12-22'" datepicker-options="dpick.dateOptions" close-text="Close" class="form-control" />
+             <span class="input-group-btn">
+              <button type="button" ng-click="dpick.open($event)" class="btn btn-default">
+                <em class="fa fa-calendar"></em>
+              </button>
+            </span></p>
+          </div>
+
+
+
+         </div>
+
+       </div>
+       </br>
+       <label>Progress</label>
+       </br>
+          <div class="row">
+         
+              <div class="col-sm-2" align="right">
+                <div  class="form-group">
+                   <div class="radio">
+                       <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" checked="true" />
+                   </div>
+               </div>
+           </div>
+           <div class="col-sm-2" align="pull-left">
+            <div class="form-group">
+                <label>No Refund</label>
+            </div>
+        </div>
+     
+ 
+      <div class="col-sm-2" align="right">
+        <div  class="form-group">
+           <div class="radio">
+               <input id="optionsRadios1" type="radio" name="optionsRadios" value="option1" checked="true" />
+           </div>
+       </div>
+   </div>
+   <div class="col-sm-2 " align="pull-left">
+    <div class="form-group">
+        <label>Partial Refund</label>
+    </div>
+</div>
+
+<div class="col-sm-4 " >
+    <div class="form-group">
+        <input type="amount" class="form-control" placeholder="" />
+    </div>
+</div>
+
+</div> 							
+<div class="row">  
+   <div class="col-sm-4" >
+   </div>
+   <div class="col-sm-4" >
+      <div class="form-group" align="center">
+        <button type="button" class="pull-left btn btn-green">
+           Submit
+       </button>
+   </div>
+</div>
+<div class="col-sm-4" >
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+

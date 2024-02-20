@@ -1,0 +1,54 @@
+<h3 style="color:#000000;"> Add Invoice </h3>
+<div ng-controller="addinvoicecontroller as addinvoice">
+   <div class="row">
+       &nbsp;&nbsp;
+   </div>
+   <div class="panel panel-default">
+    <div  class="panel-heading">
+     
+    </div>
+  <div class="table-responsive">
+    <table datatable="ng" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Service Type</th>
+                <th>Reference</th>
+                <th>Activity Log</th>
+                <th>Status</th>
+                <th>Invoice Amount</th> 
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="toe in addinvoice.toes">
+                <td>{{ toe.servicetype }}</td>
+                <td>{{ toe.reference }}</td>
+                <td>
+                    <textarea class="form-control">
+                        {{ toe.activitylog }}
+                    </textarea>                            
+                </td>
+                <td>{{ toe.status }}</td>  
+                <td align="right" >{{ toe.amount }}</td>                          
+                
+         </tr>   
+     </tbody>
+ </table>   
+ <div  class="row" >
+        <div class="col-sm-6">
+       <div align="right" class="form-group">
+        <button type="button" ng-click="raiseinvoice()" class="btn btn-green">
+        Submit Invoice
+      </button>
+     </div>
+        </div>
+        <div class="col-sm-1">
+       <div align="center" class="form-group">
+        <button type="button" ng-click="invoice()" class="btn btn-danger">
+        Back
+      </button>
+     </div>
+        </div>
+      </div>  
+</div>
+</div>
+</div>
